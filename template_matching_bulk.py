@@ -11,6 +11,7 @@ import polars as pl
 import sys
 import traceback
 import netCDF4
+import argparse
 from scipy.ndimage import distance_transform_edt
 from matplotlib.backends.backend_pdf import PdfPages
 
@@ -233,8 +234,7 @@ def score_template_match(img_path, *, template_hat = None, template = None):
 
     metadata = img.metadata["metadata"]
     lateral_pixel_pitch = metadata.channels[0].volume.axesCalibration[0]
-    perinuclear_space_distance_um = 5 # micrometers
-    perinuclear_space_distance_pixels = perinuclear_space_distance_um/lateral_pixel_pitch
+    distances_um = [1, 2, 3, 4, 5]
 
     cropped_proj_mitochondria = cropped_proj_img.sel(C="488")
     cropped_proj_mitochondria_stretched = stretch01(cropped_proj_mitochondria)
@@ -265,43 +265,62 @@ def score_template_match(img_path, *, template_hat = None, template = None):
     proj_mitochondria_bg_subtracted_path = proj_mitochondria_bg_subtracted_path.with_suffix(".nc")
     cropped_proj_mitochondria_bg_subtracted_unstretched.to_netcdf(proj_mitochondria_bg_subtracted_path)
 
+    mitochondria_sum = np.sum(cropped_proj_mitochondria_bg_subtracted)
+
+    dist_results = {}
+    for d in distances_um:
+        d_pixels = d / lateral_pixel_pitch
+        d_perinuclear_mask = cropped_nuc_edt < d_pixels
+        d_peripheral_mask = (cropped_arch_edt <= cropped_nuc_edt) & np.invert(d_perinuclear_mask)
+        d_peripheral_d_um_mask = (cropped_arch_edt <= d_pixels) & d_peripheral_mask
+        d_peripheral_simple_mask = cropped_arch_edt <= d_pixels
+        d_acute_peripheral_mask = (cropped_acute_arch_edt <= cropped_nuc_edt) & np.invert(d_perinuclear_mask) & (cropped_arch_edt <= d_pixels)
+
+        d_perinuclear_sum = np.sum(d_perinuclear_mask * cropped_proj_mitochondria_bg_subtracted)
+        d_peripheral_d_um_sum = np.sum(d_peripheral_d_um_mask * cropped_proj_mitochondria_bg_subtracted)
+        d_peripheral_simple_sum = np.sum(d_peripheral_simple_mask * cropped_proj_mitochondria_bg_subtracted)
+        d_acute_peripheral_sum = np.sum(d_acute_peripheral_mask * cropped_proj_mitochondria_bg_subtracted)
+
+        dist_results[f"perinuclear_{d}um_sum"] = d_perinuclear_sum
+        dist_results[f"peripheral_{d}um_sum"] = d_peripheral_d_um_sum
+        dist_results[f"peripheral_{d}um_simple_sum"] = d_peripheral_simple_sum
+        dist_results[f"acute_peripheral_{d}um_sum"] = d_acute_peripheral_sum
+        
+        # Percentages relative to (peripheral + perinuclear)
+        dist_results[f"peripheral_{d}um_percent"] = d_peripheral_d_um_sum / (d_peripheral_d_um_sum + d_perinuclear_sum + 1e-10) * 100
+        dist_results[f"peripheral_{d}um_simple_percent"] = d_peripheral_simple_sum / (d_peripheral_simple_sum + d_perinuclear_sum + 1e-10) * 100
+        dist_results[f"acute_peripheral_{d}um_percent"] = d_acute_peripheral_sum / (d_acute_peripheral_sum + d_perinuclear_sum + 1e-10) * 100
+
+    # Specifically retain 5um versions for plotting and existing metrics
+    perinuclear_space_distance_pixels = 5 / lateral_pixel_pitch
     perinuclear_mask = cropped_nuc_edt < perinuclear_space_distance_pixels
-    peripheral_mask = cropped_arch_edt <= cropped_nuc_edt
-    peripheral_mask &= np.invert(perinuclear_mask)
+    peripheral_mask = (cropped_arch_edt <= cropped_nuc_edt) & np.invert(perinuclear_mask)
     peripheral_5um_mask  = (cropped_arch_edt <= perinuclear_space_distance_pixels) & peripheral_mask
-    peripheral_mask     &=  cropped_arch_edt <= perinuclear_space_distance_pixels * 1.75
+    peripheral_mask_extended = peripheral_mask & (cropped_arch_edt <= perinuclear_space_distance_pixels * 1.75)
     # Simple does peripheral mask does not depend on the nucleus position
     peripheral_5um_simple_mask = cropped_arch_edt <= perinuclear_space_distance_pixels
 
-    acute_peripheral_mask = cropped_acute_arch_edt <= cropped_nuc_edt
-    acute_peripheral_mask &= np.invert(perinuclear_mask)
-    acute_peripheral_mask &=  cropped_arch_edt <= perinuclear_space_distance_pixels
-
-    mitochondria_sum = np.sum(cropped_proj_mitochondria_bg_subtracted)
+    acute_peripheral_mask = (cropped_acute_arch_edt <= cropped_nuc_edt) & np.invert(perinuclear_mask) & (cropped_arch_edt <= perinuclear_space_distance_pixels)
 
     perinuclear_mitochondria = perinuclear_mask * cropped_proj_mitochondria_bg_subtracted
-    peripheral_mitochondria  = peripheral_mask  * cropped_proj_mitochondria_bg_subtracted
     peripheral_5um_mitochondria = peripheral_5um_mask * cropped_proj_mitochondria_bg_subtracted
-    peripheral_5um_simple_mitochondria = peripheral_5um_simple_mask * cropped_proj_mitochondria_bg_subtracted
-    acute_peripheral_mitochondria = acute_peripheral_mask * cropped_proj_mitochondria_bg_subtracted
 
-    peripheral_contour = skimage.measure.find_contours(peripheral_mask)[0]
+    peripheral_contour = skimage.measure.find_contours(peripheral_mask_extended)[0]
     peripheral_5um_contour = skimage.measure.find_contours(peripheral_5um_mask)[0]
     acute_peripheral_contour = skimage.measure.find_contours(acute_peripheral_mask)[0]
     perinuclear_contour = skimage.measure.find_contours(perinuclear_mask)[0]
 
-    perinuclear_sum = np.sum(perinuclear_mitochondria)
-
-    peripheral_sum = np.sum(peripheral_mitochondria)
-    peripheral_5um_sum = np.sum(peripheral_5um_mitochondria)
-    peripheral_5um_simple_sum = np.sum(peripheral_5um_simple_mitochondria)
-    acute_peripheral_sum = np.sum(acute_peripheral_mitochondria)
+    perinuclear_sum = dist_results["perinuclear_5um_sum"]
+    peripheral_sum = np.sum(peripheral_mask_extended * cropped_proj_mitochondria_bg_subtracted)
+    peripheral_5um_sum = dist_results["peripheral_5um_sum"]
+    peripheral_5um_simple_sum = dist_results["peripheral_5um_simple_sum"]
+    acute_peripheral_sum = dist_results["acute_peripheral_5um_sum"]
 
     pp_sum = perinuclear_sum + peripheral_sum
-    peripheral_percent = peripheral_sum / pp_sum * 100
-    peripheral_5um_percent = peripheral_5um_sum / (peripheral_5um_sum + perinuclear_sum) * 100
-    peripheral_5um_simple_percent = peripheral_5um_simple_sum / (peripheral_5um_simple_sum + perinuclear_sum) * 100
-    acute_peripheral_percent = acute_peripheral_sum / (acute_peripheral_sum + perinuclear_sum) * 100
+    peripheral_percent = peripheral_sum / (pp_sum + 1e-10) * 100
+    peripheral_5um_percent = dist_results["peripheral_5um_percent"]
+    peripheral_5um_simple_percent = dist_results["peripheral_5um_simple_percent"]
+    acute_peripheral_percent = dist_results["acute_peripheral_5um_percent"]
 
 
     # draw contour around 0.5 um of nucleus
@@ -407,7 +426,8 @@ def score_template_match(img_path, *, template_hat = None, template = None):
             "peripheral_5um_percent": peripheral_5um_percent,
             "peripheral_5um_simple_percent": peripheral_5um_simple_percent,
             "acute_peripheral_percent": acute_peripheral_percent,
-            "cropped_background_threshold": cropped_background_threshold
+            "cropped_background_threshold": cropped_background_threshold,
+            **dist_results
     }
 
     return output
@@ -417,7 +437,7 @@ def get_nuclear_contour(nuclear_mask):
     nuclear_contour_index = np.argmax([len(contour) for contour in nuclear_contours])
     return nuclear_contours[nuclear_contour_index]
 
-def main(root_path):
+def main(root_path, keep_sums=False):
     pl.Config.set_tbl_cell_alignment("RIGHT")
 
     #Set up template
@@ -428,96 +448,61 @@ def main(root_path):
 
     # img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250521_patterned_plate_1/B06_250528_TRAK1-wt/Cell8.nd2"
     for (dirpath, dirnames, filenames) in pathlib.Path(root_path).walk():
-        if dirpath.parts[-1] == "MaxIP" or dirpath.parts[-1] == "MaxIPs":
+        if dirpath.parts[-1] in ["MaxIP", "MaxIPs", "Excluded_cells"]:
             continue
-        if dirpath.parts[-1] == "Excluded_cells":
-            continue
-        img_paths = []
-        scores = []
-        peripheral_percent = []
-        peripheral_5um_percent = []
-        acute_peripheral_percent = []
-        mitochondria_sum = []
-        peripheral_sum = []
-        perinuclear_sum = []
-        peripheral_5um_sum = []
-        peripheral_5um_simple_sum = []
-        cropped_background_threshold = []
+
+        records = []
         relative_path = dirpath.relative_to("/groups/vale/valelab/_for_Mark/patterned_data")
         csv_path = pathlib.Path("template_matching", *relative_path.parts, "template_matching.csv")
         xlsx_path = pathlib.Path("template_matching", *relative_path.parts, "template_matching.xlsx")
         print(csv_path)
         print(xlsx_path)
+
         for filename in filenames:
             if filename.endswith(".nd2") and (filename.startswith("Cell") or filename.startswith("cell")):
                 img_path = dirpath / filename
-                img_paths.append(img_path)
                 try:
                     print(img_path)
                     output = score_template_match(img_path, template_hat=template_hat, template=template)
-                    print(output["score"])
-                    scores.append(output["score"])
-                    peripheral_percent.append(output["peripheral_percent"])
-                    peripheral_5um_percent.append(output["peripheral_5um_percent"])
-                    acute_peripheral_percent.append(output["acute_peripheral_percent"])
-                    mitochondria_sum.append(output["mitochondria_sum"])
-                    peripheral_sum.append(output["peripheral_sum"])
-                    peripheral_5um_sum.append(output["peripheral_5um_sum"])
-                    peripheral_5um_simple_sum.append(output["peripheral_5um_simple_sum"])
-                    perinuclear_sum.append(output["perinuclear_sum"])
-                    cropped_background_threshold.append(output["cropped_background_threshold"])
+                    output["path"] = str(img_path)
+                    output["template_matching_score"] = output.pop("score")
+                    records.append(output)
                 except Exception as e:
-                    scores.append(float('nan'))
-                    peripheral_percent.append(float('nan'))
-                    peripheral_5um_percent.append(float('nan'))
-                    acute_peripheral_percent.append(float('nan'))
-                    mitochondria_sum.append(float('nan'))
-                    peripheral_sum.append(float('nan'))
-                    peripheral_5um_sum.append(float('nan'))
-                    peripheral_5um_simple_sum.append(float('nan'))
-                    perinuclear_sum.append(float('nan'))
-                    cropped_background_threshold.append(float('nan'))
                     print(f"An error occurred with {img_path}: {e}")
                     traceback.print_exc()
+                    records.append({"path": str(img_path)})
+
+        if not records:
+            continue
 
         print("Writing data frame")
-        print(f"{img_paths=}")
-        print(f"{scores=}")
+        score_df = pl.from_dicts(records)
 
-        score_df = pl.DataFrame(
-                {
-                    "path": [str(img_path) for img_path in img_paths],
-                    "template_matching_score": scores,
-                    #"peripheral_percent": peripheral_percent,
-                    #"peripheral_5um_percent": peripheral_5um_percent,
-                    #"acute_peripheral_percent": acute_peripheral_percent,
-                    "mitochondria_sum": mitochondria_sum,
-                    #"peripheral_sum": peripheral_sum,
-                    "peripheral_5um_sum": peripheral_5um_sum,
-                    "peripheral_5um_simple_sum": peripheral_5um_simple_sum,
-                    "perinuclear_sum": perinuclear_sum,
-                    "peripheral_5um_percent_total": np.array(peripheral_5um_sum) / np.array(mitochondria_sum) * 100,
-                    "peripheral_5um_simple_percent_total": np.array(peripheral_5um_simple_sum) / np.array(mitochondria_sum) * 100,
-                    "perinuclear_percent_total": np.array(perinuclear_sum) / np.array(mitochondria_sum) * 100,
-                    "cropped_background_threshold": cropped_background_threshold
-                },
-                {
-                    "path": pl.datatypes.String,
-                    "template_matching_score": pl.datatypes.Float64,
-                    #"peripheral_percent": pl.datatypes.Float64,
-                    #"peripheral_5um_percent": pl.datatypes.Float64,
-                    #"acute_peripheral_percent": pl.datatypes.Float64,
-                    "mitochondria_sum": pl.datatypes.Float64,
-                    #"peripheral_sum": pl.datatypes.Float64,
-                    "peripheral_5um_sum": pl.datatypes.Float64,
-                    "peripheral_5um_simple_sum": pl.datatypes.Float64,
-                    "perinuclear_sum": pl.datatypes.Float64,
-                    "peripheral_5um_percent_total": pl.datatypes.Float64,
-                    "peripheral_5um_simple_percent_total": pl.datatypes.Float64,
-                    "perinuclear_percent_total": pl.datatypes.Float64,
-                    "cropped_background_threshold": pl.datatypes.Float64
-                }
-        )
+        # Add percent total columns for each distance
+        for d in [1, 2, 3, 4, 5]:
+            cols_to_add = []
+            if f"peripheral_{d}um_sum" in score_df.columns:
+                cols_to_add.append((pl.col(f"peripheral_{d}um_sum") / pl.col("mitochondria_sum") * 100).alias(f"peripheral_{d}um_percent_total"))
+            if f"peripheral_{d}um_simple_sum" in score_df.columns:
+                cols_to_add.append((pl.col(f"peripheral_{d}um_simple_sum") / pl.col("mitochondria_sum") * 100).alias(f"peripheral_{d}um_simple_percent_total"))
+            if f"perinuclear_{d}um_sum" in score_df.columns:
+                cols_to_add.append((pl.col(f"perinuclear_{d}um_sum") / pl.col("mitochondria_sum") * 100).alias(f"perinuclear_{d}um_percent_total"))
+            
+            if cols_to_add:
+                score_df = score_df.with_columns(cols_to_add)
+
+        # Legacy/Original percent total columns
+        cols_to_add = []
+        if "perinuclear_sum" in score_df.columns:
+            cols_to_add.append((pl.col("perinuclear_sum") / pl.col("mitochondria_sum") * 100).alias("perinuclear_percent_total"))
+        
+        if cols_to_add:
+            score_df = score_df.with_columns(cols_to_add)
+
+        if not keep_sums:
+            sum_cols = [col for col in score_df.columns if col.endswith("_sum")]
+            score_df = score_df.drop(sum_cols)
+
         csv_path.parent.mkdir(parents=True, exist_ok=True)
         score_df.write_csv(csv_path)
         score_df.write_excel(xlsx_path)
@@ -534,4 +519,8 @@ def main(root_path):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    parser = argparse.ArgumentParser(description="Analyze micropatterned cell images.")
+    parser.add_argument("root_path", help="Path to the root directory containing .nd2 files.")
+    parser.add_argument("--keep-sums", action="store_true", help="Keep the _sum columns in the output (default: False).")
+    args = parser.parse_args()
+    main(args.root_path, keep_sums=args.keep_sums)
