@@ -23,13 +23,17 @@ def _():
         convert_to_uint16
     )
     return (
+        Path,
         aggregate_datasets,
         convert_to_uint16,
+        find_well_directory,
         gather_datasets,
+        list_cells,
         load_cell,
         load_comparisons,
         mo,
         plt,
+        skimage,
         sum_channel,
     )
 
@@ -99,6 +103,49 @@ def _(
 
 
 @app.cell
+def _(all_datasets):
+    all_datasets
+    return
+
+
+@app.cell
+def _(find_well_directory, list_cells):
+    def list_datasets(selected_df, plate_col, condition, denoised):
+        all_datasets = []
+        # Iterate over all rows in the selected dataframe
+        for row in selected_df.iter_rows(named=True):
+            plate_name = row[plate_col]
+            well_id = row[condition]
+
+            if not well_id:
+                continue
+
+            well_dir = find_well_directory(plate_name, well_id)
+            if well_dir:
+                cells = list_cells(well_dir, denoised=denoised)
+                for cell_path in cells:
+                    try:
+                        all_datasets.append(cell_path)
+                    except Exception as e:
+                        print(f"Error loading {cell_path}: {e}")
+        return all_datasets
+    return (list_datasets,)
+
+
+@app.cell
+def _(
+    condition_selector,
+    denoised_toggle,
+    list_datasets,
+    plate_col,
+    selected_df,
+):
+    _list_datasets = list_datasets(selected_df, plate_col, condition_selector.value, denoised_toggle.value)
+    _list_datasets
+    return
+
+
+@app.cell
 def _(all_datasets, sum_channel):
     ch488 = sum_channel(all_datasets, "488")
     return (ch488,)
@@ -107,6 +154,12 @@ def _(all_datasets, sum_channel):
 @app.cell
 def _(ch488, plt):
     plt.imshow(ch488)
+    return
+
+
+@app.cell
+def _(ch488):
+    ch488.max() - ch488.min()
     return
 
 
@@ -145,6 +198,77 @@ def _(channel_selector, ds, mo, plt):
     plt.colorbar(im, ax=ax)
 
     mo.as_html(fig)
+    return
+
+
+@app.cell
+def _(mo):
+    batch_run_button = mo.ui.run_button(label="Generate All Comparison Projections")
+    mo.vstack([
+        mo.md("## Batch Processing"),
+        mo.md("Click the button below to generate projections for all sheets and conditions."),
+        batch_run_button
+    ])
+    return (batch_run_button,)
+
+
+@app.cell
+def _(
+    Path,
+    batch_run_button,
+    convert_to_uint16,
+    dfs,
+    gather_datasets,
+    mo,
+    skimage,
+    sum_channel,
+):
+    mo.stop(not batch_run_button.value)
+
+    _output_dir = Path("comparison_projections")
+    _output_dir.mkdir(exist_ok=True)
+
+    _log = mo.output
+    _log.append("")
+    _log.append(f"Starting batch processing... Output: {_output_dir}")
+
+    for _sheet_name, _df in dfs.items():
+        _sheet_dir = _output_dir / _sheet_name
+        _sheet_dir.mkdir(exist_ok=True)
+        _log.append(f"Processing sheet: {_sheet_name}")
+
+        _plate_col = _df.columns[0]
+        _conditions = _df.columns[1:]
+
+        for _condition in _conditions:
+            # Clean condition name for filesystem
+            _cond_safe = _condition.replace("/", "_").replace("\\", "_")
+            _cond_dir = _sheet_dir / _cond_safe
+            _cond_dir.mkdir(exist_ok=True)
+
+            _datasets = gather_datasets(_df, _plate_col, _condition, denoised=False)
+
+            if not _datasets:
+                continue
+
+            # 488
+            _sum_488 = sum_channel(_datasets, "488")
+            if _sum_488 is not None:
+                _uint16_488 = convert_to_uint16(_sum_488)
+                skimage.io.imsave(_cond_dir / "sum_488.tif", _uint16_488, check_contrast=False)
+
+            # 405
+            _sum_405 = sum_channel(_datasets, "405")
+            if _sum_405 is not None:
+                _uint16_405 = convert_to_uint16(_sum_405)
+                skimage.io.imsave(_cond_dir / "sum_405.tif", _uint16_405, check_contrast=False)
+
+    _log.append("Batch processing complete.")
+    return
+
+
+@app.cell
+def _():
     return
 
 

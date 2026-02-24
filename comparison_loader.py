@@ -101,7 +101,8 @@ def sum_channel(all_datasets, channel="488"):
                  continue
 
             if np.issubdtype(arr.dtype, np.floating):
-                 arr = arr * 65535.0
+                 pass
+                 #arr = arr * 65535.0
 
             arrays.append(arr)
             

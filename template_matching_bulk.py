@@ -241,22 +241,29 @@ def score_template_match(img_path, *, template_hat = None, template = None):
 
     # Assume the left and right edges consist of background
     cropped_background = np.concatenate((cropped_proj_mitochondria_stretched[:,:128], cropped_proj_mitochondria_stretched[:,-128:]), axis=1)
+    cropped_background_unstretched = np.concatenate((cropped_proj_mitochondria[:,:128], cropped_proj_mitochondria[:,-128:]), axis=1)
     left_percentile = np.percentile(cropped_proj_mitochondria_stretched[:,:128], 99.99)
     right_percentile = np.percentile(cropped_proj_mitochondria_stretched[:,-128:], 99.99)
+    left_percentile_unstretched = np.percentile(cropped_proj_mitochondria[:,:128], 99.99)
+    right_percentile_unstretched = np.percentile(cropped_proj_mitochondria[:,-128:], 99.99)
     if abs(left_percentile - right_percentile) > 0.1:
         cropped_background_threshold = min(left_percentile, right_percentile)
+        cropped_background_threshold_unstretched = min(left_percentile_unstretched, right_percentile_unstretched)
     else:
         cropped_background_threshold = np.percentile(cropped_background, 99.99)
+        cropped_background_threshold_unstretched = np.percentile(cropped_background_unstretched, 99.99)
     cropped_proj_mitochondria_bg_subtracted = cropped_proj_mitochondria_stretched - cropped_background_threshold
+    cropped_proj_mitochondria_bg_subtracted_unstretched = cropped_proj_mitochondria - cropped_background_threshold_unstretched
     # Set negative values to 0
     cropped_proj_mitochondria_bg_subtracted = np.clip(cropped_proj_mitochondria_bg_subtracted, 0, None)
+    cropped_proj_mitochondria_bg_subtracted_unstretched = np.clip(cropped_proj_mitochondria_bg_subtracted_unstretched, 0, None)
 
     proj_mitochondria_bg_subtracted_path = pathlib.Path("projections",*relative_path.parts).with_suffix("")
     proj_mitochondria_bg_subtracted_path = proj_mitochondria_bg_subtracted_path.with_stem(
         f"{proj_mitochondria_bg_subtracted_path.stem}_488_bg_subtracted"
     )
     proj_mitochondria_bg_subtracted_path = proj_mitochondria_bg_subtracted_path.with_suffix(".nc")
-    cropped_proj_mitochondria_bg_subtracted.to_netcdf(proj_mitochondria_bg_subtracted_path)
+    cropped_proj_mitochondria_bg_subtracted_unstretched.to_netcdf(proj_mitochondria_bg_subtracted_path)
 
     perinuclear_mask = cropped_nuc_edt < perinuclear_space_distance_pixels
     peripheral_mask = cropped_arch_edt <= cropped_nuc_edt
