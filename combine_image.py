@@ -37,7 +37,7 @@ def _(pathlib, root_path, stretch01, xarray):
                     data = stretch01(xarray.load_dataarray(dirpath / file).drop_indexes(["Y", "X"]))
                 else:
                     data += stretch01(xarray.load_dataarray(dirpath / file).drop_indexes(["Y", "X"]))
-    return (data,)
+    return data, dirpath
 
 
 @app.cell
@@ -163,6 +163,42 @@ def _(data, plt, stretch01, template_contour):
 def _(file_browser):
     root_path = file_browser.value[0].path
     return (root_path,)
+
+
+@app.cell
+def _(data):
+    data
+    return
+
+
+@app.cell
+def _(data, plt):
+    plt.imshow(data.isel(C="488"))
+    return
+
+
+@app.cell
+def _(data, plt):
+    plt.imshow(data.isel(C=1))
+    return
+
+
+@app.cell
+def _(np, plt, template_contour):
+    fig = plt.figure(figsize=(10.24, 10.24), dpi=100)
+    ax = plt.Axes(fig, [0., 0., 1., 1.])
+    ax.set_axis_off()
+    fig.add_axes(ax)
+    ax.imshow(np.zeros((1024, 1024)), cmap="gray")
+    ax.plot(template_contour[:, 1], template_contour[:, 0], color="white")
+    fig.savefig("template_1024x1024.tiff", dpi=100)
+    return
+
+
+@app.cell
+def _(dirpath, plt, xarray):
+    plt.imshow(xarray.load_dataarray(dirpath / "Cell9 - Denoised.nc").drop_indexes(["Y", "X"]).sel(C="405"))
+    return
 
 
 @app.cell

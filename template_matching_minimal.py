@@ -87,7 +87,9 @@ def _(get_template_hat):
 def _(nd2):
     #img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250521_patterned_plate_1/B06_250528_TRAK1-wt/Cell3.nd2"
     #img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250521_patterned_plate_1/B06_250528_TRAK1-wt/Cell8.nd2"
-    img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250710_patterned_plate_9_good/C02_250718_NoV/cell8.nd2"
+    #img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250710_patterned_plate_9_good/C02_250718_NoV/cell8.nd2"
+    #img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250612_patterned_plate_3/B06_250617_TRAK1_mDRH_dSp/denoised/Cell12 - Denoised.nd2"
+    img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250710_patterned_plate_9_good/G09_250718_MAPK9_siRNA_Ars/denoised/Cell9 - Denoised.nd2"
     img = nd2.imread(img_path, xarray=True)
     return img, img_path
 
@@ -95,6 +97,29 @@ def _(nd2):
 @app.cell
 def _(img):
     img
+    return
+
+
+@app.cell
+def _(img, np, plt):
+    plt.imshow(np.sum(img.sel(C="640"), axis=0), vmin=0, vmax=10000)
+    # 1082, 407
+    plt.scatter(1082, 407)
+    return
+
+
+@app.cell
+def _(get_padded_template_at_width, plt):
+    shifted_template2 = get_padded_template_at_width(1326)
+    #shifted_template2 = np.roll(shifted_template, (0 - 1024,0 - 1024), axis=(0,1))
+    plt.imshow(shifted_template2)
+    plt.scatter(1024,1024)
+    return (shifted_template2,)
+
+
+@app.cell
+def _(shifted_template2):
+    shifted_template2.shape
     return
 
 
@@ -377,8 +402,19 @@ def _(nd2, pathlib):
 
 @app.cell
 def _(nd2):
-    img3 = nd2.imread("/groups/vale/valelab/_for_Mark/patterned_data/250626_patterned_plate_7/C09_250630_ctrl_siRNA/Cell6_DIC.nd2", xarray=True, dask=True)
-    img3
+    img4 = nd2.imread("/groups/vale/valelab/_for_Mark/patterned_data/250731_patterned_plate_11_good/E05_250808_TRAK1_wt/denoised/Cell2 - Denoised.nd2", xarray=True)
+    return (img4,)
+
+
+@app.cell
+def _(img4, np):
+    np.sum(img4, axis=0)
+    return
+
+
+@app.cell
+def _(img, plt):
+    plt.imshow(img.sel(C="488").sum(axis=0), vmax=8000)
     return
 
 

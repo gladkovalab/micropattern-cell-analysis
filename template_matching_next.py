@@ -153,8 +153,10 @@ def _(nd2):
     #img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250731_patterned_plate_11_good/E05_250808_TRAK1_wt/Cell2 - Denoised.nd2"
     #img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250731_patterned_plate_11_good/E05_250808_TRAK1_wt/Cell5.nd2"
     #img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250731_patterned_plate_11_good/E05_250808_TRAK1_wt/Cell8.nd2"
-    img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250612_patterned_plate_3/B06_250617_TRAK1_mDRH_dSp/Cell12.nd2"
+    #img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250612_patterned_plate_3/B06_250617_TRAK1_mDRH_dSp/Cell12.nd2"
     #img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250731_patterned_plate_11_good/F06_250811_TRAK1_mDRH_dSp/Cell3.nd2"
+    #img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250710_patterned_plate_9_good/G09_250718_MAPK9_siRNA_Ars/denoised/Cell9 - Denoised.nd2"
+    img_path = "/groups/vale/valelab/_for_Mark/patterned_data/250626_patterned_plate_7/F04_250703_TRAK2_wt_peroxisome/denoised/Cell6 - Denoised.nd2"
     img = nd2.imread(img_path, xarray=True)
 
     # check this one
@@ -592,11 +594,98 @@ def _(cropped_proj_mitochondria_streched, plt):
 @app.cell
 def _(cropped_proj_mitochondria_streched, np, plt):
     cropped_background = np.concatenate((cropped_proj_mitochondria_streched[:,:128], cropped_proj_mitochondria_streched[:,-128:]), axis=1)
-    cropped_background_threshold = np.percentile(cropped_background, 99.99)
+    left_percentile = np.percentile(cropped_proj_mitochondria_streched[:,:128], 99.99)
+    right_percentile = np.percentile(cropped_proj_mitochondria_streched[:,-128:], 99.99)
+    if abs(left_percentile - right_percentile) > 0.1:
+        cropped_background_threshold = min(left_percentile, right_percentile)
+    else:
+        cropped_background_threshold = np.percentile(cropped_background, 99.99)
     cropped_proj_mitochondria_streched_background_subtracted = cropped_proj_mitochondria_streched - cropped_background_threshold
     cropped_proj_mitochondria_streched_background_subtracted = np.clip(cropped_proj_mitochondria_streched_background_subtracted, 0, None)
     plt.imshow(cropped_proj_mitochondria_streched_background_subtracted)
-    return (cropped_proj_mitochondria_streched_background_subtracted,)
+    return (
+        cropped_background,
+        cropped_background_threshold,
+        cropped_proj_mitochondria_streched_background_subtracted,
+    )
+
+
+@app.cell
+def _(cropped_proj_mitochondria_streched, np):
+    np.percentile(cropped_proj_mitochondria_streched[:,:128], 99.99)
+    return
+
+
+@app.cell
+def _(cropped_proj_mitochondria_streched, np):
+    np.percentile(cropped_proj_mitochondria_streched[:,-128:], 99.99)
+    return
+
+
+@app.cell
+def _(cropped_background, cropped_proj_mitochondria_streched, np):
+    np.percentile(cropped_background[cropped_background < np.max(cropped_proj_mitochondria_streched[:,-128:]).item()], 99.99)
+    return
+
+
+@app.cell
+def _(cropped_proj_mitochondria_streched, np):
+    np.max(cropped_proj_mitochondria_streched[:,-128:])
+    return
+
+
+@app.cell
+def _(cropped_background, np):
+    np.std(cropped_background)
+    return
+
+
+@app.cell
+def _(cropped_proj_mitochondria_streched, np):
+    np.percentile(cropped_proj_mitochondria_streched[:,:128],50)
+    return
+
+
+@app.cell
+def _(cropped_background, np):
+    outlier_limit = np.std(cropped_background)*3 + np.mean(cropped_background)
+    return (outlier_limit,)
+
+
+@app.cell
+def _(cropped_background, np):
+    np.histogram(cropped_background)
+    return
+
+
+@app.cell
+def _(cropped_background, np):
+    np.std(cropped_background)
+    return
+
+
+@app.cell
+def _(outlier_limit):
+    outlier_limit
+    return
+
+
+@app.cell
+def _(cropped_background, np, outlier_limit):
+    np.percentile(cropped_background[cropped_background < outlier_limit.item()], 99.99)
+    return
+
+
+@app.cell
+def _(outlier_limit):
+    outlier_limit.item()
+    return
+
+
+@app.cell
+def _(cropped_background_threshold):
+    cropped_background_threshold
+    return
 
 
 @app.cell
