@@ -417,15 +417,7 @@ def score_template_match(img_path, *, template_hat = None, template = None):
 
     output = {
             "score": score,
-            "perinuclear_sum": perinuclear_sum,
-            "peripheral_sum": peripheral_sum,
-            "peripheral_5um_sum": peripheral_5um_sum,
-            "peripheral_5um_simple_sum": peripheral_5um_simple_sum,
             "mitochondria_sum": mitochondria_sum,
-            "peripheral_percent": peripheral_percent,
-            "peripheral_5um_percent": peripheral_5um_percent,
-            "peripheral_5um_simple_percent": peripheral_5um_simple_percent,
-            "acute_peripheral_percent": acute_peripheral_percent,
             "cropped_background_threshold": cropped_background_threshold,
             **dist_results
     }
@@ -437,7 +429,7 @@ def get_nuclear_contour(nuclear_mask):
     nuclear_contour_index = np.argmax([len(contour) for contour in nuclear_contours])
     return nuclear_contours[nuclear_contour_index]
 
-def main(root_path, keep_sums=False):
+def main(root_path, keep_sums=False, only_simple=True, remove_acute=True, only_total=True):
     pl.Config.set_tbl_cell_alignment("RIGHT")
 
     #Set up template
@@ -491,17 +483,29 @@ def main(root_path, keep_sums=False):
             if cols_to_add:
                 score_df = score_df.with_columns(cols_to_add)
 
-        # Legacy/Original percent total columns
-        cols_to_add = []
-        if "perinuclear_sum" in score_df.columns:
-            cols_to_add.append((pl.col("perinuclear_sum") / pl.col("mitochondria_sum") * 100).alias("perinuclear_percent_total"))
-        
-        if cols_to_add:
-            score_df = score_df.with_columns(cols_to_add)
-
         if not keep_sums:
             sum_cols = [col for col in score_df.columns if col.endswith("_sum")]
             score_df = score_df.drop(sum_cols)
+
+        if remove_acute:
+            acute_cols = [col for col in score_df.columns if "acute_" in col]
+            score_df = score_df.drop(acute_cols)
+
+        if only_simple:
+            # Drop non-simple peripheral columns, but keep metadata and perinuclear reference
+            cols_to_drop = []
+            for col in score_df.columns:
+                if "peripheral_" in col and "_simple" not in col:
+                    cols_to_drop.append(col)
+            score_df = score_df.drop(cols_to_drop)
+
+        if only_total:
+            # Keep only columns with "_total" or essential metadata
+            metadata_cols = ["path", "template_matching_score", "cropped_background_threshold"]
+            total_cols = [col for col in score_df.columns if "_total" in col]
+            # Ensure we only try to select columns that exist
+            cols_to_select = [col for col in metadata_cols if col in score_df.columns] + total_cols
+            score_df = score_df.select(cols_to_select)
 
         csv_path.parent.mkdir(parents=True, exist_ok=True)
         score_df.write_csv(csv_path)
@@ -522,5 +526,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Analyze micropatterned cell images.")
     parser.add_argument("root_path", help="Path to the root directory containing .nd2 files.")
     parser.add_argument("--keep-sums", action="store_true", help="Keep the _sum columns in the output (default: False).")
+    parser.add_argument("--include-complex", action="store_false", dest="only_simple", help="Include non-simple peripheral measurements (default: simple only).")
+    parser.add_argument("--include-acute", action="store_false", dest="remove_acute", help="Include acute peripheral measurements (default: removed).")
+    parser.add_argument("--include-all-percents", action="store_false", dest="only_total", help="Include all percentage measurements (default: only _total).")
+    parser.set_defaults(only_simple=True, remove_acute=True, only_total=True)
     args = parser.parse_args()
-    main(args.root_path, keep_sums=args.keep_sums)
+    main(args.root_path, keep_sums=args.keep_sums, only_simple=args.only_simple, remove_acute=args.remove_acute, only_total=args.only_total)
