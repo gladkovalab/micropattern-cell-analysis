@@ -203,13 +203,22 @@ def score_template_match(img_path, *, template_hat = None, template = None):
     proj_path = pathlib.Path("projections",*relative_path.parts).with_suffix(".nc")
     proj_path.parent.mkdir(parents=True, exist_ok=True)
 
-    cropped_proj_img = np.sum(img[:,:,max_coords[0]-512+offset[0]:max_coords[0]+512+offset[0], max_coords[1]-512+offset[1]:max_coords[1]+512+offset[1]], axis=0)
+    y_start, y_end = max_coords[0]-512+offset[0], max_coords[0]+512+offset[0]
+    x_start, x_end = max_coords[1]-512+offset[1], max_coords[1]+512+offset[1]
+    
+    cropped_proj_img = np.sum(img[:,:,y_start:y_end, x_start:x_end], axis=0)
+    if cropped_proj_img.size == 0:
+         print(f"Warning: Empty cropped_proj_img for {img_path}. {img.shape=}, {y_start=}:{y_end}, {x_start=}:{x_end}")
+         raise ValueError(f"Empty cropped projection for {img_path}")
+
     cropped_proj_img.to_netcdf(proj_path)
     cropped_template_contour = shifted_template_contour[0].copy()
     cropped_template_contour[:,0] -= (max_coords[0]-512)
     cropped_template_contour[:,1] -= (max_coords[1]-512)
 
     cropped_nuc_proj = cropped_proj_img.sel(C="405")
+    if cropped_nuc_proj.size == 0:
+        raise ValueError(f"Empty cropped nuclear projection for {img_path}")
     nuc_proj_threshold = skimage.filters.threshold_otsu(cropped_nuc_proj.to_numpy())
     cropped_nuc_mask = cropped_nuc_proj > nuc_proj_threshold
     cropped_nuc_label = skimage.measure.label(cropped_nuc_mask)
