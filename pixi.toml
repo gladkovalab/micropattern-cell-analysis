@@ -1,0 +1,33 @@
+[project]
+authors = ["Mark Kittisopikul <kittisopikulm@janelia.hhmi.org>"]
+channels = ["conda-forge"]
+description = "Add a short description here"
+name = "micropattern_cell_analysis"
+platforms = ["linux-64", "osx-arm64", "osx-64"]
+version = "0.1.0"
+
+[tasks]
+notebook = "marimo edit --host 0.0.0.0 micropattern_cell_analysis_viewer.py"
+marimo  = "marimo edit --host 0.0.0.0"
+
+[dependencies]
+marimo = ">=0.17.8,<0.18"
+nd2 = ">=0.10.3,<0.11"
+dask = ">=2025.7.0,<2026"
+xarray = ">=2025.7.1,<2026"
+matplotlib = ">=3.10.5,<4"
+scikit-image = ">=0.25.2,<0.26"
+mupdf = ">=1.25.6,<2"
+ipython = ">=9.6.0,<10"
+python = "3.12.*"
+cairosvg = ">=2.8.2,<3"
+pillow = ">=11.3.0,<12"
+pycairo = ">=1.28.0,<2"
+polars = ">=1.35.1,<2"
+xlsxwriter = ">=3.2.9,<4"
+netcdf4 = ">=1.7.3,<2"
+h5py = ">=3.15.1,<4"
+fastexcel = ">=0.18.0,<0.19"
+
+[pypi-dependencies]
+pymupdf = ">=1.26.4, <2"

@@ -1,0 +1,56 @@
+
+# pixi environments
+.pixi
+*.egg-info
+
+# macOS metadata
+.DS_Store
+
+# Python cache
+__pycache__/
+__marimo__/
+
+# Marimo logs
+marimo.err
+marimo.out
+
+# Test/scratch files
+test.*
+todo.txt
+commands.txt
+plates.txt
+plates_now.txt
+coding_circle.py
+
+# Generated template image
+template_1024x1024.tiff
+
+# Analysis output directories
+projections/
+projections.20251229/
+template_matching/
+template_matching.csv
+template_matching.xlsx
+comparison_plots/
+comparison_projections/
+comparison_projections_sum/
+
+# Old/dated output directories
+2025_12_07_1600_analysis/
+2025_12_08_analysis/
+2025_12_13_analysis/
+comparison_projections_2026_01_16/
+template_2026_01_16/
+template_matching_2025_12_06/
+template_matching_2025_12_07_0724/
+template_matching_2025_12_15/
+template_matching_2026_01_14/
+template_matching_old/
+
+# Scratch data files
+2025_12_12.txt
+250710_patterned_plate_9_good.txt
+Gemini.md
+
+# Symlink to data storage
+valelab
