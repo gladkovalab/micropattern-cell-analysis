@@ -6,7 +6,7 @@ from pathlib import Path
 
 PROJECTIONS_DIR = Path("projections")
 
-def load_comparisons(file_path: str | Path = "/groups/vale/valelab/_for_Mark/analysis/Comparisons_table_v3.xlsx") -> dict[str, pl.DataFrame]:
+def load_comparisons(file_path: str | Path = "config/Comparisons_table_v3.xlsx") -> dict[str, pl.DataFrame]:
     """Reads all sheets from the comparisons Excel table using fastexcel and polars."""
     excel_reader = fastexcel.read_excel(file_path)
     sheets = {}
