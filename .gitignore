@@ -54,3 +54,23 @@ Gemini.md
 
 # Symlink to data storage
 valelab
+
+# Symlinks into external, non-repo data (user-specific)
+manuscript
+mark_data
+
+# Replication workstream outputs (large / scratch / generated)
+replication/sanity_B06/
+replication/local_staged/
+replication/metrics_out_b06/
+replication/overnight_out/by_well/
+replication/overnight_out/stdout.log
+replication/overnight_out/progress.log
+replication/stats_out/
+replication/__pycache__/
+
+# Keep the small, commit-worthy outputs:
+#   replication/derived_metrics_out/ (~1 MB CSVs)
+#   replication/overnight_out/combined.csv (aggregated metrics)
+#   replication/overnight_eval_out/ (~250 KB summary)
+#   replication/figures/ (~2 MB)

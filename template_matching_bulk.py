@@ -6,6 +6,7 @@ import pymupdf
 import io
 import nd2
 import matplotlib.pyplot as plt
+import os
 import pathlib
 import polars as pl
 import sys
@@ -14,6 +15,23 @@ import netCDF4
 import argparse
 from scipy.ndimage import distance_transform_edt
 from matplotlib.backends.backend_pdf import PdfPages
+
+# Root under which ND2 data lives. Mark's original cluster path is the default
+# so his override-dict keys (which are absolute cluster paths) continue to
+# match; override with MICROPATTERN_DATA_ROOT when running off-cluster.
+CLUSTER_DATA_ROOT = "/groups/vale/valelab/_for_Mark/patterned_data"
+DATA_ROOT = os.environ.get("MICROPATTERN_DATA_ROOT", CLUSTER_DATA_ROOT)
+
+def cluster_key(img_path):
+    """Translate an on-disk path to the cluster-absolute path Mark used as
+    override-dict keys, so lookups work regardless of where the data is mounted.
+    """
+    p = pathlib.Path(img_path).resolve()
+    try:
+        rel = p.relative_to(pathlib.Path(DATA_ROOT).resolve())
+        return str(pathlib.Path(CLUSTER_DATA_ROOT) / rel)
+    except ValueError:
+        return str(img_path)
 
 def get_coordinate_overrides_dict():
     schema = {
@@ -39,14 +57,15 @@ coordinate_overrides_dict = get_coordinate_overrides_dict()
 def top_coordinate_overrides_to_template_center(path, *, offset = None):
     # Distance in pixels from the top of the template to the center of the template
     top_to_center = 385 # 1024 - np.argmax(template[:,1024])
+    key = cluster_key(path)
     if offset is None:
-        offset = offset_overrides.get(path, [128, 128])
-    top_x, top_y = coordinate_overrides_dict[path]
+        offset = offset_overrides.get(key, [128, 128])
+    top_x, top_y = coordinate_overrides_dict[key]
     # return in the same order as max_match_template
     return top_y + top_to_center - offset[0], top_x - offset[1]
 
 def get_template_center(img, path, *, template_hat = None, offset=None, roi=None):
-    if str(path) in coordinate_overrides_dict:
+    if cluster_key(path) in coordinate_overrides_dict:
         return top_coordinate_overrides_to_template_center(str(path), offset=offset)
     return max_match_template(img, template_hat = template_hat, offset=offset, roi=roi)
 
@@ -126,7 +145,7 @@ def get_image_hat(img):
 def match_template(img, *, template_hat = None, offset=None):
     if isinstance(img, str) or isinstance(img, pathlib.Path):
         img_path = img
-        offset = offset_overrides.get(img_path, [128, 128])
+        offset = offset_overrides.get(cluster_key(img_path), [128, 128])
         img = nd2.imread(img_path, xarray=True)
     if template_hat is None:
         template_hat = get_template_hat(1326)
@@ -180,8 +199,9 @@ def score_template_match(img_path, *, template_hat = None, template = None):
     img = nd2.imread(img_path, xarray=True)
 
     # Get offset and ROI overrides
-    offset = offset_overrides.get(str(img_path), [128, 128])
-    roi = roi_overrides.get(str(img_path), None)
+    key = cluster_key(img_path)
+    offset = offset_overrides.get(key, [128, 128])
+    roi = roi_overrides.get(key, None)
     print(f"{img_path = }")
     #print(f"{offset = }")
     #print(f"{roi = }")
@@ -199,7 +219,7 @@ def score_template_match(img_path, *, template_hat = None, template = None):
     score = np.sum(sumproj_thresholded & shifted_template)/(np.sum(shifted_template > 0))
     score = score.values.item()
 
-    relative_path = pathlib.Path(img_path).relative_to("/groups/vale/valelab/_for_Mark/patterned_data")
+    relative_path = pathlib.Path(img_path).resolve().relative_to(pathlib.Path(DATA_ROOT).resolve())
     proj_path = pathlib.Path("projections",*relative_path.parts).with_suffix(".nc")
     proj_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -453,7 +473,7 @@ def main(root_path, keep_sums=False, only_simple=True, remove_acute=True, only_t
             continue
 
         records = []
-        relative_path = dirpath.relative_to("/groups/vale/valelab/_for_Mark/patterned_data")
+        relative_path = dirpath.resolve().relative_to(pathlib.Path(DATA_ROOT).resolve())
         csv_path = pathlib.Path("template_matching", *relative_path.parts, "template_matching.csv")
         xlsx_path = pathlib.Path("template_matching", *relative_path.parts, "template_matching.xlsx")
         print(csv_path)

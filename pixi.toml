@@ -28,6 +28,9 @@ xlsxwriter = ">=3.2.9,<4"
 netcdf4 = ">=1.7.3,<2"
 h5py = ">=3.15.1,<4"
 fastexcel = ">=0.18.0,<0.19"
+git-lfs = ">=3.7.1,<4"
+statsmodels = ">=0.14.6,<0.15"
+python-docx = ">=1.2.0,<2"
 
 [pypi-dependencies]
 pymupdf = ">=1.26.4, <2"
