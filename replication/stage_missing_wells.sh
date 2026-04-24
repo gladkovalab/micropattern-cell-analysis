@@ -14,12 +14,14 @@ mkdir -p "$DST"
 : > "$LOG"
 
 wells=(
-  "250606_patterned_plate_2/D05_250612_TRAK2-mDRH+mSpin"
+  # TRAK2 mDRH first (primary TRAK2 claim): 3 plates still missing
   "250612_patterned_plate_3/B07_TRAK2_mDRH"
-  "250612_patterned_plate_3/B08_TRAK2_mDRH_dSp"
   "250710_patterned_plate_9_good/C07_250718_TRAK2_mDRH"
-  "250710_patterned_plate_9_good/C08_250721_TRAK2_mDRH_dSp"
   "250731_patterned_plate_11_good/D07_250811_TRAK2_mDRH"
+  # TRAK2 mDRH / mSpindly (rescue): 4 plates still missing
+  "250606_patterned_plate_2/D05_250612_TRAK2-mDRH+mSpin"
+  "250612_patterned_plate_3/B08_TRAK2_mDRH_dSp"
+  "250710_patterned_plate_9_good/C08_250721_TRAK2_mDRH_dSp"
   "250731_patterned_plate_11_good/E07_250811_TRAK2_mDRH_mSpin"
 )
 
