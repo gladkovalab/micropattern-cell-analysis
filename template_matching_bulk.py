@@ -64,9 +64,28 @@ def top_coordinate_overrides_to_template_center(path, *, offset = None):
     # return in the same order as max_match_template
     return top_y + top_to_center - offset[0], top_x - offset[1]
 
+def find_override_key(path):
+    """Return the override-dict key matching `path`, falling back to the
+    denoised-counterpart key if the raw path isn't directly registered.
+    The raw run reads `Cell N.nd2`, but Mark's overrides were typically
+    recorded against `denoised/Cell N - Denoised.nd2` (or `… Denoised2.nd2`
+    on plate 12)."""
+    raw_key = cluster_key(path)
+    if raw_key in coordinate_overrides_dict:
+        return raw_key
+    p = pathlib.Path(path)
+    for suffix in (" - Denoised.nd2", " - Denoised2.nd2"):
+        candidate = p.parent / "denoised" / f"{p.stem}{suffix}"
+        k = cluster_key(str(candidate))
+        if k in coordinate_overrides_dict:
+            return k
+    return None
+
+
 def get_template_center(img, path, *, template_hat = None, offset=None, roi=None):
-    if cluster_key(path) in coordinate_overrides_dict:
-        return top_coordinate_overrides_to_template_center(str(path), offset=offset)
+    key = find_override_key(path)
+    if key is not None:
+        return top_coordinate_overrides_to_template_center(key, offset=offset)
     return max_match_template(img, template_hat = template_hat, offset=offset, roi=roi)
 
 def get_template_at_width(width):

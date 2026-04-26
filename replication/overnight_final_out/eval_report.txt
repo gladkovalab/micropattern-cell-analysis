@@ -1,0 +1,256 @@
+Loaded 563 cells across ['MAPK9 siRNA', 'TRAK isoform (mito)', 'TRAK isoform (peroxisome)', 'TRAK1 helix muts', 'TRAK2 helix muts']
+Wrote 660 rows to /Users/gladkoc/Dev/micropattern_cell_analysis/replication/overnight_final_out/evaluation_summary.csv
+
+
+==========================================================================================
+TRAK isoform (mito)  (family m=3)
+==========================================================================================
+
+--- no TRAK vs TRAK1 (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+maxip_wedge_mt_apex_lam_min_um2                    -0.82     0.06619  ns
+zsum_wedge_mt_apex_lam_min_um2                     -0.82     0.09812  ns
+zsum_wedge_frac_pct                                +0.46     0.13283  ns
+maxip_peripheral_5um_pct                           -0.65     0.18250  ns
+maxip_wedge_r_q75_um                               -0.65     0.22741  ns
+maxip_wedge_mt_apex_elongation                     +0.49     0.31940  ns
+maxip_mean_dist_to_nucleus_um                      -0.45     0.32038  ns
+zsum_peripheral_5um_pct                            -0.55     0.33679  ns
+maxip_wedge_r_ks_vs_uniform                        +0.52     0.36190  ns
+maxip_wedge_r_q50_um                               -0.52     0.40099  ns
+zsum_wedge_mt_apex_elongation                      +0.55     0.41211  ns
+zsum_y_sd_um                                       -0.47     0.41996  ns
+
+--- no TRAK vs TRAK2 (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+maxip_y_gini                                       -1.39     0.00280  **
+maxip_wedge_r_gini                                 -1.46     0.00367  **
+maxip_wedge_r_entropy                              +1.36     0.00370  **
+maxip_y_entropy                                    +1.27     0.00407  **
+maxip_wedge_r_skew                                 -0.88     0.00755  **
+maxip_y_skew                                       +0.66     0.01973  *
+maxip_y_sd_um                                      +1.15     0.02173  *
+maxip_wedge_r_ks_vs_uniform                        -0.96     0.02380  *
+maxip_wedge_r_sd_um                                +1.20     0.02596  *
+maxip_wedge_r_q75_um                               +0.92     0.03966  *
+maxip_wedge_r_20_35um_frac_pct                     -0.99     0.04660  *
+maxip_wedge_r_35_55um_frac_pct                     +0.81     0.07235  ns
+
+--- TRAK1 vs TRAK2 (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+maxip_y_gini                                       -1.42     0.00052  ***
+maxip_wedge_r_skew                                 -1.31     0.00059  ***
+maxip_wedge_r_gini                                 -1.48     0.00084  ***
+maxip_y_entropy                                    +1.35     0.00123  **
+maxip_wedge_r_entropy                              +1.44     0.00128  **
+maxip_wedge_r_q75_um                               +1.65     0.00129  **
+maxip_wedge_r_ks_vs_uniform                        -1.48     0.00130  **
+maxip_y_skew                                       +0.90     0.00289  **
+maxip_y_sd_um                                      +1.19     0.00301  **
+maxip_wedge_r_35_55um_frac_pct                     +1.31     0.00447  **
+maxip_wedge_r_sd_um                                +1.28     0.00459  **
+maxip_wedge_r_20_35um_frac_pct                     -1.34     0.00701  **
+
+
+==========================================================================================
+TRAK isoform (peroxisome)  (family m=3)
+==========================================================================================
+
+--- no TRAK vs TRAK1 (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+zsum_wedge_r_skew                                  -0.69     0.50857  ns
+zsum_y_skew                                        +0.57     0.60282  ns
+maxip_wedge_r_skew                                 -0.51     0.63543  ns
+zsum_wedge_r_q25_um                                +0.29     0.68154  ns
+zsum_wedge_r_q50_um                                +0.38     0.68473  ns
+maxip_y_skew                                       +0.39     0.76654  ns
+zsum_wedge_r_35_55um_frac_pct                      +0.32     0.84750  ns
+maxip_wedge_r_q50_um                               +0.26     0.84863  ns
+zsum_wedge_r_mean_um                               +0.20     0.87737  ns
+zsum_y_mean_um                                     -0.19     0.88786  ns
+maxip_wedge_r_q25_um                               +0.17     0.92100  ns
+zsum_wedge_mt_apex_lam_min_um2                     +0.25     0.92110  ns
+
+--- no TRAK vs TRAK2 (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+zsum_wedge_r_20_35um_frac_pct                      -0.68     0.40773  ns
+maxip_wedge_r_20_35um_frac_pct                     -0.61     0.42426  ns
+zsum_wedge_r_skew                                  -0.75     0.44592  ns
+zsum_wedge_r_35_55um_frac_pct                      +0.56     0.55393  ns
+zsum_y_skew                                        +0.57     0.60102  ns
+maxip_wedge_r_skew                                 -0.58     0.62467  ns
+zsum_wedge_r_q50_um                                +0.45     0.70017  ns
+maxip_wedge_r_35_55um_frac_pct                     +0.35     0.77248  ns
+maxip_wedge_r_entropy                              +0.27     0.81408  ns
+zsum_wedge_r_q75_um                                +0.40     0.81725  ns
+zsum_y_mean_um                                     -0.28     0.83813  ns
+maxip_y_skew                                       +0.38     0.84418  ns
+
+--- TRAK1 vs TRAK2 (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+zsum_wedge_r_20_35um_frac_pct                      -0.54     0.57496  ns
+maxip_wedge_r_20_35um_frac_pct                     -0.48     0.59240  ns
+maxip_wedge_r_entropy                              +0.30     0.65226  ns
+maxip_wedge_r_sd_um                                +0.41     0.69067  ns
+maxip_wedge_r_gini                                 -0.25     0.78741  ns
+maxip_y_entropy                                    +0.27     0.80620  ns
+zsum_wedge_r_sd_um                                 +0.35     0.83735  ns
+maxip_y_gini                                       -0.23     0.87215  ns
+zsum_peripheral_5um_pct                            +0.26     0.87502  ns
+maxip_wedge_r_q25_um                               -0.17     0.89914  ns
+zsum_wedge_r_35_55um_frac_pct                      +0.24     0.91100  ns
+zsum_wedge_r_entropy                               +0.23     0.91592  ns
+
+
+==========================================================================================
+TRAK1 helix muts  (family m=2)
+==========================================================================================
+
+--- T1 wt vs T1 mDRH (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+maxip_peripheral_5um_pct                           +1.35     0.00026  ***
+maxip_wedge_r_ks_vs_uniform                        -2.07     0.00045  ***
+maxip_wedge_r_q75_um                               +1.57     0.00050  ***
+zsum_y_sd_um                                       +1.59     0.00074  ***
+zsum_wedge_r_ks_vs_uniform                         -1.66     0.00087  ***
+zsum_wedge_r_sd_um                                 +1.63     0.00127  **
+zsum_y_gini                                        -1.59     0.00149  **
+maxip_wedge_r_gini                                 -1.84     0.00192  **
+maxip_mean_dist_to_nucleus_um                      +0.98     0.00194  **
+maxip_y_gini                                       -1.76     0.00195  **
+zsum_wedge_r_gini                                  -1.59     0.00200  **
+zsum_y_entropy                                     +1.70     0.00224  **
+
+--- T1 mDRH vs T1 mDRH / dSp (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+zsum_y_gini                                        +1.19     0.01718  *
+zsum_wedge_r_entropy                               -1.27     0.01816  *
+zsum_wedge_r_gini                                  +1.26     0.01923  *
+zsum_y_entropy                                     -1.22     0.01981  *
+zsum_y_sd_um                                       -0.98     0.02724  *
+zsum_wedge_r_sd_um                                 -1.05     0.03427  *
+zsum_wedge_mt_apex_elongation                      +0.82     0.03860  *
+maxip_wedge_mt_apex_elongation                     +0.76     0.05882  ns
+maxip_wedge_r_gini                                 +0.98     0.05989  ns
+maxip_wedge_r_entropy                              -1.00     0.06873  ns
+maxip_y_gini                                       +0.88     0.07923  ns
+maxip_y_entropy                                    -0.92     0.09225  ns
+
+
+==========================================================================================
+TRAK2 helix muts  (family m=2)
+==========================================================================================
+
+--- TRAK2 vs TRAK2 mDRH (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+maxip_perinuclear_5um_pct                          -0.65     0.01701  *
+maxip_mean_dist_to_nucleus_um                      +0.72     0.01842  *
+zsum_mean_dist_to_nucleus_um                       +0.69     0.02590  *
+zsum_perinuclear_5um_pct                           -0.63     0.02727  *
+maxip_wedge_r_entropy                              +0.73     0.08931  ns
+maxip_wedge_mt_apex_lam_min_um2                    +0.59     0.10438  ns
+maxip_wedge_mt_apex_elongation                     -0.62     0.14182  ns
+maxip_y_entropy                                    +0.65     0.14989  ns
+maxip_wedge_r_sd_um                                +0.59     0.15574  ns
+maxip_wedge_r_gini                                 -0.70     0.18519  ns
+zsum_wedge_mt_apex_elongation                      -0.52     0.23792  ns
+maxip_wedge_r_ks_vs_uniform                        -0.34     0.25017  ns
+
+--- TRAK2 mDRH vs TRAK2 mDRH mSpindly (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+maxip_wedge_r_q75_um                               -1.46     0.00008  ***
+maxip_wedge_r_ks_vs_uniform                        +1.54     0.00011  ***
+zsum_wedge_r_ks_vs_uniform                         +1.65     0.00015  ***
+maxip_wedge_r_35_55um_frac_pct                     -1.24     0.00037  ***
+zsum_wedge_r_q75_um                                -1.23     0.00056  ***
+maxip_wedge_r_q50_um                               -1.02     0.00088  ***
+maxip_wedge_r_mean_um                              -0.96     0.00103  **
+zsum_wedge_r_35_55um_frac_pct                      -1.13     0.00184  **
+maxip_y_mean_um                                    +0.90     0.00213  **
+maxip_wedge_mt_apex_lam_min_um2                    -1.26     0.00226  **
+zsum_wedge_r_mean_um                               -0.93     0.00239  **
+maxip_peripheral_5um_pct                           -1.36     0.00277  **
+
+
+==========================================================================================
+MAPK9 siRNA  (family m=5)
+==========================================================================================
+
+--- ctrl ctrl vs MAPK9 ctrl (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+zsum_y_mean_um                                     -0.40     0.62274  ns
+zsum_wedge_r_mean_um                               +0.39     0.65880  ns
+zsum_perinuclear_5um_pct                           -0.43     0.67089  ns
+maxip_y_mean_um                                    -0.38     0.68471  ns
+zsum_wedge_r_q75_um                                +0.36     0.69316  ns
+zsum_wedge_r_q50_um                                +0.35     0.69931  ns
+zsum_wedge_r_35_55um_frac_pct                      +0.35     0.72765  ns
+maxip_wedge_r_mean_um                              +0.35     0.74582  ns
+maxip_wedge_mt_apex_elongation                     +0.43     0.78110  ns
+maxip_wedge_r_q50_um                               +0.30     0.79183  ns
+zsum_wedge_r_q25_um                                +0.33     0.79991  ns
+maxip_wedge_r_q25_um                               +0.32     0.80433  ns
+
+--- ctrl ctrl vs ctrl Ars (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+maxip_wedge_r_ks_vs_uniform                        -1.11     0.01342  *
+zsum_peripheral_5um_pct                            +1.13     0.01705  *
+maxip_peripheral_5um_pct                           +1.05     0.01769  *
+zsum_wedge_r_ks_vs_uniform                         -0.95     0.04232  *
+maxip_wedge_r_q75_um                               +0.90     0.04526  *
+maxip_wedge_r_20_35um_frac_pct                     -1.05     0.09189  ns
+maxip_wedge_r_35_55um_frac_pct                     +0.76     0.10809  ns
+maxip_perinuclear_5um_pct                          -0.81     0.10910  ns
+maxip_mean_dist_to_nucleus_um                      +0.81     0.11392  ns
+maxip_wedge_r_sd_um                                +0.99     0.11872  ns
+maxip_wedge_r_entropy                              +0.86     0.13824  ns
+zsum_wedge_r_q75_um                                +0.62     0.15162  ns
+
+--- ctrl ctrl vs MAPK9 Ars (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+zsum_peripheral_5um_pct                            +1.06     0.03291  *
+maxip_wedge_r_ks_vs_uniform                        -0.92     0.04336  *
+zsum_wedge_r_ks_vs_uniform                         -0.90     0.04665  *
+maxip_peripheral_5um_pct                           +0.89     0.05236  ns
+zsum_wedge_r_q75_um                                +0.75     0.06505  ns
+zsum_wedge_r_35_55um_frac_pct                      +0.83     0.08039  ns
+maxip_wedge_r_q75_um                               +0.79     0.10252  ns
+maxip_wedge_r_35_55um_frac_pct                     +0.75     0.13077  ns
+zsum_wedge_r_20_35um_frac_pct                      -0.95     0.18099  ns
+maxip_wedge_r_q50_um                               +0.55     0.22706  ns
+maxip_wedge_r_20_35um_frac_pct                     -0.92     0.22707  ns
+zsum_perinuclear_5um_pct                           -0.62     0.28934  ns
+
+--- MAPK9 ctrl vs MAPK9 Ars (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+zsum_wedge_r_sd_um                                 +0.88     0.14798  ns
+maxip_wedge_r_20_35um_frac_pct                     -0.96     0.16177  ns
+zsum_wedge_r_20_35um_frac_pct                      -0.89     0.16777  ns
+maxip_wedge_r_sd_um                                +0.83     0.16845  ns
+zsum_y_sd_um                                       +0.91     0.17304  ns
+zsum_peripheral_5um_pct                            +0.71     0.17395  ns
+maxip_wedge_r_ks_vs_uniform                        -0.65     0.20503  ns
+maxip_y_sd_um                                      +0.84     0.21046  ns
+zsum_wedge_r_ks_vs_uniform                         -0.57     0.23191  ns
+zsum_wedge_r_gini                                  -0.70     0.24583  ns
+maxip_wedge_r_entropy                              +0.65     0.25463  ns
+maxip_wedge_r_gini                                 -0.70     0.26810  ns
+
+--- ctrl Ars vs MAPK9 Ars (top 12) ---
+Metric                                                 d           p  sig
+---------------------------------------------------------------------------
+maxip_y_entropy                     

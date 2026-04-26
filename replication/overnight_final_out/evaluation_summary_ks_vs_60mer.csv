@@ -1,0 +1,65 @@
+sheet,pair,metric,d,p
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_ks_vs_60merNoTRAK,0.490379271665941,0.5911000787823204
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_ks_vs_60merNoTRAK,0.658006478321261,0.2717447817616975
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_ks_vs_uniform,0.5785504414673263,0.42656607051219675
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_ks_vs_uniform,0.5203590720506077,0.36189837353669674
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_ks_vs_60merNoTRAK,-0.928993278022792,0.089546168484535
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_ks_vs_60merNoTRAK,-1.077137908243376,0.026431990508806735
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_ks_vs_uniform,-0.9090894247466795,0.13039588591567863
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_ks_vs_uniform,-0.9640946689744783,0.023801224783485897
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_ks_vs_60merNoTRAK,-1.5783619998516734,0.008059673186706529
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_ks_vs_60merNoTRAK,-1.7734273825512799,0.00107418672296955
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_ks_vs_uniform,-1.6077968112281738,0.00748130884346343
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_ks_vs_uniform,-1.48179345648338,0.0012951002838726966
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_ks_vs_60merNoTRAK,-0.2396847558205488,0.9299950125891606
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_ks_vs_60merNoTRAK,-0.06271133263682925,0.9979019697425061
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_ks_vs_uniform,-0.02013636964800606,0.9999599331534007
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_ks_vs_uniform,0.11452648642663553,0.9902589823069823
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_ks_vs_60merNoTRAK,-0.4103208859827083,0.8230168943916518
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_ks_vs_60merNoTRAK,-0.2953851106769706,0.8849596362145951
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_ks_vs_uniform,-0.1823986668315565,0.9746814279422819
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_ks_vs_uniform,-0.03441361017844632,0.9997640271480377
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_ks_vs_60merNoTRAK,-0.11004942915259988,0.9871245418032154
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_ks_vs_60merNoTRAK,-0.20213746241051603,0.9159501703844317
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_ks_vs_uniform,-0.15233902285494233,0.9722828233673798
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_ks_vs_uniform,-0.14576986313844723,0.9712130382182217
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_ks_vs_60merNoTRAK,-1.5034848145499764,0.0025918959071155045
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_ks_vs_60merNoTRAK,-2.257285423984875,0.000013691792341341547
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_ks_vs_uniform,-0.3609323369428132,0.7307757496023106
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_ks_vs_uniform,-0.04526705665618755,0.9991914569236685
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_ks_vs_60merNoTRAK,-0.8717824135996228,0.0831607251778993
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_ks_vs_60merNoTRAK,-1.6982784712059351,0.00003186286251843917
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_ks_vs_uniform,-0.8959313279857468,0.03918189666716965
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_ks_vs_uniform,-1.4236131209765057,0.0002566297832493625
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_ks_vs_60merNoTRAK,0.6737325767002071,0.1625390817898953
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_ks_vs_60merNoTRAK,0.29984635021554373,0.7711407247098564
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_ks_vs_uniform,-0.5130517518531332,0.3862305657722239
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_ks_vs_uniform,-1.3705469106114068,0.00047908287567166585
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_ks_vs_60merNoTRAK,-1.4678741220178786,0.003861155756971768
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_ks_vs_60merNoTRAK,-1.9309497769684716,0.001073316177873429
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_ks_vs_uniform,-1.660450412250589,0.0008706297654677009
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_ks_vs_uniform,-2.072462761795109,0.0004451675904343366
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_ks_vs_60merNoTRAK,0.3923225437757385,0.4068457426577131
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_ks_vs_60merNoTRAK,0.35223729648988594,0.5508650878220314
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_ks_vs_uniform,0.40319617447149525,0.4011257728959893
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_ks_vs_uniform,0.3114057919010125,0.6090771224752582
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_ks_vs_60merNoTRAK,-0.19317846888894866,0.6432782322533603
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_ks_vs_60merNoTRAK,-0.30560026899494674,0.28539979330958853
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_ks_vs_uniform,-0.3300515964686839,0.33522182956103586
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_ks_vs_uniform,-0.33918100510908494,0.25016802295346485
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_ks_vs_60merNoTRAK,1.444589230250528,0.00041437523384779684
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_ks_vs_60merNoTRAK,1.6204770632401306,0.00008984697264780017
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_ks_vs_uniform,1.6538801439670916,0.0001450836502440156
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_ks_vs_uniform,1.542408777340271,0.00011401654976361808
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_ks_vs_60merNoTRAK,-0.6733344079699806,0.04772234892391214
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_ks_vs_60merNoTRAK,-1.0693128416596014,0.009943816146677609
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_ks_vs_uniform,-0.9488940939872129,0.02560901327664966
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_ks_vs_uniform,-1.1091459310799625,0.008074514132969779
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_ks_vs_60merNoTRAK,-0.23822429548063992,0.7197235166106308
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_ks_vs_60merNoTRAK,-0.29047605080732186,0.7337678246224797
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_ks_vs_uniform,-0.2767941247133481,0.6885056515971681
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_ks_vs_uniform,-0.31263648873612165,0.7050996104568148
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_ks_vs_60merNoTRAK,-0.4672208452606348,0.16362697924780711
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_ks_vs_60merNoTRAK,-0.6035408249370503,0.14360944490789485
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_ks_vs_uniform,-0.5707336055073005,0.14641555370568105
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_ks_vs_uniform,-0.6459154849280131,0.12861689868491266

@@ -1,132 +1,125 @@
 # Handoff — Fig 4 / S11 alt-metric pitch
 
-*Written 2026-04-23 after pushing `wpg/alt-metrics` to the `gladkovalab` fork.*
+*Written 2026-04-23. Updated to reflect complete MaxIP pipeline run.*
 
 Start here when you come back. This is a quick reorientation, **not** a
 repeat of `RESULTS.md` (which is the actual pitch memo for the coauthors).
 
 ---
 
-## Where we left off
+## Where things stand
 
 **Branch**: `wpg/alt-metrics` pushed to
-`git@github.com:gladkovalab/micropattern_cell_analysis.git`. Upstream
-remote is `JaneliaSciComp`.
+`git@github.com:gladkovalab/micropattern_cell_analysis.git`. Upstream is
+`JaneliaSciComp/micropattern_cell_analysis`.
 
-**Main deliverable**: `replication/RESULTS.md` — the pitch memo for Mark
-and the senior author. Contents in order:
-- §0 Paper-claims audit (confirms every "recovered significance" maps to
-  a main-text claim the paper makes that Mark's metric misses)
-- §1 Candidate metrics defined
-- §2 Per-panel Šídák-corrected p-values (Mark vs diff vs ratio, on all
-  seven Fig 4 / Fig S11 panels)
-- §3 Diff vs ratio trade-off
-- §4 Methodology footnote on classical ANOVA vs MixedLM
+**Main deliverable**: `replication/RESULTS.md` — pitch memo for Mark and
+the senior author. §0 is the paper-claims audit (confirms every "recovered
+significance" corresponds to a main-text claim the paper makes). §2 has
+per-panel tables with 5 metric options each. §3 is the diff-vs-ratio
+trade-off and recommended pitch.
 
-**Headline result**: For **TRAK1 wt → mDRH** (the panel closest to
-reviewers' complaint about weak significance), **MaxIP-based polarization
-metrics push Cohen's d from Mark's −0.75 to +1.51** (p < 0.001), solely
-by changing the projection method (per-pixel z-max instead of z-sum).
-This beats even Mark's denoised-z-sum peripheral metric — without the
-Nikon commercial denoiser dependency.
+**Pipeline run**: complete. 429 cells × 89 metrics across all 49 wells
+(TRAK1 helix, TRAK2 helix, TRAK isoform mito, MAPK9 siRNA). Per-cell
+data in `replication/overnight_out/combined.csv`. Scored results in
+`replication/overnight_eval_out/summary.csv`. Zero processing errors in
+the final run.
+
+**Headline findings** (all in `RESULTS.md` §0):
+
+1. **MaxIP projection + peri-nuc polarization metrics** strictly improve
+   over Mark's z-sum perinuclear metric on every Fig S11 pair, and crucially
+   recover significance on three comparisons the paper text claims as
+   significant but Mark's current metric misses:
+   - Fig 4D TRAK2 vs mDRH peripheral: ns 0.39 → **\* 0.01** (MaxIP diff)
+   - Fig S11 E TRAK2 mDRH vs mSpindly perinuclear: ns 0.052 → **\*\*\* 0.0003** (MaxIP ratio)
+   - Fig S11 F ctrl vs ctrl-Ars perinuclear: ns 0.083 → **\*\*\* 0.0007** (MaxIP ratio)
+
+2. **Cutoff-combination sweep** (5 × 5 grid of zone radii): (5 µm, 5 µm)
+   is the best-or-tied-best combination on virtually every pair. Defends
+   Mark's methodological choice. No cherry-picking.
+
+3. **Trade-off between diff and ratio**: diff catches TRAK2 wt→mDRH
+   (both Fig 4D and S11 E primary claim), ratio is much stronger on MAPK9
+   + Fig 4B. Neither strictly dominates. Recommended primary: MaxIP diff
+   (preserves the TRAK2 claim which the paper relies on) with an honest
+   "ratio is stronger on MAPK9" note.
 
 ---
 
-## The unfinished bit — TRAK2 MaxIP data
+## Open follow-up work
 
-**Status**: 6 of 12 TRAK2 helix-muts wells are missing MaxIP data because
-the SMB mount to `/Volumes/valelab/` drops silently every ~15 min of
-active I/O on this laptop. The `RESULTS.md` TRAK2 numbers are currently
-from Mark's z-sum CSVs only; the MaxIP numbers there are partial and
-unreliable for TRAK2.
+### High priority
 
-**Missing wells** (5 plates × 2 conditions = 6 wells, ~106 GB raw ND2):
+**Zone-area normalization** (queued task #19). Mark's metric is
+zone_signal / total_cell_signal. A "density" version would be
+zone_signal / zone_area, making the polarization metric area-independent
+(expected value 0 for diff, 1.0 for ratio under uniform distribution).
+Whether this matters empirically depends on whether nucleus/zone size
+systematically varies by condition.
 
-| Plate | Well | Condition |
-|---|---|---|
-| 250612_patterned_plate_3 | B07 | TRAK2 mDRH |
-| 250612_patterned_plate_3 | B08 | TRAK2 mDRH / mSpindly |
-| 250710_patterned_plate_9_good | C07 | TRAK2 mDRH |
-| 250710_patterned_plate_9_good | C08 | TRAK2 mDRH / mSpindly |
-| 250731_patterned_plate_11_good | D07 | TRAK2 mDRH |
-| 250731_patterned_plate_11_good | E07 | TRAK2 mDRH / mSpindly |
-| 250606_patterned_plate_2 | D05 | TRAK2 mDRH / mSpindly |
+To test: patch `metric_pipeline.py` to save
+`perinuclear_5um_area_px`, `peripheral_5um_area_px`, and
+`nucleus_area_px`, re-run on all 49 wells (~15 hours), rebuild_combined
+and evaluate. Expected outcome: second-order effect that doesn't
+overturn the headline MaxIP findings, but good defensive paragraph for
+the pitch.
 
-(That's 7 wells — one of them on plate 2 wasn't even processed over SMB.)
+### Lower priority
 
-**To finish it**:
-```
-# 1. Mount valelab (⌘K in Finder, smb://gladkovac@prfs.hhmi.org/valelab)
-# 2. Stage all 7 wells to local disk (~1 hour at ~32 MB/s with 3-way parallelism)
-bash replication/stage_missing_wells.sh
-tail -f replication/local_staged/stage.log   # watch progress
-
-# 3. Run the pipeline against local data (~1 hour, no network)
-MICROPATTERN_DATA_ROOT="$(pwd)/replication/local_staged/patterned_data" \
-  PYTHONUNBUFFERED=1 \
-  nohup pixi run python replication/overnight_run.py \
-  >> replication/overnight_out/stdout.log 2>&1 &
-
-# 4. Rebuild the combined CSV (fixes cross-sheet tagging) and re-score
-pixi run python replication/rebuild_combined.py
-pixi run python replication/evaluate_overnight.py
-
-# 5. Update plots + memo with the completed TRAK2 MaxIP numbers
-pixi run python replication/plot_all_panels.py
-# manually refresh the TRAK2 rows in RESULTS.md
-
-# 6. Delete the staged copy when done (saves ~110 GB)
-rm -rf replication/local_staged/
-```
-
-The `overnight_run.py` is **idempotent per cell** — if the mount drops
-mid-cell, only that one cell is lost; all previously-completed cells
-persist as `replication/overnight_out/by_well/{plate}/{well}/cells/*.csv`
-and get aggregated into a per-well CSV when the well finishes.
+- **Rerun with plate-weighted nested ANOVA** for exact Prism p-value
+  parity. Current framework uses cell-count-weighted; 1.1–1.5× offset on
+  raw p; no significance class flips. A 20-line change in
+  `replicate_stats.py` if reviewers demand exact parity.
+- **MaxIP on peroxisome data (Fig S11 C)**. Not processed overnight.
+  Paper's explicit null claim — if MaxIP happens to overturn it, that's
+  a real finding rather than a pitch.
 
 ---
 
 ## How the code is organized
 
-All new work is under `replication/`. Modified repo files: only
-`template_matching_bulk.py` (added `MICROPATTERN_DATA_ROOT` env var so the
-pipeline runs off-cluster; all other logic unchanged).
+All new work is under `replication/`. Only edit to Mark's pipeline:
+`template_matching_bulk.py` (added `MICROPATTERN_DATA_ROOT` env var so
+the pipeline runs off-cluster; all other logic unchanged).
 
 ### Data flow
 
 ```
-raw ND2s in mark_data/ (or local_staged/)
+raw ND2s (mark_data/ or local_staged/)
         │
-        ▼
- template_matching_bulk.py  ← Mark's original (lightly patched)
-        │                     per-cell perinuclear_5um / peripheral_5um
-        ▼
- mark_data/analysis/260224/**/template_matching.csv
+        ├── template_matching_bulk.py  ─→  mark_data/analysis/260224/**/template_matching.csv
+        │       (Mark's original pipeline, lightly patched)                │
+        │                                                                  ▼
+        │                                           replication/derived_metrics.py
+        │                                           → per-cell diff/ratio from z-sum CSVs
+        │                                           → Mark baseline vs our alternatives
+        │                                           → replication/derived_metrics_out/*.csv
         │
-        ▼
- replication/derived_metrics.py
-        │     per-cell derived metrics (diff, ratio, share, bins, …)
-        │     nested ANOVA + MixedLM + Šídák across pair family
-        ▼
- replication/derived_metrics_out/{per_cell,per_metric_summary}.csv
-        │
-        ▼
- replication/plot_all_panels.py  →  replication/figures/*.png,pdf
-        │
-        ▼
- replication/RESULTS.md  (the pitch)
-```
-
-The overnight branch is parallel to this — it re-processes raw ND2s to
-get MaxIP metrics alongside z-sum:
-
-```
-raw ND2s → replication/metric_pipeline.py (process_cell: z-sum + MaxIP)
-         → replication/overnight_out/by_well/**/metrics.csv
-         → replication/rebuild_combined.py (joins across sheets correctly)
-         → replication/overnight_out/combined.csv
-         → replication/evaluate_overnight.py (same stats as above)
-         → replication/overnight_eval_out/summary.csv
+        └── replication/metric_pipeline.py (process_cell: z-sum + MaxIP)
+                │                                                          │
+                ▼                                                          ▼
+        replication/overnight_run.py                    replication/plot_all_panels.py
+        (per-well driver with checkpointing)            → replication/figures/*_alt_metrics.{png,pdf}
+                │                                        (three-row: Mark + z-sum diff + z-sum ratio)
+                ▼
+        replication/overnight_out/by_well/**/metrics.csv
+                │
+                ▼
+        replication/rebuild_combined.py  (fix cross-sheet tags)
+                │
+                ▼
+        replication/overnight_out/combined.csv
+                │
+                ├── replication/evaluate_overnight.py
+                │   → replication/overnight_eval_out/summary.csv
+                │
+                ├── replication/cutoff_sweep.py
+                │   → replication/cutoff_sweep_out/cutoff_sweep.csv
+                │
+                └── replication/plot_all_panels_maxip.py
+                    → replication/figures/*_alt_metrics_maxip.{png,pdf}
+                    (five-row: Mark + z-sum diff/ratio + MaxIP diff/ratio)
 ```
 
 ### Files that matter (mental model)
@@ -139,47 +132,92 @@ raw ND2s → replication/metric_pipeline.py (process_cell: z-sum + MaxIP)
 | `replication/derived_metrics.py` | metrics from Mark's CSVs (no re-imaging) |
 | `replication/metric_pipeline.py` | metrics from raw ND2s (z-sum + MaxIP) |
 | `replication/overnight_run.py` | driver that runs metric_pipeline per well |
-| `replication/stage_missing_wells.sh` | parallel cp SMB → local |
+| `replication/stage_missing_wells.sh` | parallel cp SMB → local (for when SMB is flaky) |
 | `replication/rebuild_combined.py` | fix cross-sheet tags in combined.csv |
 | `replication/evaluate_overnight.py` | scoring framework over overnight data |
-| `replication/plot_all_panels.py` | Fig 4 + S11 side-by-side plots |
+| `replication/cutoff_sweep.py` | (X, Y) zone-radius grid search |
+| `replication/plot_all_panels.py` | three-row plots (Mark + z-sum diff/ratio) |
+| `replication/plot_all_panels_maxip.py` | five-row plots adding MaxIP rows |
+
+---
+
+## Reproduce the full story from scratch
+
+If the pipeline needs to be re-run (e.g. for zone-area normalization):
+
+```bash
+# 1. Mount valelab (⌘K in Finder, smb://gladkovac@prfs.hhmi.org/valelab)
+# 2. Verify
+ls /Volumes/valelab/_for_Mark/patterned_data/ | head
+
+# 3. Run the pipeline against SMB (or via local_staged for robustness)
+MICROPATTERN_DATA_ROOT="$(pwd)/mark_data/patterned_data" \
+  PYTHONUNBUFFERED=1 \
+  nohup pixi run python replication/overnight_run.py \
+  >> replication/overnight_out/stdout.log 2>&1 &
+
+# caffeinate to prevent sleep
+caffeinate -dimsu -w <pid>
+
+# 4. Consolidate and score
+pixi run python replication/rebuild_combined.py
+pixi run python replication/evaluate_overnight.py
+pixi run python replication/cutoff_sweep.py
+pixi run python replication/plot_all_panels.py
+pixi run python replication/plot_all_panels_maxip.py
+```
+
+The `overnight_run.py` is **idempotent per cell** — if the mount drops
+mid-cell, only that one cell is lost. Already-processed cells persist as
+`by_well/{plate}/{well}/cells/*.csv` and get aggregated into a
+per-well CSV when the well finishes (with a `done.marker`).
 
 ---
 
 ## Context / provenance gotchas
 
-- **Pairs differ per panel**. The Šídák family Mark uses in each Prism file is different. Fig S11 D/E/4C/4D use m=2 adjacent pairs. Fig 4B / S11 C / TRAK isoform-mito use m=3 all-pairs. Fig 4E peripheral uses m=3 of (A-B, A-C, A-D) against a reference. Fig S11 F perinuclear uses m=3 of (A-C, B-D, C-D). See per-panel comments in `plot_all_panels.py`.
-- **MAPK9 Prism column order** is NOT the Comparisons sheet order. Prism A/B/C/D = (ctrl ctrl, MAPK9 ctrl, ctrl Ars, MAPK9 Ars); sheet columns are (ctrl ctrl, ctrl Ars, MAPK9 ctrl, MAPK9 Ars). Lost an hour to this.
-- **Plate 9 schema** is the older one (`perinuclear_percent_total` not `perinuclear_5um_percent_total`). `derived_metrics.py` canonicalises old → new internally.
-- **Cross-sheet well aliasing**: many wells are referenced by multiple sheets under different condition labels (e.g. plate 3 B03 is both `TRAK isoform (mito) · TRAK1` and `TRAK1 helix muts · T1 wt`). The first overnight_run dropped the duplicate tag; `rebuild_combined.py` fixes this by joining per-cell metrics against the comparisons table.
-- **Paper Fig S11 F uses m=3** Šídák (published p-values 0.0827, 0.7397, 0.7738), while the on-disk Prism snapshot uses m=2 (p-values 0.056, 0.63). The published figure is authoritative.
+- **Pair families differ per panel**. Fig S11 D/E/4C/4D use m=2 adjacent
+  pairs. Fig 4B / S11 C use m=3 all-pairs. Fig 4E peripheral uses m=3
+  against a reference (A-B, A-C, A-D in Prism column order). Fig S11 F
+  perinuclear uses m=3 of (A-C, B-D, C-D). See per-panel comments in
+  `plot_all_panels.py`.
+- **MAPK9 Prism column order differs from the Comparisons sheet.** Prism
+  A/B/C/D = (ctrl ctrl, MAPK9 ctrl, ctrl Ars, MAPK9 Ars); sheet columns
+  are (ctrl ctrl, ctrl Ars, MAPK9 ctrl, MAPK9 Ars). Lost an hour to this.
+- **Plate 9 has older CSV schema** (`perinuclear_percent_total` not
+  `perinuclear_5um_percent_total`). `derived_metrics.py` canonicalizes
+  old → new internally.
+- **Cross-sheet well aliasing**: many wells are referenced by multiple
+  sheets under different condition labels (e.g. plate 3 B03 is both
+  `TRAK isoform (mito) · TRAK1` and `TRAK1 helix muts · T1 wt`). My
+  first overnight_run dropped the duplicate tag; `rebuild_combined.py`
+  fixes this.
+- **Paper Fig S11 F uses m=3** Šídák (published p-values 0.0827, 0.7397,
+  0.7738), while the on-disk Prism snapshot uses m=2 (p-values 0.056,
+  0.63). The published figure is authoritative — `plot_all_panels*.py`
+  use m=3 for this panel.
 
 ---
 
-## One thing to verify next session
+## SMB mount gotchas (only matters if re-running against SMB)
 
-The classical nested-ANOVA p-values in my framework are ~1.1-1.5× Mark's
-Prism values on the same pair (cell-count-weighted vs Prism's plate-level
-weighting in the SS partition). Significance class agrees on every
-comparison I checked. If a reviewer specifically pushes back on p-value
-precision, the fix is to switch `nested_oneway_anova` in
-`replicate_stats.py` from cell-weighted SS to plate-weighted SS. I didn't
-do it because the calls of significance all match — but it's a ~20-line
-change if needed.
+- `/Volumes/valelab/` drops silently every ~15 min of active SMB I/O on
+  this laptop. macOS SMB sessions don't auto-remount after disconnection.
+- Silent drops kill the python process without a traceback (looks like
+  SIGKILL).
+- `overnight_run.py` has per-cell checkpointing; safe to Ctrl-C and
+  resume. Just re-run and it picks up where it left off (done.marker
+  files + per-cell CSVs).
+- `stage_missing_wells.sh` provides a workaround for persistent flakiness:
+  parallel cp (3 streams) into `replication/local_staged/`, ~32 MB/s
+  aggregate. Processing from local_staged is fully network-independent.
 
 ---
 
-## Optional extensions (not required for the pitch)
+## Reference paths
 
-1. **Add MaxIP rows to `plot_all_panels.py` per-panel plots.** Currently
-   the committed plots show Mark / z-sum diff / z-sum ratio. Adding
-   MaxIP diff and MaxIP ratio rows would surface the TRAK1 MaxIP result
-   visually. Needs data from `overnight_out/combined.csv` merged into the
-   plotting dataframe.
-2. **Rerun with plate-weighted nested ANOVA** for exact Prism parity.
-3. **MaxIP on peroxisome data (Fig S11 C)** — not processed overnight. If
-   MaxIP sharpens the peroxisome distribution as much as it did for
-   mitochondria, the paper's null claim for peroxisomes might flip. That
-   would be a real finding, not a pitch issue.
-4. **Commit the figures as SVG instead of PNG+PDF** for smaller diffs if
-   you regenerate often.
+- Manuscript: `manuscript/aeh1475_CombinedPDF_v3.pdf` (Fig 4 page 20,
+  Fig S11 page 45). Main text claims for each pair in ¶35-37 of
+  `aeh1475_ArticleContent_v2.docx`.
+- Mark's Prism files: `mark_data/analysis/260224/prism_plots/{...}/`.
+- Comparisons table: `config/Comparisons_table_v3.xlsx`.

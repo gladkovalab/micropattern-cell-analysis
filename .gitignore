@@ -69,8 +69,27 @@ replication/overnight_out/progress.log
 replication/stats_out/
 replication/__pycache__/
 
+# Round 2 (final / fig4b / mapk9 / scratch test) outputs — multi-MB to multi-GB,
+# regenerable from the per-cell pipeline. Keep aggregated CSVs + figures only.
+replication/overnight_final_out/by_well/
+replication/overnight_final_out/failing_cells_diagnostic/
+replication/overnight_final_out/geometry_verification/
+replication/overnight_final_out/figures/
+replication/overnight_final_out/figures_ks_vs_60mer/
+replication/overnight_final_out/*.log
+replication/overnight_final_out/combined_raw_pre_*.csv
+replication/overnight_fig4b_out/
+replication/overnight_fig4b_v2_out/
+replication/overnight_final_mapk9_denoised/
+replication/single_zone_test_out/
+replication/nucleus_seg_validation/
+
 # Keep the small, commit-worthy outputs:
 #   replication/derived_metrics_out/ (~1 MB CSVs)
 #   replication/overnight_out/combined.csv (aggregated metrics)
 #   replication/overnight_eval_out/ (~250 KB summary)
 #   replication/figures/ (~2 MB)
+#   replication/overnight_final_out/combined_raw.csv (~3 MB)
+#   replication/overnight_final_out/evaluation_summary*.csv
+#   replication/overnight_final_out/eval_report.txt
+#   replication/overnight_final_out/*_metadata.csv

@@ -1,0 +1,793 @@
+sheet,pair,metric,d,p
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_perinuclear_5um_pct,0.41764549882694885,0.6705388913039823
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_perinuclear_5um_pct,0.4710350258336998,0.4837855134632799
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_peripheral_5um_pct,-0.5490359402399589,0.33678964450933935
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_peripheral_5um_pct,-0.6470672835702407,0.1824969574597558
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_mean_dist_to_nucleus_um,-0.43167928834784963,0.5540529210648248
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_mean_dist_to_nucleus_um,-0.45287152432771,0.32038382103583185
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_y_gini,0.384619300679036,0.6942100603073054
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_y_gini,0.1809010180196239,0.8188484071564378
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_y_entropy,-0.37540797419011884,0.8051722893717574
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_y_entropy,-0.11356573729056059,0.9679288228954338
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_y_sd_um,-0.4693339683314217,0.41996373124852904
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_y_sd_um,-0.23651723806705263,0.7445056071361172
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_y_skew,-0.23748009816460103,0.8468976016777721
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_y_skew,-0.2582297261787823,0.7643512488001707
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_y_mean_um,0.25310488293559447,0.8051032385543742
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_y_mean_um,0.33361576237841073,0.6283314998443698
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_gini,0.3530360885609596,0.7588608901573217
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_gini,0.16267260535386946,0.8987454312753513
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_entropy,-0.34267955517551363,0.8457457980342227
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_entropy,-0.09558703032434986,0.985274607185568
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_ks_vs_uniform,0.5785504414673276,0.4265660705121953
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_ks_vs_uniform,0.5203590720506077,0.36189837353669674
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_sd_um,-0.4292317443972701,0.5564844524170351
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_sd_um,-0.22638897437730401,0.8377048042947478
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_skew,0.3021070238706815,0.7811880393706618
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_skew,0.42841001425916286,0.4442655169857912
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_mean_um,-0.32638050232182925,0.6940611565271898
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_mean_um,-0.4322978492840292,0.4538332850872133
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_q25_um,-0.2228250861738511,0.824355548066697
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_q25_um,-0.29126868981423065,0.5970266227936245
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_q50_um,-0.3563864338836596,0.701575236505299
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_q50_um,-0.5193702110257801,0.40099133027232126
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_q75_um,-0.4400145975712236,0.6330757335613426
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_q75_um,-0.650327789436132,0.22740978752045682
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_20_35um_frac_pct,0.10512315101871823,0.9947071973579739
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_20_35um_frac_pct,0.3597928032878973,0.7848587705450039
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_r_35_55um_frac_pct,-0.2627355163667504,0.8659688449269528
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_r_35_55um_frac_pct,-0.46386447531297675,0.44606407040378393
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_mt_apex_elongation,0.5504608004503619,0.41211279076389684
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_mt_apex_elongation,0.4931139455927465,0.319402094450116
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_mt_apex_lam_min_um2,-0.8178116999985384,0.09812014215907672
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_mt_apex_lam_min_um2,-0.8236238856346891,0.06619006854502663
+TRAK isoform (mito),no TRAK vs TRAK1,zsum_wedge_frac_pct,0.4561938494903329,0.1328302982532662
+TRAK isoform (mito),no TRAK vs TRAK1,maxip_wedge_frac_pct,0.21626880321051084,0.6513887894558603
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_perinuclear_5um_pct,-0.09634224089490578,0.9900913643390422
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_perinuclear_5um_pct,-0.3153586986506661,0.7006336884771212
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_peripheral_5um_pct,0.5930613730289512,0.754823269114582
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_peripheral_5um_pct,0.5412291547831356,0.6841798936210916
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_mean_dist_to_nucleus_um,0.10557305091631991,0.9880585262622659
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_mean_dist_to_nucleus_um,0.3410065998595254,0.653190368925791
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_y_gini,-0.9316432174468013,0.2100254043272669
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_y_gini,-1.3921857953499017,0.002804661711992784
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_y_entropy,0.885629775890872,0.21342361592156756
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_y_entropy,1.272065752701605,0.004073460454879663
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_y_sd_um,0.7714584449012811,0.2128931808333343
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_y_sd_um,1.1514616544230531,0.02173328638522043
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_y_skew,0.6057882972281888,0.08054117602748878
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_y_skew,0.6552705327906074,0.019727443210178275
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_y_mean_um,-0.5249399451140466,0.25048787503190073
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_y_mean_um,-0.4715474038624587,0.3293623449476578
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_gini,-0.9429266918358992,0.20975112849583677
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_gini,-1.4596957301594686,0.003674741937506054
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_entropy,0.9086053174342514,0.19253473865768478
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_entropy,1.3553238086100612,0.0036956378301542525
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_ks_vs_uniform,-0.9090894247466815,0.13039588591567752
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_ks_vs_uniform,-0.9640946689744817,0.023801224783485342
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_sd_um,0.790578934450369,0.20629682538041882
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_sd_um,1.2027508093255528,0.02595630350318401
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_skew,-0.7320510502798497,0.07549016128768027
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_skew,-0.8835311931594529,0.007545002472243212
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_mean_um,0.5125670403471815,0.2804463850766844
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_mean_um,0.5020372504464944,0.2676728201577254
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_q25_um,0.3405433502114277,0.5024726661173735
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_q25_um,0.2505379758036248,0.6603792178233578
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_q50_um,0.532590232021322,0.3033197741942316
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_q50_um,0.5968550832778614,0.21382181481276297
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_q75_um,0.7511144343248825,0.17417570638125146
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_q75_um,0.9183185703381056,0.03965837731880073
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_20_35um_frac_pct,-0.6661191188245368,0.30945123055605384
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_20_35um_frac_pct,-0.9915786833340999,0.046603109548079225
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_r_35_55um_frac_pct,0.6569976388748703,0.24456752034592177
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_r_35_55um_frac_pct,0.8112992391215769,0.07235409908721924
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_mt_apex_elongation,0.43997689300791654,0.6306014506449475
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_mt_apex_elongation,0.5973437098116836,0.30514211300665417
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_mt_apex_lam_min_um2,0.03322594416366458,0.9998897361176314
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_mt_apex_lam_min_um2,-0.06165882187261765,0.9988279216119368
+TRAK isoform (mito),no TRAK vs TRAK2,zsum_wedge_frac_pct,0.3618077292516449,0.39650621249606766
+TRAK isoform (mito),no TRAK vs TRAK2,maxip_wedge_frac_pct,0.06954674181116906,0.99045050410594
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_perinuclear_5um_pct,-0.44196916231173433,0.4092418380918801
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_perinuclear_5um_pct,-0.7007460529275814,0.07442768483908935
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_peripheral_5um_pct,1.045927850992442,0.05264563046873827
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_peripheral_5um_pct,1.1071543275855469,0.020668868358770798
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_mean_dist_to_nucleus_um,0.49133896314925674,0.29872431863938087
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_mean_dist_to_nucleus_um,0.724744608915949,0.03709975700746848
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_y_gini,-1.2415151579154466,0.026058978225790952
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_y_gini,-1.4192610244273163,0.0005247937208198161
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_y_entropy,1.2270547517624422,0.036841468499396623
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_y_entropy,1.3532173477524265,0.001232715427501807
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_y_sd_um,1.1550563371091096,0.012174696951011033
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_y_sd_um,1.1892307816582341,0.003012661888453727
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_y_skew,0.8315470731298263,0.014699265103648829
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_y_skew,0.8957317085800052,0.002886571980630692
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_y_mean_um,-0.8465612323812626,0.04438170447544931
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_y_mean_um,-0.8521594629197975,0.03681900676942873
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_gini,-1.2305657868725073,0.03133434476540764
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_gini,-1.4790011684541584,0.0008372359024934051
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_entropy,1.226516232459368,0.037485961302573534
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_entropy,1.4368011098504705,0.001276742605802128
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_ks_vs_uniform,-1.607796811228177,0.007481308843463097
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_ks_vs_uniform,-1.4817934564833815,0.0012951002838726966
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_sd_um,1.1718159341778043,0.01747362993756596
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_sd_um,1.2754484103874886,0.004588075613751963
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_skew,-1.0458502740112072,0.011242509765835074
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_skew,-1.305870294289412,0.0005864937368758039
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_mean_um,0.9148760650206215,0.0364348575754625
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_mean_um,0.9843863698794917,0.017405027882200552
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_q25_um,0.5960589856763244,0.11696369425418807
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_q25_um,0.5657521738638843,0.09297339031423701
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_q50_um,0.9687055913359004,0.040931662712587635
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_q50_um,1.194509241934419,0.011527321749684183
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_q75_um,1.3354373488925795,0.017910881673442014
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_q75_um,1.6456401178804623,0.001287365859564349
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_20_35um_frac_pct,-0.7760408117440508,0.1651213915122105
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_20_35um_frac_pct,-1.335355250172708,0.007006884150462245
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_r_35_55um_frac_pct,0.9476288234265249,0.05319369611331248
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_r_35_55um_frac_pct,1.3094145087198619,0.004470268253755294
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_mt_apex_elongation,-0.16632719241604485,0.956182324208347
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_mt_apex_elongation,-0.0042425729078754484,0.9999983370965885
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_mt_apex_lam_min_um2,0.9248638020908199,0.05240191638726188
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_mt_apex_lam_min_um2,0.8430037217647242,0.04667838423280779
+TRAK isoform (mito),TRAK1 vs TRAK2,zsum_wedge_frac_pct,-0.14336361526350705,0.7566019033314912
+TRAK isoform (mito),TRAK1 vs TRAK2,maxip_wedge_frac_pct,-0.16383688450815156,0.7429584138377989
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_perinuclear_5um_pct,-0.28598973494376206,0.969785905467135
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_perinuclear_5um_pct,-0.25775961697149563,0.9784262850218761
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_peripheral_5um_pct,-0.17743619465295238,0.9645915751454409
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_peripheral_5um_pct,-0.20091139236528968,0.9521471044715756
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_mean_dist_to_nucleus_um,0.33865396589592606,0.9578125882399928
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_mean_dist_to_nucleus_um,0.3067874832641318,0.9680922069881368
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_y_gini,-0.09868276460849007,0.9971546475789543
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_y_gini,0.0010542194488850972,0.9999999935539999
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_y_entropy,0.10827413478543405,0.9968047562007567
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_y_entropy,-0.01585759235884068,0.999978793115789
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_y_sd_um,0.022474412551690123,0.9999797743467649
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_y_sd_um,-0.09830491107086452,0.9982826990520527
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_y_skew,0.5677713442155127,0.6028196106797137
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_y_skew,0.38624729198442753,0.7665417317916668
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_y_mean_um,-0.18795366191328375,0.8878577350358224
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_y_mean_um,-0.07423739917359705,0.991545911246739
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_gini,-0.025852884494914057,0.9999330684454144
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_gini,0.057605580905918115,0.9983486463417521
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_entropy,0.05721925784925648,0.9994028879463117
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_entropy,-0.04856391754150206,0.9989670253754217
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_ks_vs_uniform,-0.020136369648004682,0.9999599331534007
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_ks_vs_uniform,0.11452648642663633,0.9902589823069821
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_sd_um,0.011039493127938041,0.9999967208794435
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_sd_um,-0.0980474198844814,0.9970140840171153
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_skew,-0.6867369129176728,0.5085720435933636
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_skew,-0.5126759707266088,0.6354256425552322
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_mean_um,0.2022607629233812,0.8773674028639289
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_mean_um,0.07729806773732847,0.9917264624693742
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_q25_um,0.29386291075244275,0.6815420176505984
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_q25_um,0.17171037714206502,0.9209989257253097
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_q50_um,0.38019393938536394,0.6847320677271079
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_q50_um,0.2609498646313231,0.848628181088607
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_q75_um,0.2014583331187402,0.9489636253886973
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_q75_um,0.058998901607701056,0.9979783951024839
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_20_35um_frac_pct,-0.26016809702710925,0.954314265957247
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_20_35um_frac_pct,-0.2557636357705869,0.9561063222947707
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_r_35_55um_frac_pct,0.319816483186951,0.8474990091335167
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_r_35_55um_frac_pct,0.21125058385607878,0.9352799337291142
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_mt_apex_elongation,-0.10381819513776978,0.9844014462283652
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_mt_apex_elongation,-0.01388032444010044,0.9999116435710536
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_mt_apex_lam_min_um2,0.24737163770734538,0.9211023808142561
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_mt_apex_lam_min_um2,0.10219034635010407,0.9882842795449027
+TRAK isoform (peroxisome),no TRAK vs TRAK1,zsum_wedge_frac_pct,0.1662962766937478,0.9941841292907643
+TRAK isoform (peroxisome),no TRAK vs TRAK1,maxip_wedge_frac_pct,0.1332074514456664,0.9965774580062681
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_perinuclear_5um_pct,-0.26033583745728567,0.9755330118553903
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_perinuclear_5um_pct,-0.1824216534209827,0.9923505428536872
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_peripheral_5um_pct,0.07483971836032166,0.997313459807925
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_peripheral_5um_pct,-0.00468855411772059,0.9999991417753769
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_mean_dist_to_nucleus_um,0.14753820406125961,0.9951892034481765
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_mean_dist_to_nucleus_um,0.0571142302834136,0.9997217524817726
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_y_gini,-0.2338491689272016,0.9437215694037843
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_y_gini,-0.23312062617005075,0.9134694122395531
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_y_entropy,0.2858185242461771,0.90802422814889
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_y_entropy,0.2690298618651515,0.8799347479862029
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_y_sd_um,0.2523637294109938,0.9533773748066048
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_y_sd_um,0.17394143109878993,0.9793245039437561
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_y_skew,0.5712242874267525,0.6010234359813453
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_y_skew,0.3784570777028661,0.8441811011301898
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_y_mean_um,-0.281404454754491,0.8381332438290686
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_y_mean_um,-0.0750673927886151,0.9955402880647927
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_gini,-0.21759992428938985,0.949866760061138
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_gini,-0.21025974596864702,0.9139463529151067
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_entropy,0.275903130726758,0.9074894099673404
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_entropy,0.274443868467708,0.8140751847498183
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_ks_vs_uniform,-0.18239866683155653,0.9746814279422819
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_ks_vs_uniform,-0.03441361017844549,0.9997640271480377
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_sd_um,0.361296118503959,0.87937024949492
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_sd_um,0.3386350601609255,0.8678744691351178
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_skew,-0.7474369739306009,0.44591523156105595
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_skew,-0.5783500785364579,0.6246684879585404
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_mean_um,0.24978228069867384,0.8906241193737132
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_mean_um,0.01893126719938562,0.9999306663804931
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_q25_um,0.21884274978494975,0.8870411735146854
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_q25_um,0.00491508665248593,0.9999985946500825
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_q50_um,0.44993664002660627,0.7001667694135849
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_q50_um,0.26693639413917813,0.8925632952173667
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_q75_um,0.40155494822388943,0.8172514251401648
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_q75_um,0.17506148133816987,0.9631379139700957
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_20_35um_frac_pct,-0.6809841856139052,0.40773285686272476
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_20_35um_frac_pct,-0.6115497369288778,0.4242557384183008
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_r_35_55um_frac_pct,0.5550080752352381,0.5539292999787457
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_r_35_55um_frac_pct,0.3534700068982042,0.7724780581497224
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_mt_apex_elongation,-0.11102373233283398,0.9847051606205468
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_mt_apex_elongation,-0.007132197868232731,0.9999913893367892
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_mt_apex_lam_min_um2,0.2254276538623749,0.9378559399538946
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_mt_apex_lam_min_um2,0.06465201311376718,0.9966128668650981
+TRAK isoform (peroxisome),no TRAK vs TRAK2,zsum_wedge_frac_pct,0.21042160396637125,0.9621854072601087
+TRAK isoform (peroxisome),no TRAK vs TRAK2,maxip_wedge_frac_pct,0.15167506194299635,0.9861355956109679
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_perinuclear_5um_pct,0.012714216744440565,0.9999959170471266
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_perinuclear_5um_pct,0.07118068435314397,0.9992749769265159
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_peripheral_5um_pct,0.26281334271057005,0.8750241764744833
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_peripheral_5um_pct,0.19502221692675523,0.9383403004147427
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_mean_dist_to_nucleus_um,-0.16523302933422246,0.9910631112868301
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_mean_dist_to_nucleus_um,-0.22075811903153794,0.976678171390018
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_y_gini,-0.15874523703272472,0.9736789271311587
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_y_gini,-0.2325836067347764,0.8721509478654035
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_y_entropy,0.20558850923802666,0.9467515431105257
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_y_entropy,0.2719779813361515,0.8062032080688141
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_y_sd_um,0.24389866703394927,0.9426825064856382
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_y_sd_um,0.2574913075099487,0.9185745203478819
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_y_skew,0.017126313094197116,0.9999617655060321
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_y_skew,-0.051584042400400966,0.9987644347640214
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_y_mean_um,-0.039621539509308856,0.9985193823340491
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_y_mean_um,0.013788115980862678,0.9999365105415903
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_gini,-0.1951792220130586,0.9439780686074872
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_gini,-0.24891710898185895,0.7874103341984522
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_entropy,0.22983847285167253,0.9159203572990057
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_entropy,0.2963885344244971,0.6522591365464796
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_ks_vs_uniform,-0.15233902285494172,0.9722828233673801
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_ks_vs_uniform,-0.14576986313844642,0.9712130382182221
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_sd_um,0.34677434136804225,0.8373501703467562
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_sd_um,0.40510074018820796,0.6906740914738647
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_skew,-0.07407530724319078,0.9975505235630133
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_skew,-0.022657185308416792,0.9999056646061092
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_mean_um,-0.0034239703862712885,0.9999991311053541
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_mean_um,-0.06541491735732531,0.9940465705613707
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_q25_um,-0.10677887242802037,0.9705988015629983
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_q25_um,-0.1731592224584768,0.8991362847170975
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_q50_um,0.0019809345865676575,0.9999999161435787
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_q50_um,-0.028707133846513626,0.9996879515069717
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_q75_um,0.1403437712440634,0.9744909092850417
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_q75_um,0.10203466505709746,0.9840063746158565
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_20_35um_frac_pct,-0.5355336536144467,0.5749605078556568
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_20_35um_frac_pct,-0.48065219770022094,0.5924015276309207
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_r_35_55um_frac_pct,0.2410765725640334,0.9110014380679924
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_r_35_55um_frac_pct,0.15297892117192582,0.9654927574046734
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_mt_apex_elongation,-0.002298482212874284,0.9999997173370038
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_mt_apex_elongation,0.007552167414579417,0.99998155954243
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_mt_apex_lam_min_um2,-0.01443298768651776,0.9999732904726701
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_mt_apex_lam_min_um2,-0.03395472324128376,0.9993986512779898
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,zsum_wedge_frac_pct,0.10427013333278096,0.9923727165712125
+TRAK isoform (peroxisome),TRAK1 vs TRAK2,maxip_wedge_frac_pct,0.0597212012677232,0.9985789005121388
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_perinuclear_5um_pct,1.8708005264369585,0.0004740433215464357
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_perinuclear_5um_pct,2.4135574224503724,0.00003324282015215729
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_peripheral_5um_pct,-1.2210261478094744,0.016965459241658265
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_peripheral_5um_pct,-1.4831698625421539,0.0026686569831115836
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_mean_dist_to_nucleus_um,-1.5910223178859506,0.0023198249523086467
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_mean_dist_to_nucleus_um,-2.2117311739221264,0.000019045382412263834
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_y_gini,-1.1191365924180212,0.026725938813467076
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_y_gini,-1.4356351668426885,0.0028785284283208146
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_y_entropy,1.1369645823099974,0.019404625885377058
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_y_entropy,1.1390614947697886,0.023468416042214724
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_y_sd_um,-0.5220206898291655,0.46003585950982484
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_y_sd_um,-0.6403131237051631,0.2826946310928423
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_y_skew,-0.42484049227452736,0.6211774109654065
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_y_skew,-0.9235073306164782,0.07446082773656815
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_y_mean_um,0.5765025842958916,0.3679667982149095
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_y_mean_um,0.6212672105290425,0.30682160594149377
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_gini,-1.155150198585467,0.026940630733143567
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_gini,-1.988432962232284,0.00008394632852315453
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_entropy,0.9941421629670155,0.049561157619806395
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_entropy,1.9321873398080867,0.00025903430231832836
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_ks_vs_uniform,-0.3609323369428132,0.7307757496023106
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_ks_vs_uniform,-0.04526705665618755,0.9991914569236685
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_sd_um,0.07959057570011084,0.9955128512325364
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_sd_um,0.11626660015201734,0.9863067971533671
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_skew,0.7291562410920281,0.18888494083463037
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_skew,1.8039684153597686,0.0005799459550127617
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_mean_um,-0.7597083542008658,0.16298863296040356
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_mean_um,-1.2161797935077205,0.012160191772592643
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_q25_um,-0.580165098290716,0.36508845157513425
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_q25_um,-1.131927445818323,0.022039848675406315
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_q50_um,-0.5905784171653107,0.3486605266672148
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_q50_um,-1.2057129905116937,0.012962439540720183
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_q75_um,-0.9594370611037564,0.06008320281714119
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_q75_um,-1.5020394704964437,0.0018924537091726812
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_20_35um_frac_pct,1.1664955066223897,0.01779309018061015
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_20_35um_frac_pct,2.236016475130322,0.0000307890342148287
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_r_35_55um_frac_pct,-0.6939811891488955,0.22714876622151015
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_r_35_55um_frac_pct,-1.4873189778424591,0.0020251795731025535
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_mt_apex_elongation,-0.15730346330011133,0.9676228065059285
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_mt_apex_elongation,-1.4100298134525409,0.003674115273397782
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_mt_apex_lam_min_um2,-0.6141560973168562,0.316172647589538
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_mt_apex_lam_min_um2,-0.35881793598617895,0.7309724435164325
+TRAK isoform (60mer),no TRAK vs TRAK1,zsum_wedge_frac_pct,0.662397253513059,0.2623504531787886
+TRAK isoform (60mer),no TRAK vs TRAK1,maxip_wedge_frac_pct,0.6259955879236518,0.30203877234521237
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_perinuclear_5um_pct,-0.12968622905878507,0.9755750871172387
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_perinuclear_5um_pct,-0.7055048027094809,0.1118370521625267
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_peripheral_5um_pct,0.08290866879046878,0.9903583750120416
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_peripheral_5um_pct,1.1769683943621694,0.008770432295336028
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_mean_dist_to_nucleus_um,0.06329632705155905,0.9973399127613989
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_mean_dist_to_nucleus_um,0.16351248454773593,0.9396012617150702
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_y_gini,-1.428269457414481,0.0008893732192756243
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_y_gini,-2.4347591442655943,1.5687243981599153e-7
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_y_entropy,1.5171362095843597,0.00010328428106620713
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_y_entropy,1.9951089945158684,1.6406553665637702e-6
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_y_sd_um,0.5837375652526184,0.28402388194380734
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_y_sd_um,1.0522444372544486,0.01011778485736825
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_y_skew,0.08913827431184874,0.9881057834500955
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_y_skew,0.24297209688561758,0.7977859939678036
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_y_mean_um,-0.45655447490257545,0.41806273682509454
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_y_mean_um,-0.29537460427749007,0.7662758525531913
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_gini,-1.0825422477501,0.02338227391800418
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_gini,-2.566331271631479,1.7793621465145293e-8
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_entropy,1.167519022433884,0.00924446645222221
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_entropy,1.919802138727717,3.973468362339361e-6
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_ks_vs_uniform,-0.8959313279857468,0.03918189666716965
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_ks_vs_uniform,-1.4236131209765057,0.0002566297832493625
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_sd_um,0.7055089288899755,0.11071745086353602
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_sd_um,1.6911068915123526,0.00003355139402017038
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_skew,-1.152326248253428,0.0025346644335442203
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_skew,-1.682511546367878,0.000022159010340416785
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_mean_um,0.4601881130154773,0.5198911600025812
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_mean_um,0.5273776135566777,0.3274324196459406
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_q25_um,0.4017808272845073,0.6279269138714102
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_q25_um,-0.17548513682875108,0.9442123877923541
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_q50_um,0.32036056796980356,0.7844287248544184
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_q50_um,0.9291835078433235,0.03217999459460186
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_q75_um,0.6700960100603471,0.20109346312866483
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_q75_um,1.0987967357417041,0.0046796290674452345
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_20_35um_frac_pct,-0.802071323086755,0.06903719756987381
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_20_35um_frac_pct,-1.2948663218147696,0.0007484403062190115
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_r_35_55um_frac_pct,0.6240890825137788,0.22696688332901283
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_r_35_55um_frac_pct,0.9190700800621917,0.021225431128684247
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_mt_apex_elongation,-0.9796545655882664,0.008616187291082156
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_mt_apex_elongation,-0.9878715232972837,0.007977521930394582
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_mt_apex_lam_min_um2,0.4550311067836291,0.4325934805166768
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_mt_apex_lam_min_um2,0.8479840640561508,0.030656861912010003
+TRAK isoform (60mer),no TRAK vs TRAK2,zsum_wedge_frac_pct,-0.10327602749134865,0.9890037844799157
+TRAK isoform (60mer),no TRAK vs TRAK2,maxip_wedge_frac_pct,-0.014342231768757534,0.9999583502967994
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_perinuclear_5um_pct,-1.7020769534284235,0.00002028538517739875
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_perinuclear_5um_pct,-2.3334793680819907,1.4842725182262484e-7
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_peripheral_5um_pct,1.353652629142779,0.015443951199941908
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_peripheral_5um_pct,2.3518240281791023,0.00004654896994860103
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_mean_dist_to_nucleus_um,1.6150764787497707,0.00004826182789585687
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_mean_dist_to_nucleus_um,1.784366872695167,0.000023728085655982945
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_y_gini,-0.5927031838184281,0.20870365150609638
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_y_gini,-0.8140413002356117,0.08813541359743948
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_y_entropy,0.7957642219152941,0.051637815070849635
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_y_entropy,0.5820659760098525,0.310662112705266
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_y_sd_um,1.060888348259221,0.015205803949417285
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_y_sd_um,1.41209685787157,0.002778980086790006
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_y_skew,0.3239629899934931,0.671516912674718
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_y_skew,0.7835265366887002,0.07113565082876316
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_y_mean_um,-0.8679355852493091,0.08480892107664262
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_y_mean_um,-0.8239757316245405,0.09431961318041404
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_gini,-0.09476124304647775,0.9877997149317937
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_gini,-0.6053389198038438,0.25087601784806823
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_entropy,0.23222106083871769,0.8766442143407708
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_entropy,0.6593994208368068,0.1421513206799817
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_ks_vs_uniform,-0.5130517518531332,0.3862305657722239
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_ks_vs_uniform,-1.3705469106114068,0.00047908287567166585
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_sd_um,0.5093887400160879,0.42307769937939943
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_sd_um,1.245581377334762,0.006146923609721022
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_skew,-1.5463046272772103,0.00030420088980698257
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_skew,-2.7456405830785187,9.109894860692691e-8
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_mean_um,1.2058923142854097,0.011919408356619976
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_mean_um,1.5634097742469202,0.0006730176156252154
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_q25_um,0.9610199253470028,0.054691390003234974
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_q25_um,1.0866362184812433,0.037297443639692784
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_q50_um,0.9040173270354994,0.09349162267547428
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_q50_um,1.9253924830087163,0.00008827577053815983
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_q75_um,1.6531709354461988,0.00011661213076119559
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_q75_um,2.080756854714567,7.72465708953618e-7
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_20_35um_frac_pct,-1.7819003760688499,0.000015296272038001213
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_20_35um_frac_pct,-2.499190983623843,4.031791278613639e-8
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_r_35_55um_frac_pct,1.2511283746857478,0.0036541372892553436
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_r_35_55um_frac_pct,1.9757716157500487,4.152128479706363e-6
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_mt_apex_elongation,-0.8940022518335676,0.02073899028081072
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_mt_apex_elongation,-0.4746701314593263,0.3380636532665102
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_mt_apex_lam_min_um2,0.9213149389444711,0.04363864562215014
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_mt_apex_lam_min_um2,1.0364867836885574,0.00979462248317986
+TRAK isoform (60mer),TRAK1 vs TRAK2,zsum_wedge_frac_pct,-0.7933975511704521,0.1074693894709432
+TRAK isoform (60mer),TRAK1 vs TRAK2,maxip_wedge_frac_pct,-0.6387179519155568,0.30795476878821715
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_perinuclear_5um_pct,-0.7518876573526846,0.031906853309362826
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_perinuclear_5um_pct,-1.0019188312112235,0.0043442932121583455
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_peripheral_5um_pct,0.9989369677329122,0.0023358339138140893
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_peripheral_5um_pct,1.345414703420008,0.0002563230336372069
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_mean_dist_to_nucleus_um,0.713623754137254,0.0239917060089041
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_mean_dist_to_nucleus_um,0.9796390540009587,0.0019444958279232205
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_y_gini,-1.5919520653550443,0.0014942955535384161
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_y_gini,-1.762535381434888,0.0019530697048557588
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_y_entropy,1.6981935211083987,0.002242041435040143
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_y_entropy,1.7994768435865311,0.004722509609235259
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_y_sd_um,1.5914942172404776,0.0007433892742675363
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_y_sd_um,1.4719063601205886,0.004376464911270306
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_y_skew,0.5396353242803043,0.08179894692756762
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_y_skew,0.621658890908231,0.05301877622810114
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_y_mean_um,-0.635450485162917,0.06137423320051294
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_y_mean_um,-0.7285726628073889,0.03102446722591401
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_gini,-1.5878200674967065,0.001998021063959743
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_gini,-1.8358618914670686,0.001920314446404947
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_entropy,1.6977941290028455,0.0024594332084417747
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_entropy,1.8597538012846961,0.0040505842626793465
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_ks_vs_uniform,-1.6604504122505899,0.0008706297654677009
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_ks_vs_uniform,-2.0724627617951104,0.0004451675904343366
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_sd_um,1.6253737157137773,0.0012684680925754144
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_sd_um,1.5663473242430748,0.003986142509550761
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_skew,-0.6991999757497429,0.028248027100978068
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_skew,-0.843394674110374,0.017310478090143744
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_mean_um,0.7099823766910068,0.032089621056794804
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_mean_um,0.8798246499963868,0.009500939388767615
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_q25_um,0.3313674665163354,0.3491552619966337
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_q25_um,0.31265584013597014,0.3444294846881014
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_q50_um,0.7582146428968196,0.03058704473690721
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_q50_um,1.0130156893470994,0.003999471630999785
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_q75_um,1.1131284560898211,0.005523134913703931
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_q75_um,1.5696945057374003,0.0004989551355688571
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_20_35um_frac_pct,-0.7179034508803499,0.07830946993960997
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_20_35um_frac_pct,-1.2405943804966555,0.007288723151014143
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_r_35_55um_frac_pct,0.8668343233712199,0.0290907403663494
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_r_35_55um_frac_pct,1.253098564447869,0.003919394457570502
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_mt_apex_elongation,-0.5443036113490862,0.12851280036991186
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_mt_apex_elongation,-0.5403560782114978,0.14241242754197303
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_mt_apex_lam_min_um2,0.8830241235195954,0.01724939699887107
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_mt_apex_lam_min_um2,1.0501829542186831,0.003986241023437254
+TRAK1 helix muts,T1 wt vs T1 mDRH,zsum_wedge_frac_pct,-0.2468862650135748,0.7249757137718478
+TRAK1 helix muts,T1 wt vs T1 mDRH,maxip_wedge_frac_pct,-0.30752581639004256,0.4946916763971201
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_perinuclear_5um_pct,0.05986622089101929,0.9732238065623748
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_perinuclear_5um_pct,-0.013988644991369637,0.9980538787003223
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_peripheral_5um_pct,-0.20799564764794445,0.8931865758847621
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_peripheral_5um_pct,-0.12158043201689706,0.9627988808551826
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_mean_dist_to_nucleus_um,-0.05156758452736229,0.976409859238754
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_mean_dist_to_nucleus_um,0.051787939086106745,0.9737302228360141
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_y_gini,1.19272148884461,0.017178642672825872
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_y_gini,0.8808189364274729,0.07922526659939733
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_y_entropy,-1.2199466122253404,0.019805005388537245
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_y_entropy,-0.9240562150222285,0.09225449644014339
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_y_sd_um,-0.977463206516946,0.02724181161531669
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_y_sd_um,-0.5332285888479549,0.3407299628483643
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_y_skew,-0.030592276279191286,0.9899482271165985
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_y_skew,-0.041179672898270625,0.9806248440748626
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_y_mean_um,-0.21871768047133971,0.6369118437889125
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_y_mean_um,-0.19715445085826042,0.7110251600788429
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_gini,1.2594384329233763,0.019232175877277546
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_gini,0.9827350671207211,0.05988584132148167
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_entropy,-1.2659060729871405,0.018158599223826233
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_entropy,-0.9986023493682886,0.06873045502563258
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_ks_vs_uniform,0.4031961744714952,0.4011257728959893
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_ks_vs_uniform,0.3114057919010138,0.6090771224752558
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_sd_um,-1.0549138498973334,0.03426519796139471
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_sd_um,-0.6174952717606282,0.2647132780921051
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_skew,0.19524721266095543,0.6864507763029715
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_skew,0.21292313788647874,0.6631909403803558
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_mean_um,0.16973212997212372,0.7418151582804797
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_mean_um,0.1613607576788425,0.7680102897482761
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_q25_um,0.43583671663127255,0.19857310818824825
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_q25_um,0.440006625028555,0.17487312719855963
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_q50_um,0.13659244466948794,0.8293031941756982
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_q50_um,0.0642767003038843,0.9551047627389859
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_q75_um,-0.1384648835257368,0.8496090114576927
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_q75_um,-0.2598025506292618,0.5878175265405212
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_20_35um_frac_pct,0.33269238527228395,0.5252092395856642
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_20_35um_frac_pct,0.28040260297469677,0.6143944489032571
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_r_35_55um_frac_pct,-0.05566793232449252,0.9816072934667551
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_r_35_55um_frac_pct,-0.04801061062589896,0.9847436624933329
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_mt_apex_elongation,0.8245097508846138,0.038597793002633995
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_mt_apex_elongation,0.7613190524329924,0.058819939834812596
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_mt_apex_lam_min_um2,-0.6052328201947631,0.2724893719212964
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_mt_apex_lam_min_um2,-0.627844009824969,0.23098489965781688
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,zsum_wedge_frac_pct,0.20879109638098656,0.6969838992230428
+TRAK1 helix muts,T1 mDRH vs T1 mDRH / dSp,maxip_wedge_frac_pct,0.07821460236034569,0.9627809861242387
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_perinuclear_5um_pct,-0.6289501836037849,0.027273639131827898
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_perinuclear_5um_pct,-0.6520939988492376,0.017006462656106947
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_peripheral_5um_pct,0.30312690793220576,0.8671801461925885
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_peripheral_5um_pct,0.33089136251465145,0.6541351477761106
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_mean_dist_to_nucleus_um,0.6891652196572337,0.02590212844062545
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_mean_dist_to_nucleus_um,0.7185797645921166,0.01841869107464189
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_y_gini,-0.538253355904472,0.5639036953546602
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_y_gini,-0.6215781745526389,0.2837031312512449
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_y_entropy,0.561541093190492,0.46434932193450584
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_y_entropy,0.6528793322391406,0.14988948139016267
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_y_sd_um,0.5863130642232349,0.4414167817262876
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_y_sd_um,0.49714051660944486,0.28402102665291273
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_y_skew,0.1724657602527568,0.7670379271026682
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_y_skew,0.1403969343512872,0.8402667186298238
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_y_mean_um,-0.028813325889447815,0.9866805741081159
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_y_mean_um,-0.048872985494482685,0.9570546501053346
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_gini,-0.5540009569416124,0.513034818705376
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_gini,-0.7048128515515141,0.18519406791366344
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_entropy,0.5803943801176209,0.41693664270583686
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_entropy,0.7333717984255915,0.08930899221321087
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_ks_vs_uniform,-0.3300515964686853,0.3352218295610332
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_ks_vs_uniform,-0.3391810051090869,0.2501680229534614
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_sd_um,0.5933193813020097,0.3873956298990612
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_sd_um,0.5937137940441838,0.15573564259816564
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_skew,-0.24091114821111154,0.625130524291141
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_skew,-0.25716646901138834,0.6290920022219384
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_mean_um,0.04243321704753593,0.9697352091903471
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_mean_um,0.050225264248775006,0.9498785954075522
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_q25_um,-0.07299125219241694,0.9352632209064347
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_q25_um,-0.06307243529989764,0.9423475213845008
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_q50_um,0.033785972732326745,0.9816942663472659
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_q50_um,0.06724885663187437,0.9172011597743672
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_q75_um,0.12001218869081011,0.7982016148105224
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_q75_um,0.17898588004214808,0.5498407643208483
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_20_35um_frac_pct,-0.07899182040907861,0.9471121787528735
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_20_35um_frac_pct,-0.11269002745971012,0.8853527454914911
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_r_35_55um_frac_pct,0.1333922629950764,0.8194352366273117
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_r_35_55um_frac_pct,0.14176560928321472,0.7518478325839935
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_mt_apex_elongation,-0.5226393519559406,0.23791516471118912
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_mt_apex_elongation,-0.6153821781270924,0.1418220980878817
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_mt_apex_lam_min_um2,0.49176665190800717,0.29180004804802506
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_mt_apex_lam_min_um2,0.5875918558154345,0.10438481228621288
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,zsum_wedge_frac_pct,-0.19005228057198473,0.8678598948089993
+TRAK2 helix muts,TRAK2 vs TRAK2 mDRH,maxip_wedge_frac_pct,0.03021080444389035,0.9959902642642402
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_perinuclear_5um_pct,0.7055783049774218,0.04915571968736332
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_perinuclear_5um_pct,0.8487356948750878,0.008620273621262386
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_peripheral_5um_pct,-1.2471097033639837,0.005590984196626403
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_peripheral_5um_pct,-1.3608450768114955,0.002766754045792852
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_mean_dist_to_nucleus_um,-0.6933676956684144,0.05372415746846115
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_mean_dist_to_nucleus_um,-0.8398129794503808,0.0076242553964839255
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_y_gini,1.074558750024069,0.06340932235814045
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_y_gini,1.1372173774490741,0.01256630214247978
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_y_entropy,-1.1169455538238273,0.06418088599414407
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_y_entropy,-1.1424887082445052,0.007953723899356113
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_y_sd_um,-1.0431639264212433,0.0657339356923975
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_y_sd_um,-0.8766680867971421,0.01405856490402968
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_y_skew,-0.6864583700327841,0.06946467444170734
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_y_skew,-0.7162401564380396,0.07810557408867191
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_y_mean_um,0.8964408784954164,0.003374085594179732
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_y_mean_um,0.9033937621048689,0.0021293982067681627
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_gini,1.1269796296470616,0.04773510730121944
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_gini,1.3002490166396106,0.00527961957031331
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_entropy,-1.1715834110197356,0.04736440572145062
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_entropy,-1.3259886412966635,0.0030177103749905454
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_ks_vs_uniform,1.6538801439670903,0.0001450836502440156
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_ks_vs_uniform,1.542408777340271,0.00011401654976361808
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_sd_um,-1.0868453273674687,0.05033635242648271
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_sd_um,-1.0606694083617096,0.006143176483007662
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_skew,0.8789140435058936,0.03276453024920112
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_skew,1.09393207403906,0.016290060929551764
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_mean_um,-0.9277525214327522,0.002388963354741591
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_mean_um,-0.9611591577228026,0.0010280626331881093
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_q25_um,-0.5899614254383846,0.05432399063081783
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_q25_um,-0.6173038356355502,0.02891306282305739
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_q50_um,-0.9195762946231487,0.003284227802370032
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_q50_um,-1.0235697001418527,0.0008775274374581699
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_q75_um,-1.2344766336547408,0.0005629219059747337
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_q75_um,-1.4580921935996665,0.00008220508567668983
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_20_35um_frac_pct,0.8303435323871209,0.04060871768047958
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_20_35um_frac_pct,1.077202217551061,0.006717978665048974
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_r_35_55um_frac_pct,-1.1298037195594801,0.0018401329321275917
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_r_35_55um_frac_pct,-1.2444163181153973,0.0003721199978180545
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_mt_apex_elongation,0.48302820745443886,0.3064417639515623
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_mt_apex_elongation,0.4282741168464422,0.32857215994334454
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_mt_apex_lam_min_um2,-1.259136471848475,0.00778595288714079
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_mt_apex_lam_min_um2,-1.2630275534885596,0.002259027683360504
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,zsum_wedge_frac_pct,0.0894962019376064,0.9586305461495512
+TRAK2 helix muts,TRAK2 mDRH vs TRAK2 mDRH mSpindly,maxip_wedge_frac_pct,-0.021915671862122305,0.9964606242737526
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_perinuclear_5um_pct,-0.42984027749039794,0.6708946060152314
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_perinuclear_5um_pct,-0.31765137190651255,0.8860461639524502
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_peripheral_5um_pct,0.2578151912503753,0.8401617666041793
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_peripheral_5um_pct,0.3050146771760309,0.8184951948927065
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_mean_dist_to_nucleus_um,0.3415142338294983,0.8366019504268976
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_mean_dist_to_nucleus_um,0.27162492230103813,0.9300914182651906
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_y_gini,0.2070743396620797,0.9820586304193993
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_y_gini,0.17773156909335636,0.9948389117612897
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_y_entropy,-0.2561346239733883,0.970831041248473
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_y_entropy,-0.20443508888173317,0.991552668048393
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_y_sd_um,-0.2085373982410706,0.988711990449521
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_y_sd_um,-0.1789973401010573,0.9956622946473309
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_y_skew,0.061532443473807964,0.999629598558786
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_y_skew,0.2635889745418236,0.9335158746429465
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_y_mean_um,-0.40474065170687556,0.6227386494795712
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_y_mean_um,-0.3844450374801168,0.6847064736868826
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_gini,0.21040496169069733,0.98000542935024
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_gini,0.17219031880421112,0.9951761451738788
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_entropy,-0.23403200279408806,0.978591666454922
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_entropy,-0.1647831715076336,0.9963278179506742
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_ks_vs_uniform,-0.2767941247133456,0.8568635355346865
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_ks_vs_uniform,-0.31263648873612077,0.8693451375562274
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_sd_um,-0.16320610556980011,0.9951227888983519
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_sd_um,-0.11558994651480022,0.9992471463603209
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_skew,-0.19376243065453339,0.8928853144548655
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_skew,-0.2975362010949582,0.8989283127029775
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_mean_um,0.38708381516935475,0.6587961663008912
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_mean_um,0.3510307293230429,0.7458193437118898
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_q25_um,0.3301765823852493,0.7999083326503389
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_q25_um,0.3160444244060939,0.8043275390927953
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_q50_um,0.346324737891875,0.6993093511023767
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_q50_um,0.3002749534546624,0.791834542364631
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_q75_um,0.3622662223655754,0.6931646292720763
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_q75_um,0.3055451394569477,0.8919632193642532
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_20_35um_frac_pct,-0.04820949623585891,0.9999929132905472
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_20_35um_frac_pct,0.013672238668129607,0.9999999916434209
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_r_35_55um_frac_pct,0.3547375224352246,0.7276529781538215
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_r_35_55um_frac_pct,0.25885658677243684,0.9293150359680225
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_mt_apex_elongation,0.27624700368367927,0.9480264405819869
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_mt_apex_elongation,0.43190774808567856,0.7810995544731861
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_mt_apex_lam_min_um2,-0.01362392091818161,0.9999999165192244
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_mt_apex_lam_min_um2,-0.12371293728191902,0.998041548367413
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,zsum_wedge_frac_pct,0.2798061234547473,0.9520886996063249
+MAPK9 siRNA,ctrl ctrl vs MAPK9 ctrl,maxip_wedge_frac_pct,0.2578839025707802,0.9824209953744445
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_perinuclear_5um_pct,-0.6726034848882066,0.203212994511768
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_perinuclear_5um_pct,-0.8052756136322603,0.10909666071347202
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_peripheral_5um_pct,1.127582344745769,0.017054456548108554
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_peripheral_5um_pct,1.0543505418222305,0.017687199223122452
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_mean_dist_to_nucleus_um,0.7060860898693104,0.21181701374628703
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_mean_dist_to_nucleus_um,0.8139902669445537,0.11392235535060291
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_y_gini,-0.7450726787023192,0.27921988427845434
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_y_gini,-0.9362712063813529,0.19552246984556088
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_y_entropy,0.7098967816587967,0.2818300169265199
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_y_entropy,0.8613526197809465,0.1733911908660598
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_y_sd_um,0.8643844952462026,0.2112262570594482
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_y_sd_um,0.9874903544290523,0.15483624952999941
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_y_skew,0.17768030649582187,0.9115080696562962
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_y_skew,0.34555984445049426,0.587815522374332
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_y_mean_um,-0.20780248046387412,0.960870419477466
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_y_mean_um,-0.2924107988129132,0.8491063813336057
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_gini,-0.7178503913067923,0.2850315697711039
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_gini,-0.9281170790916491,0.16741185761669208
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_entropy,0.6932478848859095,0.2749265582959731
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_entropy,0.8634473532110635,0.13824354769716118
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_ks_vs_uniform,-0.9488940939872119,0.04231629780074153
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_ks_vs_uniform,-1.109145931079964,0.013421269982787587
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_sd_um,0.8516413181030988,0.17746535191314783
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_sd_um,0.9850815885116443,0.1187190349845183
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_skew,-0.2122425837764402,0.7326769383640878
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_skew,-0.45179052857598206,0.3406931823909858
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_mean_um,0.2539765319507108,0.9084160494149545
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_mean_um,0.38948853505290026,0.6070613645373848
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_q25_um,0.0008896940657543412,0.9999999999999271
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_q25_um,0.030242016789148885,0.9999952046597357
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_q50_um,0.2424964466723947,0.9086620698871556
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_q50_um,0.47622169347407467,0.35965979991920016
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_q75_um,0.6238980135282284,0.15162363251290467
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_q75_um,0.8961612263098571,0.045261036941965926
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_20_35um_frac_pct,-0.8799239479513725,0.1784479267533322
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_20_35um_frac_pct,-1.0498039687649978,0.0918915844695648
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_r_35_55um_frac_pct,0.6032180827943582,0.21936574745263704
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_r_35_55um_frac_pct,0.7550336567785538,0.10809344999022485
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_mt_apex_elongation,0.01731506227574066,0.9999999331667898
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_mt_apex_elongation,0.06634357110062648,0.999952456318894
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_mt_apex_lam_min_um2,0.3294505119065447,0.8316792450369531
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_mt_apex_lam_min_um2,0.3801759021660522,0.8055263548986296
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,zsum_wedge_frac_pct,-0.35619106235039055,0.9689115827851431
+MAPK9 siRNA,ctrl ctrl vs ctrl Ars,maxip_wedge_frac_pct,-0.2239239225121533,0.9955182819973913
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_perinuclear_5um_pct,-0.6154867811292204,0.28933533429576475
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_perinuclear_5um_pct,-0.559428122692307,0.4048221368223085
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_peripheral_5um_pct,1.0566037937558583,0.03290985042001182
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_peripheral_5um_pct,0.8881001545780236,0.0523575850136091
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_mean_dist_to_nucleus_um,0.6011090114101726,0.34617999238141217
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_mean_dist_to_nucleus_um,0.48962257998951153,0.4930569897033581
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_y_gini,-0.43774332122874815,0.738261068135537
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_y_gini,-0.46726918611682094,0.717831293765238
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_y_entropy,0.380678637143953,0.8164657829626765
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_y_entropy,0.42850255152935707,0.7105958270133117
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_y_sd_um,0.5971449742076954,0.5263054027255961
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_y_sd_um,0.5846704620648527,0.5263961029973687
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_y_skew,0.2433619342079766,0.8373170644528175
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_y_skew,0.3657563089285428,0.7098510654831003
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_y_mean_um,-0.4010472168229857,0.6075587267873375
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_y_mean_um,-0.3869354618371365,0.5880734887743232
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_r_gini,-0.4452713724183509,0.7082780396390598
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_r_gini,-0.5096665796984322,0.6247613065648568
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_r_entropy,0.4027869084798672,0.7685826972347225
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_r_entropy,0.4810031789803274,0.5868068286838168
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_r_ks_vs_uniform,-0.8991329301459362,0.04665334842692692
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_r_ks_vs_uniform,-0.9216415307743425,0.043360827513850286
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_r_sd_um,0.6396338616447479,0.4149590668718436
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_r_sd_um,0.657916627953635,0.36771765823975333
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_r_skew,-0.35431961084991487,0.3776605604130394
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_r_skew,-0.5205118589487311,0.3677578154347426
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_r_mean_um,0.42617547437374836,0.5447278923533518
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_r_mean_um,0.4272769681446911,0.488144354687004
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_r_q25_um,0.15083304799302774,0.991228432452723
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_r_q25_um,0.1209520344619216,0.9949240516020519
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_r_q50_um,0.45017038698430295,0.4544330406508835
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_r_q50_um,0.5514244311741378,0.22706060425468222
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_r_q75_um,0.7535610264618822,0.06505004529197711
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_r_q75_um,0.7896067924565772,0.10252399864762385
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_r_20_35um_frac_pct,-0.9453990680080933,0.18098742200929985
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_r_20_35um_frac_pct,-0.9205024377768514,0.22707411252292864
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_r_35_55um_frac_pct,0.8253824860611234,0.0803873882590066
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_r_35_55um_frac_pct,0.7542739739611966,0.1307749585257536
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_mt_apex_elongation,0.13780940268162029,0.9980890666596159
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_mt_apex_elongation,0.25691098325580275,0.9591194424327899
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_mt_apex_lam_min_um2,0.2864809992597205,0.867283542665242
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_mt_apex_lam_min_um2,0.1812771305012357,0.9854395912700034
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,zsum_wedge_frac_pct,0.023576087978332622,0.9999996622427737
+MAPK9 siRNA,ctrl ctrl vs MAPK9 Ars,maxip_wedge_frac_pct,0.15154163926567196,0.9956895556720045
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_perinuclear_5um_pct,-0.1769111882134561,0.9854264120794876
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_perinuclear_5um_pct,-0.24445724149648515,0.945540006021101
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_peripheral_5um_pct,0.7139828763370231,0.1739508432369773
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_peripheral_5um_pct,0.6115281958323591,0.29754625849058924
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_mean_dist_to_nucleus_um,0.24991082080804872,0.9466791948359169
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_mean_dist_to_nucleus_um,0.23478811243681638,0.952137292839642
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_y_gini,-0.692037737479599,0.2739574030944337
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_y_gini,-0.671677372924781,0.33539364194466914
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_y_entropy,0.6690935432075353,0.3003376667308859
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_y_entropy,0.6351401644752889,0.30092164945145417
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_y_sd_um,0.9066062177962426,0.17303683530322556
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_y_sd_um,0.8403902959960059,0.21046409434882352
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_y_skew,0.17304504803953777,0.9318838114379164
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_y_skew,0.10390257026480013,0.9972345933847847
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_y_mean_um,0.03561954641686208,0.9999844758311245
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_y_mean_um,-0.0030604319926297485,0.9999999999083725
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_gini,-0.6959495956537974,0.2458253523231777
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_gini,-0.7000876865656146,0.26810124147955194
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_entropy,0.6640552251167415,0.28458939914310866
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_entropy,0.6457561974463144,0.25463256648012256
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_ks_vs_uniform,-0.5707336055073005,0.23191228038549405
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_ks_vs_uniform,-0.6459154849280151,0.20503399805682554
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_sd_um,0.8797646545138732,0.14798385802843406
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_sd_um,0.8303928796816847,0.16845343403452206
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_skew,-0.15550565722454399,0.9224822875249854
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_skew,-0.23045064609192556,0.9086204028501885
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_mean_um,0.009722448674104399,0.9999999759500268
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_mean_um,0.07571590983965229,0.9992231426428914
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_q25_um,-0.2190937878029514,0.9418937233815101
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_q25_um,-0.21961357713975338,0.9255447512582679
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_q50_um,0.06816741247721976,0.9995224693878756
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_q50_um,0.22457217609618288,0.8724571454345698
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_q75_um,0.38837466276038435,0.5066951318656339
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_q75_um,0.4926171836276365,0.41877169965298777
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_20_35um_frac_pct,-0.890497147923938,0.16777079470905176
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_20_35um_frac_pct,-0.9593516290226147,0.1617652393428155
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_r_35_55um_frac_pct,0.42638855529181047,0.548683948338339
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_r_35_55um_frac_pct,0.49005384148185205,0.43918621141894765
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_mt_apex_elongation,-0.15997177050008637,0.9898547845483043
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_mt_apex_elongation,-0.17697318105813273,0.9820679634277519
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_mt_apex_lam_min_um2,0.32794899487638474,0.7967602461092728
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_mt_apex_lam_min_um2,0.3423688162804232,0.8351368710738357
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,zsum_wedge_frac_pct,-0.2714785711995234,0.9290413559697173
+MAPK9 siRNA,MAPK9 ctrl vs MAPK9 Ars,maxip_wedge_frac_pct,-0.0773346560587274,0.999750655826249
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_perinuclear_5um_pct,0.09170787978297196,0.998718482276263
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_perinuclear_5um_pct,0.2977091799322832,0.8160835081357157
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_peripheral_5um_pct,-0.22025122283352158,0.9851938573950197
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_peripheral_5um_pct,-0.2535500684615635,0.9149648148869258
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_mean_dist_to_nucleus_um,-0.13391518184580933,0.9947992283121937
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_mean_dist_to_nucleus_um,-0.3492984455380139,0.7270645967613774
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_y_gini,0.34097220087784863,0.8489633767914366
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_y_gini,0.4372101569829307,0.7110555589722862
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_y_entropy,-0.3510311870993606,0.7630066049645501
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_y_entropy,-0.38494699857361997,0.6617347826069637
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_y_sd_um,-0.3067005597217514,0.9256672187192061
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_y_sd_um,-0.38454642748247253,0.821075671056477
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_y_skew,0.031136597712776513,0.9999394312709057
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_y_skew,-0.053899199273507684,0.999540285426725
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_y_mean_um,-0.20873300314312504,0.9227714112575757
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_y_mean_um,-0.1155757880887746,0.9915602267417852
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_r_gini,0.30111642324705545,0.8842187945863699
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_r_gini,0.3926868735636623,0.7475020244709283
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_r_entropy,-0.31515131219433573,0.810267934144674
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_r_entropy,-0.34823331342287467,0.7031135343192958
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_r_ks_vs_uniform,0.04112073441188295,0.9999723716113893
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_r_ks_vs_uniform,0.23724452668472093,0.8864976160391854
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_r_sd_um,-0.2536980478381925,0.9532963114514251
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_r_sd_um,-0.31248530937732705,0.8873657674410426
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_r_skew,-0.09957502360841401,0.9693126944562092
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_r_skew,0.022886720417091888,0.9999931432850117
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_r_mean_um,0.1829489342296784,0.9517303505821848
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_r_mean_um,0.04301297548044115,0.9999156849996614
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_r_q25_um,0.16191863980593577,0.9796550777881053
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_r_q25_um,0.09949372606281531,0.9965786052608542
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_r_q50_um,0.21946446061735672,0.8904325721303241
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_r_q50_um,0.06825374516622744,0.9989298622296471
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_r_q75_um,0.11756444517330944,0.9879964797194604
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_r_q75_um,-0.15970904006880426,0.971408970735153
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_r_20_35um_frac_pct,0.023906880047721263,0.9999993526845181
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_r_20_35um_frac_pct,0.24747583524622652,0.9556611920051636
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_r_35_55um_frac_pct,0.17094684706769067,0.969019955014198
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_r_35_55um_frac_pct,-0.052336048050108115,0.9998774245530391
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_mt_apex_elongation,0.11493819928205762,0.9974749063011276
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_mt_apex_elongation,0.19066923117789428,0.9707445611665547
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_mt_apex_lam_min_um2,-0.03419893100114574,0.99999297919076
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_mt_apex_lam_min_um2,-0.21095345325312365,0.9669718103184387
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,zsum_wedge_frac_pct,0.3536031538976378,0.8970483372414764
+MAPK9 siRNA,ctrl Ars vs MAPK9 Ars,maxip_wedge_frac_pct,0.35460804378577193,0.8248730663870428
