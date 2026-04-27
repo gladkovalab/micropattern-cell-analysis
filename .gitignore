@@ -54,3 +54,12 @@ Gemini.md
 
 # Symlink to data storage
 valelab
+
+# Symlinks into external, non-repo data (user-specific)
+manuscript
+mark_data
+
+# Wedge-r KS pipeline outputs (everything under these dirs is
+# regenerable from a fresh pipeline run).
+replication/wedge_r_ks_out*/
+replication/figures_wedge_r_ks/

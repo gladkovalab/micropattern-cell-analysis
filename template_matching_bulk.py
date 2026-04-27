@@ -6,6 +6,7 @@ import pymupdf
 import io
 import nd2
 import matplotlib.pyplot as plt
+import os
 import pathlib
 import polars as pl
 import sys
@@ -14,6 +15,23 @@ import netCDF4
 import argparse
 from scipy.ndimage import distance_transform_edt
 from matplotlib.backends.backend_pdf import PdfPages
+
+# Root under which ND2 data lives. Mark's original cluster path is the default
+# so his override-dict keys (which are absolute cluster paths) continue to
+# match; override with MICROPATTERN_DATA_ROOT when running off-cluster.
+CLUSTER_DATA_ROOT = "/groups/vale/valelab/_for_Mark/patterned_data"
+DATA_ROOT = os.environ.get("MICROPATTERN_DATA_ROOT", CLUSTER_DATA_ROOT)
+
+def cluster_key(img_path):
+    """Translate an on-disk path to the cluster-absolute path Mark used as
+    override-dict keys, so lookups work regardless of where the data is mounted.
+    """
+    p = pathlib.Path(img_path).resolve()
+    try:
+        rel = p.relative_to(pathlib.Path(DATA_ROOT).resolve())
+        return str(pathlib.Path(CLUSTER_DATA_ROOT) / rel)
+    except ValueError:
+        return str(img_path)
 
 def get_coordinate_overrides_dict():
     schema = {
@@ -39,15 +57,34 @@ coordinate_overrides_dict = get_coordinate_overrides_dict()
 def top_coordinate_overrides_to_template_center(path, *, offset = None):
     # Distance in pixels from the top of the template to the center of the template
     top_to_center = 385 # 1024 - np.argmax(template[:,1024])
+    key = cluster_key(path)
     if offset is None:
-        offset = offset_overrides.get(path, [128, 128])
-    top_x, top_y = coordinate_overrides_dict[path]
+        offset = offset_overrides.get(key, [128, 128])
+    top_x, top_y = coordinate_overrides_dict[key]
     # return in the same order as max_match_template
     return top_y + top_to_center - offset[0], top_x - offset[1]
 
+def find_override_key(path):
+    """Return the override-dict key matching `path`, falling back to the
+    denoised-counterpart key if the raw path isn't directly registered.
+    Raw runs read `Cell N.nd2`, but overrides are often recorded against
+    `denoised/Cell N - Denoised.nd2` (or `… Denoised2.nd2` on plate 12)."""
+    raw_key = cluster_key(path)
+    if raw_key in coordinate_overrides_dict:
+        return raw_key
+    p = pathlib.Path(path)
+    for suffix in (" - Denoised.nd2", " - Denoised2.nd2"):
+        candidate = p.parent / "denoised" / f"{p.stem}{suffix}"
+        k = cluster_key(str(candidate))
+        if k in coordinate_overrides_dict:
+            return k
+    return None
+
+
 def get_template_center(img, path, *, template_hat = None, offset=None, roi=None):
-    if str(path) in coordinate_overrides_dict:
-        return top_coordinate_overrides_to_template_center(str(path), offset=offset)
+    key = find_override_key(path)
+    if key is not None:
+        return top_coordinate_overrides_to_template_center(key, offset=offset)
     return max_match_template(img, template_hat = template_hat, offset=offset, roi=roi)
 
 def get_template_at_width(width):
@@ -126,7 +163,7 @@ def get_image_hat(img):
 def match_template(img, *, template_hat = None, offset=None):
     if isinstance(img, str) or isinstance(img, pathlib.Path):
         img_path = img
-        offset = offset_overrides.get(img_path, [128, 128])
+        offset = offset_overrides.get(cluster_key(img_path), [128, 128])
         img = nd2.imread(img_path, xarray=True)
     if template_hat is None:
         template_hat = get_template_hat(1326)
@@ -175,13 +212,137 @@ def draw_scale_bar(pixel_length):
     plt.plot([800, 800+pixel_length], [900, 900], color="white")
     plt.text(790, 950, "5 μm", color="white")
 
+
+# ----------------------------------------------------------------------
+# Wedge-r polar metric — added 2026-04-26
+# Coordinates below are in the cropped-image frame (1024x1024), where
+# the pattern center sits at (512, 512) by construction. The wedge is a
+# fixed cone from the pattern's bottom apex through the upper-left and
+# upper-right tangent points — pegged to the rigid micropattern, so the
+# geometry is identical for every cell.
+# ----------------------------------------------------------------------
+WEDGE_APEX = (896, 512)    # (y, x) — pattern bottom extreme
+WEDGE_LEFT = (373, 281)    # (y, x) — upper-left tangent
+WEDGE_RIGHT = (374, 742)   # (y, x) — upper-right tangent
+WEDGE_R_MAX_UM = 60.0
+WEDGE_R_STEP_UM = 1.0
+WEDGE_N_BINS = int(WEDGE_R_MAX_UM / WEDGE_R_STEP_UM)
+
+# Empirical reference CDF for "passive cytoplasmic fill": per-cell
+# wedge-r CDFs averaged across the 60mer no-TRAK condition (n=13) from
+# the v3 whole-dataset run (replication/overnight_final_out).
+_REF_CDF_60MER_NOTRAK = np.array([
+    0.000103829845, 0.000469579903, 0.001069454900, 0.002137864065, 0.003420138193, 0.006024210367,
+    0.009229198131, 0.012847223574, 0.017205047483, 0.022979989072, 0.029759357091, 0.037543832800,
+    0.045123871418, 0.052820943994, 0.063116039466, 0.073638884012, 0.082496243332, 0.093136748467,
+    0.106977810043, 0.124315424593, 0.146213142644, 0.166457629086, 0.185143607069, 0.201790127430,
+    0.219382599816, 0.236713316688, 0.262022446018, 0.290991208900, 0.314743648317, 0.337914281272,
+    0.362441917900, 0.389370616054, 0.414549696500, 0.443135468372, 0.470286422415, 0.498785208113,
+    0.529507112973, 0.562214707185, 0.596735497686, 0.633601782715, 0.670488483934, 0.706088578479,
+    0.740015134297, 0.774175247822, 0.806066807562, 0.837525495249, 0.864098811278, 0.888682845265,
+    0.909734033801, 0.928625176076, 0.944508945154, 0.957637877330, 0.967540833814, 0.976631144914,
+    0.984397267326, 0.991116542234, 0.995923098873, 0.998877404052, 0.999967215325, 1.000000000000,
+])
+
+_wedge_geometry_cache: dict = {}
+
+def _get_wedge_geometry(shape, pitch_um):
+    """Build (wedge_mask, r_um, bin_idx_r, in_r, vol_arc) once per
+    (shape, pitch). The wedge is a polygonal cone from WEDGE_APEX through
+    WEDGE_LEFT/RIGHT, sweeping the upper hemicircle (dy < 0). Cached
+    across cells because the pattern is rigid."""
+    key = (tuple(shape), round(float(pitch_um), 6))
+    if key in _wedge_geometry_cache:
+        return _wedge_geometry_cache[key]
+    H, W = shape
+    Y_idx, X_idx = np.mgrid[:H, :W]
+    apex = WEDGE_APEX
+    dy_um = (Y_idx - apex[0]) * pitch_um
+    dx_um = (X_idx - apex[1]) * pitch_um
+    r_um = np.hypot(dy_um, dx_um)
+    ang = np.arctan2(Y_idx - apex[0], X_idx - apex[1])
+    a_left = float(np.arctan2(WEDGE_LEFT[0] - apex[0], WEDGE_LEFT[1] - apex[1]))
+    a_right = float(np.arctan2(WEDGE_RIGHT[0] - apex[0], WEDGE_RIGHT[1] - apex[1]))
+    # Pick the arc containing the L/R midpoint as seen from the apex, so
+    # the branch-cut handling is correct for any apex/tangent geometry —
+    # not just the upward-opening config we ship with.
+    mid_y = 0.5 * (WEDGE_LEFT[0] + WEDGE_RIGHT[0])
+    mid_x = 0.5 * (WEDGE_LEFT[1] + WEDGE_RIGHT[1])
+    a_mid = float(np.arctan2(mid_y - apex[0], mid_x - apex[1]))
+    lo, hi = min(a_left, a_right), max(a_left, a_right)
+    if lo <= a_mid <= hi:
+        wedge_mask = (ang >= lo) & (ang <= hi)
+    else:
+        wedge_mask = (ang <= lo) | (ang >= hi)
+    bin_idx_r = np.floor(r_um / WEDGE_R_STEP_UM).astype(int)
+    in_r = (bin_idx_r >= 0) & (bin_idx_r < WEDGE_N_BINS) & wedge_mask
+    vol_arc = np.bincount(bin_idx_r[in_r].ravel(),
+                          minlength=WEDGE_N_BINS)[:WEDGE_N_BINS].astype(np.float64)
+    out = (wedge_mask, r_um, bin_idx_r, in_r, vol_arc)
+    _wedge_geometry_cache[key] = out
+    return out
+
+
+def wedge_r_profile(intensity, *, shape=None, pitch_um=None, wedge_geom=None):
+    """Per-bin intensity within the wedge as a (WEDGE_N_BINS,) ndarray of
+    percentages summing to 100, or all-NaN if no signal lies in the wedge
+    radial window. Normalization uses only pixels with bin in [0, N_BINS),
+    so pixels at r >= WEDGE_R_MAX_UM (which would otherwise leak into the
+    denominator without contributing to any bin) are excluded."""
+    if wedge_geom is None:
+        wedge_geom = _get_wedge_geometry(shape, pitch_um)
+    _, _, bin_idx_r, in_r, _ = wedge_geom
+    I = np.asarray(intensity, dtype=np.float64)
+    profile = np.bincount(bin_idx_r[in_r].ravel(),
+                          weights=I[in_r].ravel(),
+                          minlength=WEDGE_N_BINS)[:WEDGE_N_BINS]
+    total = float(profile.sum())
+    if total <= 0:
+        return np.full(WEDGE_N_BINS, np.nan, dtype=float)
+    return profile / total * 100.0
+
+
+def wedge_r_cdf(profile_pct):
+    """Convert a per-bin % profile into a normalized CDF (cumsum / sum)."""
+    p = np.asarray(profile_pct, dtype=np.float64)
+    p = np.where(np.isnan(p), 0.0, p)
+    s = p.sum()
+    if s <= 0:
+        return np.full_like(p, np.nan)
+    return np.cumsum(p) / s
+
+
+def ks_vs_uniform(profile_pct, vol_arc):
+    """KS distance between the per-cell wedge-r CDF and the analytical
+    area-uniform CDF derived from the wedge's per-bin pixel volume.
+    Returns a scalar in [0, 1]; NaN if the wedge has no signal."""
+    p = np.asarray(profile_pct, dtype=np.float64)
+    v = np.asarray(vol_arc, dtype=np.float64)
+    if np.nansum(p) <= 0 or v.sum() <= 0:
+        return float("nan")
+    p = np.where(np.isnan(p), 0.0, p)
+    cdf_obs = np.cumsum(p) / p.sum()
+    cdf_uni = np.cumsum(v) / v.sum()
+    return float(np.max(np.abs(cdf_obs - cdf_uni)))
+
+
+def ks_vs_60mer_noTRAK(profile_pct):
+    """KS distance between the per-cell wedge-r CDF and the empirical
+    60mer no-TRAK reference CDF (passive cytoplasmic fill baseline)."""
+    cdf = wedge_r_cdf(profile_pct)
+    if not np.isfinite(cdf).all():
+        return float("nan")
+    return float(np.max(np.abs(cdf - _REF_CDF_60MER_NOTRAK)))
+
+
 def score_template_match(img_path, *, template_hat = None, template = None):
     # Load image
     img = nd2.imread(img_path, xarray=True)
 
     # Get offset and ROI overrides
-    offset = offset_overrides.get(str(img_path), [128, 128])
-    roi = roi_overrides.get(str(img_path), None)
+    key = cluster_key(img_path)
+    offset = offset_overrides.get(key, [128, 128])
+    roi = roi_overrides.get(key, None)
     print(f"{img_path = }")
     #print(f"{offset = }")
     #print(f"{roi = }")
@@ -199,7 +360,7 @@ def score_template_match(img_path, *, template_hat = None, template = None):
     score = np.sum(sumproj_thresholded & shifted_template)/(np.sum(shifted_template > 0))
     score = score.values.item()
 
-    relative_path = pathlib.Path(img_path).relative_to("/groups/vale/valelab/_for_Mark/patterned_data")
+    relative_path = pathlib.Path(img_path).resolve().relative_to(pathlib.Path(DATA_ROOT).resolve())
     proj_path = pathlib.Path("projections",*relative_path.parts).with_suffix(".nc")
     proj_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -245,7 +406,10 @@ def score_template_match(img_path, *, template_hat = None, template = None):
     lateral_pixel_pitch = metadata.channels[0].volume.axesCalibration[0]
     distances_um = [1, 2, 3, 4, 5]
 
-    cropped_proj_mitochondria = cropped_proj_img.sel(C="488")
+    # MaxIP across Z for the mitochondria channel (replaces Mark's z-sum,
+    # which is denoiser-sensitive at ~9% per cell on the wedge-r metrics;
+    # MaxIP keeps drift below 1.1% — see HANDOFF_v3.md §1).
+    cropped_proj_mitochondria = img[:, :, y_start:y_end, x_start:x_end].sel(C="488").max(axis=0)
     cropped_proj_mitochondria_stretched = stretch01(cropped_proj_mitochondria)
 
     # Assume the left and right edges consist of background
@@ -354,8 +518,11 @@ def score_template_match(img_path, *, template_hat = None, template = None):
         plt.close()
 
         fig = plt.figure()
+        # 488 viz uses the same MaxIP that the metrics consume so the PDF
+        # image matches the perinuclear/peripheral/wedge numbers below.
+        # 405 keeps Z-sum (Mark's nuclear-segmentation projection).
         cropped_rgb = make_rgb(
-           stretch01(cropped_proj_img.sel(C="488")),
+           stretch01(cropped_proj_mitochondria),
            None,
            stretch01(cropped_proj_img.sel(C="405"))
         )
@@ -424,11 +591,30 @@ def score_template_match(img_path, *, template_hat = None, template = None):
         pdf.savefig()
         plt.close()
 
+    # --- Wedge-r KS metric (added 2026-04-26 — see HANDOFF_v3.md §1).
+    # The wedge is fixed by the rigid micropattern (same for every cell);
+    # we evaluate the intensity-weighted CDF along its radial axis, then
+    # report KS distance to (i) an analytical area-uniform sector and
+    # (ii) the empirical 60mer no-TRAK reference CDF.
+    wedge_geom = _get_wedge_geometry(
+        cropped_proj_mitochondria_bg_subtracted.shape, lateral_pixel_pitch)
+    wedge_profile = wedge_r_profile(
+        cropped_proj_mitochondria_bg_subtracted, wedge_geom=wedge_geom)
+    wedge_results = {
+        "wedge_r_ks_vs_uniform": ks_vs_uniform(wedge_profile, wedge_geom[4]),
+        "wedge_r_ks_vs_60merNoTRAK": ks_vs_60mer_noTRAK(wedge_profile),
+    }
+    for i in range(WEDGE_N_BINS):
+        v = wedge_profile[i]
+        wedge_results[f"wedge_r_{i:02d}_{i+1:02d}um_pct"] = (
+            float(v) if np.isfinite(v) else float("nan"))
+
     output = {
             "score": score,
             "mitochondria_sum": mitochondria_sum,
             "cropped_background_threshold": cropped_background_threshold,
-            **dist_results
+            **dist_results,
+            **wedge_results,
     }
 
     return output
@@ -453,7 +639,7 @@ def main(root_path, keep_sums=False, only_simple=True, remove_acute=True, only_t
             continue
 
         records = []
-        relative_path = dirpath.relative_to("/groups/vale/valelab/_for_Mark/patterned_data")
+        relative_path = dirpath.resolve().relative_to(pathlib.Path(DATA_ROOT).resolve())
         csv_path = pathlib.Path("template_matching", *relative_path.parts, "template_matching.csv")
         xlsx_path = pathlib.Path("template_matching", *relative_path.parts, "template_matching.xlsx")
         print(csv_path)
