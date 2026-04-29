@@ -309,10 +309,13 @@ def make_figure(df: pl.DataFrame, sheet: str, out_path: pathlib.Path):
                  for i, c in enumerate(conditions)}
 
     rng = np.random.default_rng(0)
-    fig = plt.figure(figsize=(15, 11))
-    gs = fig.add_gridspec(2, 4, height_ratios=[1, 1])
-    ax_prof = fig.add_subplot(gs[0, 0:2])
-    ax_cdf = fig.add_subplot(gs[0, 2:4])
+    # 3-row layout: top = profile + CDF, then two rows of 3 strip plots
+    # for the six scalar metrics (the original four plus the two
+    # iso-centred slabs).
+    fig = plt.figure(figsize=(15, 14))
+    gs = fig.add_gridspec(3, 6, height_ratios=[1.4, 1, 1])
+    ax_prof = fig.add_subplot(gs[0, 0:3])
+    ax_cdf = fig.add_subplot(gs[0, 3:6])
 
     # --- Panels 1+2: wedge-r profile + CDF
     for cond in conditions:
@@ -351,20 +354,24 @@ def make_figure(df: pl.DataFrame, sheet: str, out_path: pathlib.Path):
     ax_cdf.grid(alpha=0.3)
     ax_cdf.set_ylim(0, 1.02)
 
-    # Bottom row: 4 columns, one per scalar metric
+    # Bottom two rows: 6 strip-plot panels (3 per row, each 2 cols wide).
     metric_specs = [
-        ("peripheral_5um_percent_total", "peripheral 5µm\n(% of cell signal)"),
-        ("perinuclear_5um_percent_total", "perinuclear 5µm\n(% of cell signal)"),
-        ("wedge_r_ks_vs_uniform", "wedge-r KS\nvs area-uniform"),
-        ("wedge_r_ks_vs_60merNoTRAK", "wedge-r KS\nvs 60mer no-TRAK"),
+        ("peripheral_5um_percent_total",     "peripheral 5µm\n(% of cell signal)"),
+        ("perinuclear_5um_percent_total",    "perinuclear 5µm\n(% of cell signal)"),
+        ("wedge_r_centrosomal_18_33um_pct",  "centrosomal slab\n(18–33 µm, % wedge)"),
+        ("wedge_r_peripheral_41_56um_pct",   "peripheral slab\n(41–56 µm, % wedge)"),
+        ("wedge_r_ks_vs_uniform",            "wedge-r KS\nvs area-uniform"),
+        ("wedge_r_ks_vs_60merNoTRAK",        "wedge-r KS\nvs 60mer no-TRAK"),
     ]
     plates = sorted(sheet_df["plate"].unique().to_list())
     plate_idx = {p: i for i, p in enumerate(plates)}
     plate_palette = {cond: _plate_shades(color_map[cond], len(plates))
                      for cond in conditions}
 
-    for col_i, (metric, ylab) in enumerate(metric_specs):
-        ax = fig.add_subplot(gs[1, col_i])
+    for idx, (metric, ylab) in enumerate(metric_specs):
+        row = 1 + idx // 3
+        col_start = (idx % 3) * 2
+        ax = fig.add_subplot(gs[row, col_start:col_start + 2])
         if metric not in sheet_df.columns:
             ax.text(0.5, 0.5, f"missing\n{metric}", ha="center", va="center",
                     transform=ax.transAxes)

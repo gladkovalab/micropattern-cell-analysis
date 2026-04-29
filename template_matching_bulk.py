@@ -228,6 +228,16 @@ WEDGE_R_MAX_UM = 60.0
 WEDGE_R_STEP_UM = 1.0
 WEDGE_N_BINS = int(WEDGE_R_MAX_UM / WEDGE_R_STEP_UM)
 
+# Two 15-µm radial slabs straddling the TRAK1/TRAK2 isobestic point at
+# r ≈ 36.8 µm on the 60mer comparison sheet, with a symmetric 4 µm
+# exclusion gap on either side. The inner slab samples the
+# apex/centrosomal side of the perinuclear region and the outer slab
+# samples the rim — together they form a directional companion to the
+# unsigned wedge-r KS metric. See replication/HANDOFF_v4.md §3 for the
+# isobestic-point derivation.
+WEDGE_CENTROSOMAL_BINS = (18, 33)   # [lo, hi)  — % wedge intensity in this slab
+WEDGE_PERIPHERAL_BINS  = (41, 56)   # [lo, hi)  — % wedge intensity in this slab
+
 # Empirical reference CDF for "passive cytoplasmic fill": per-cell
 # wedge-r CDFs averaged across the 60mer no-TRAK condition (n=13) from
 # the v3 whole-dataset run (replication/overnight_final_out).
@@ -603,6 +613,10 @@ def score_template_match(img_path, *, template_hat = None, template = None):
     wedge_results = {
         "wedge_r_ks_vs_uniform": ks_vs_uniform(wedge_profile, wedge_geom[4]),
         "wedge_r_ks_vs_60merNoTRAK": ks_vs_60mer_noTRAK(wedge_profile),
+        "wedge_r_centrosomal_18_33um_pct":
+            float(wedge_profile[slice(*WEDGE_CENTROSOMAL_BINS)].sum()),
+        "wedge_r_peripheral_41_56um_pct":
+            float(wedge_profile[slice(*WEDGE_PERIPHERAL_BINS)].sum()),
     }
     for i in range(WEDGE_N_BINS):
         v = wedge_profile[i]

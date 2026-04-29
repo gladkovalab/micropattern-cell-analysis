@@ -143,6 +143,25 @@ def run(cells: list[pathlib.Path], out_root: pathlib.Path,
             print(f"  [{i}/{len(cells)}] ERR {img_path}: {e}", flush=True)
             traceback.print_exc()
 
+    # Slab columns added 2026-04-29 — derived from the per-bin profile
+    # so they backfill onto cached JSONs that predate the pipeline change.
+    slab_specs = [
+        ("wedge_r_centrosomal_18_33um_pct", range(18, 33)),
+        ("wedge_r_peripheral_41_56um_pct",  range(41, 56)),
+    ]
+
+    def _backfill_slabs(d: pl.DataFrame) -> pl.DataFrame:
+        for col_name, bins in slab_specs:
+            if col_name in d.columns:
+                continue
+            bin_cols = [f"wedge_r_{i:02d}_{i+1:02d}um_pct" for i in bins]
+            bin_cols = [c for c in bin_cols if c in d.columns]
+            if bin_cols:
+                d = d.with_columns(
+                    pl.sum_horizontal([pl.col(c) for c in bin_cols]).alias(col_name)
+                )
+        return d
+
     # Write per-well CSV mirroring Mark's layout, plus aggregated CSV.
     for well_dir, recs in records_by_well.items():
         rel = well_dir.resolve().relative_to(data_root.resolve())
@@ -164,6 +183,7 @@ def run(cells: list[pathlib.Path], out_root: pathlib.Path,
                             .alias(f"peripheral_{d}um_simple_percent_total"))
             if cols:
                 df = df.with_columns(cols)
+        df = _backfill_slabs(df)
         out_csv = out_root / "by_well" / rel / "template_matching.csv"
         out_csv.parent.mkdir(parents=True, exist_ok=True)
         df.write_csv(out_csv)
@@ -184,6 +204,7 @@ def run(cells: list[pathlib.Path], out_root: pathlib.Path,
                             .alias(f"perinuclear_{d}um_percent_total"))
             if cols:
                 df_all = df_all.with_columns(cols)
+        df_all = _backfill_slabs(df_all)
         agg_csv = out_root / "combined.csv"
         df_all.write_csv(agg_csv)
         print(f"[run_pipeline_paths] wrote {agg_csv} ({df_all.height} cells total)",

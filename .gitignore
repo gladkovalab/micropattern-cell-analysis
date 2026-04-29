@@ -63,3 +63,6 @@ mark_data
 # regenerable from a fresh pipeline run).
 replication/wedge_r_ks_out*/
 replication/figures_wedge_r_ks/
+
+# Local agent state (Claude Code per-project workspace).
+.claude/
