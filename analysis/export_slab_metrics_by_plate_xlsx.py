@@ -27,7 +27,7 @@ import polars as pl
 import xlsxwriter
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO / "replication"))
+sys.path.insert(0, str(REPO / "analysis"))
 from plot_metrics import (  # noqa: E402
     SHEET_CONFIG, load_template_matching, join_with_metadata,
 )
@@ -89,11 +89,11 @@ def write_block(ws, df_groups, col_offset, header_row, label,
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out",
-                    default="replication/figures_wedge_r_ks/slab_metrics_by_plate.xlsx")
+                    default="analysis/figures_wedge_r_ks/slab_metrics_by_plate.xlsx")
     args = ap.parse_args()
 
     df = load_template_matching(pathlib.Path(
-        "replication/wedge_r_ks_out_all_denoised/by_well"))
+        "analysis/wedge_r_ks_out_all_denoised/by_well"))
     df = join_with_metadata(df, REPO / "config/Comparisons_table_v3.xlsx")
     df = add_slab_columns(df)
     df = df.with_columns(

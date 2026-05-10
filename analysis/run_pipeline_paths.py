@@ -6,7 +6,7 @@ raw + denoised cells and processes the entire tree below the given root.
 For testing the wedge-r KS patch we want to control which cells get
 processed — this thin driver does that:
 
-  1. Reads `replication/overnight_out/combined.csv` for sheet/condition/
+  1. Reads `analysis/overnight_out/combined.csv` for sheet/condition/
      plate/well metadata.
   2. Selects target wells matching `--sheet`.
   3. Walks each well's `denoised/` subdir (or `--variant raw` for the
@@ -19,9 +19,9 @@ Resumable: cells whose JSON checkpoint already exists under
 in-progress cell.
 
 Example:
-    pixi run python replication/run_pipeline_paths.py \\
+    pixi run python analysis/run_pipeline_paths.py \\
         --sheet "TRAK isoform (mito)" --variant denoised \\
-        --out-root replication/wedge_r_ks_out
+        --out-root analysis/wedge_r_ks_out
 """
 from __future__ import annotations
 
@@ -223,7 +223,7 @@ def main():
     ap.add_argument("--data-root",
                     default=str(REPO / "mark_data" / "patterned_data"))
     ap.add_argument("--out-root",
-                    default=str(REPO / "replication" / "wedge_r_ks_out"))
+                    default=str(REPO / "analysis" / "wedge_r_ks_out"))
     args = ap.parse_args()
 
     data_root = pathlib.Path(args.data_root).resolve()

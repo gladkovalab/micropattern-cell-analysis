@@ -13,10 +13,10 @@ produces a single per-sheet figure with three panels:
      Šídák pairwise brackets (Welch fallback for single-plate sheets).
 
 CLI:
-    pixi run python replication/plot_metrics.py \\
+    pixi run python analysis/plot_metrics.py \\
         --template-matching template_matching \\
         --sheet "TRAK isoform (mito)" \\
-        --out replication/figures_wedge_r_ks/trak_isoform_mito.png
+        --out analysis/figures_wedge_r_ks/trak_isoform_mito.png
 """
 from __future__ import annotations
 
@@ -119,7 +119,7 @@ def _sidak(p_raw: float, m: int) -> float:
 
 
 # ---- Stats: nested one-way ANOVA + Šídák pairwise (matches v3 evaluator) ----
-# Ported from replication/replicate_stats.py (on wpg/alt-metrics) so this
+# Ported from analysis/replicate_stats.py (on wpg/alt-metrics) so this
 # branch stays self-contained. Cell-level Welch t-tests treat every cell as
 # independent and inflate significance for clustered designs; nested ANOVA
 # uses plate-within-condition as the error term to give Prism-equivalent

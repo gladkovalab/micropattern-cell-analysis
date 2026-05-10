@@ -20,7 +20,7 @@ import polars as pl
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
-sys.path.insert(0, str(REPO / "replication"))
+sys.path.insert(0, str(REPO / "analysis"))
 from plot_metrics import (  # noqa: E402
     SHEET_CONFIG, load_template_matching, join_with_metadata,
 )
@@ -34,11 +34,11 @@ def mito_cols() -> list[str]:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out",
-                    default="replication/figures_wedge_r_ks/wedge_r_profiles_source.csv")
+                    default="analysis/figures_wedge_r_ks/wedge_r_profiles_source.csv")
     args = ap.parse_args()
 
     df = load_template_matching(pathlib.Path(
-        "replication/wedge_r_ks_out_all_denoised/by_well"))
+        "analysis/wedge_r_ks_out_all_denoised/by_well"))
     df = join_with_metadata(df, REPO / "config/Comparisons_table_v3.xlsx")
 
     mcols = [c for c in mito_cols() if c in df.columns]

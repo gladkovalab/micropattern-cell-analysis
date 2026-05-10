@@ -11,7 +11,7 @@ import numpy as np
 import polars as pl
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO / "replication"))
+sys.path.insert(0, str(REPO / "analysis"))
 from plot_metrics import (  # noqa: E402
     SHEET_CONFIG, _test_pair, _collect, _nested_oneway_anova,
     load_template_matching, load_comparisons_table, join_with_metadata,
@@ -40,7 +40,7 @@ def fmt_p(p: float) -> str:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--template-matching",
-                    default="replication/wedge_r_ks_out_all_denoised/by_well")
+                    default="analysis/wedge_r_ks_out_all_denoised/by_well")
     ap.add_argument("--comparisons-xlsx",
                     default=str(REPO / "config/Comparisons_table_v3.xlsx"))
     ap.add_argument("--sheets", nargs="*",

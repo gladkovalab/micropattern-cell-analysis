@@ -20,7 +20,7 @@ import numpy as np
 import polars as pl
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO / "replication"))
+sys.path.insert(0, str(REPO / "analysis"))
 from plot_metrics import (  # noqa: E402
     SHEET_CONFIG, CONDITION_COLORS, load_template_matching, join_with_metadata,
 )
@@ -77,11 +77,11 @@ def panel(ax, sheet_df: pl.DataFrame, sheet: str, cols: list[str]):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--template-matching",
-                    default="replication/wedge_r_ks_out_all_denoised/by_well")
+                    default="analysis/wedge_r_ks_out_all_denoised/by_well")
     ap.add_argument("--comparisons-xlsx",
                     default=str(REPO / "config/Comparisons_table_v3.xlsx"))
     ap.add_argument("--out",
-                    default="replication/figures_wedge_r_ks/profiles_with_bands.png")
+                    default="analysis/figures_wedge_r_ks/profiles_with_bands.png")
     args = ap.parse_args()
 
     df = load_template_matching(pathlib.Path(args.template_matching))
