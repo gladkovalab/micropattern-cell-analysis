@@ -10,7 +10,7 @@ panel per condition) showing:
   - shaded grey slabs:    [18, 33) µm centrosomal and [41, 56) µm peripheral
                           (the iso-centred bands)
 
-Writes one PNG per sheet to replication/figures_wedge_r_ks/.
+Writes one PNG per sheet to analysis/figures_wedge_r_ks/.
 """
 from __future__ import annotations
 
@@ -29,7 +29,7 @@ import xarray as xr
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
-sys.path.insert(0, str(REPO / "replication"))
+sys.path.insert(0, str(REPO / "analysis"))
 from plot_metrics import (  # noqa: E402
     SHEET_CONFIG, CONDITION_COLORS, load_template_matching, join_with_metadata,
 )
@@ -225,11 +225,11 @@ def render_sheet(sheet: str, sheet_df: pl.DataFrame, mcols: list[str],
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out-dir",
-                    default="replication/figures_wedge_r_ks")
+                    default="analysis/figures_wedge_r_ks")
     args = ap.parse_args()
 
     df = load_template_matching(pathlib.Path(
-        "replication/wedge_r_ks_out_all_denoised/by_well"))
+        "analysis/wedge_r_ks_out_all_denoised/by_well"))
     df = join_with_metadata(df, REPO / "config/Comparisons_table_v3.xlsx")
     mcols = mito_cols(df)
 

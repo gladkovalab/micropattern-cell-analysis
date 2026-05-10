@@ -47,10 +47,11 @@ used as the area-uniform reference.
 The geometry is hardcoded as module-level constants
 (`WEDGE_APEX`, `WEDGE_LEFT`, `WEDGE_RIGHT` in `template_matching_bulk.py`)
 and built once per `(shape, pixel_pitch)` combination via
-`_get_wedge_geometry`. The committed `replication/wedge_illustration.png`
+`_get_wedge_geometry`. The committed `analysis/wedge_illustration.png`
 shows the canonical wedge overlaid on a real cell (plate 3 / B04 /
 cell1, TRAK2 condition); regenerate it with
-`pixi run python replication/plot_wedge_illustration.py`.
+`pixi run python analysis/plot_wedge_illustration_offline.py` (reads the
+saved cropped projection — no ND2/SMB access needed).
 
 ## Projection change
 
@@ -71,12 +72,12 @@ ranking is preserved and effect sizes are typically larger.
 
 `_REF_CDF_60MER_NOTRAK` is a 60-element constant in
 `template_matching_bulk.py`, baked at the values produced by the v3
-whole-dataset run (`replication/overnight_final_out/combined_raw.csv`,
+whole-dataset run (`analysis/overnight_final_out/combined_raw.csv`,
 filtered to `sheet == "TRAK isoform (60mer)" && condition == "no TRAK"`,
 n = 13 cells, per-cell wedge-r CDFs averaged element-wise).
 
 If the reference ever needs to be regenerated, the script
-`replication/ks_vs_60mer_reference.py` on the `wpg/alt-metrics` branch
+`analysis/ks_vs_60mer_reference.py` on the `wpg/alt-metrics` branch
 shows how. The constant should be regenerated whenever the wedge
 geometry, projection, or background subtraction changes.
 
@@ -103,5 +104,5 @@ columns in addition to Mark's existing output:
                                          wedge has no signal in window)
 
 The 60 per-bin profile columns let downstream scripts (e.g.
-`replication/plot_metrics.py`) reconstruct the wedge-r profile and CDF
+`analysis/plot_metrics.py`) reconstruct the wedge-r profile and CDF
 without re-running the pipeline.

@@ -22,7 +22,7 @@ import xarray as xr
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
-sys.path.insert(0, str(REPO / "replication"))
+sys.path.insert(0, str(REPO / "analysis"))
 from plot_metrics import (  # noqa: E402
     CONDITION_COLORS, load_template_matching, join_with_metadata,
 )
@@ -100,11 +100,11 @@ def per_condition_curves(sheet_df: pl.DataFrame, mito_cols: list[str]):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out",
-                    default="replication/figures_wedge_r_ks/profiles_60mer_with_nuclear.png")
+                    default="analysis/figures_wedge_r_ks/profiles_60mer_with_nuclear.png")
     args = ap.parse_args()
 
     df = load_template_matching(pathlib.Path(
-        "replication/wedge_r_ks_out_all_denoised/by_well"))
+        "analysis/wedge_r_ks_out_all_denoised/by_well"))
     df = join_with_metadata(df, REPO / "config/Comparisons_table_v3.xlsx")
     sheet_df = df.filter(pl.col("sheet") == SHEET)
     print(f"60mer cells: {sheet_df.height}")

@@ -8,6 +8,14 @@ the dataset's statistics. The result is two new pipeline-emitted
 scalars (centrosomal and peripheral slabs) plus the analysis trail that
 justifies their definition.
 
+> **Note for v1.0.0 readers.** Four exploratory scripts referenced
+> below (`sweep_window_mito.py`, `signed_ks_analysis.py`,
+> `plot_arch_band_polar.py`, `plot_bin_20_30um.py`) and the online
+> wedge-illustration variant (`plot_wedge_illustration.py`) were
+> removed in the v1.0.0 curation pass. They are still available at
+> `refs/tags/backup/pre-rewrite-2026-05-10` if the methodology trail
+> needs to be audited.
+
 ---
 
 ## 1. What changed in the pipeline
@@ -29,7 +37,7 @@ justifies their definition.
   profile, so downstream stats can rely on the same NaN handling as the
   KS scalars.
 
-### `replication/run_pipeline_paths.py`
+### `analysis/run_pipeline_paths.py`
 
 * Added a `_backfill_slabs` helper that re-derives the slab columns
   from the per-bin `wedge_r_NN_NN+1um_pct` columns when assembling the
@@ -37,7 +45,7 @@ justifies their definition.
   checkpoints from earlier runs (which predate the new pipeline output)
   are upgraded transparently — no need to re-process cells.
 
-### `replication/plot_metrics.py`
+### `analysis/plot_metrics.py`
 
 * Restructured the per-sheet figure into a 3-row grid (`figsize=(15,
   14)`):
@@ -58,7 +66,7 @@ We did this end-to-end in the session — the short version:
 1. We started from a single 10 µm slab centred on the distal arch
    point at r ≈ 50 µm (`[45, 55)`). It worked on most sheets but only
    reached *trend* (`p = 0.067`) for TRAK1 vs TRAK2 on the mito sheet.
-2. We swept all 10 µm windows (`replication/sweep_window_mito.py`) and
+2. We swept all 10 µm windows (`analysis/sweep_window_mito.py`) and
    found two distinct zones of significance: an inner mid-zone window
    around `[19, 29) – [22, 32)` and an outer rim-adjacent window around
    `[35, 45) – [40, 50)`. The two zones flip directions: TRAK2
@@ -79,7 +87,7 @@ We did this end-to-end in the session — the short version:
 
 The figure that visualises this (60mer wedge-r profile with the two
 isobestic crossings marked) is regenerable via
-`replication/plot_60mer_with_nuclear.py`.
+`analysis/plot_60mer_with_nuclear.py`.
 
 ---
 
@@ -88,7 +96,7 @@ isobestic crossings marked) is regenerable via
 This was the core of the rebuttal. The original `perinuclear_5um_pct`
 metric is a 2D 5 µm shell around the nuclear boundary in image space.
 We reconstructed where that shell sits in wedge-r space using the
-saved 405 Z-sum projections (`replication/plot_all_with_nuclear.py`):
+saved 405 Z-sum projections (`analysis/plot_all_with_nuclear.py`):
 
 * the binary nuclear mask peaks at r ≈ 28 µm
 * the 5 µm dilation halo peaks at r ≈ 32 µm and spans r ≈ 16–40 µm
@@ -135,7 +143,7 @@ message).
 
 ## 5. Figures and source data shipped to the collaborator
 
-All under `replication/figures_wedge_r_ks/`:
+All under `analysis/figures_wedge_r_ks/`:
 
 | file                                       | what                                                                                   |
 | ---                                        | ---                                                                                    |
@@ -159,7 +167,7 @@ All under `replication/figures_wedge_r_ks/`:
 
 ## 6. Reproducing the figures from a fresh checkout
 
-The pipeline output `replication/wedge_r_ks_out_all_denoised/` is
+The pipeline output `analysis/wedge_r_ks_out_all_denoised/` is
 gitignored. To rebuild it:
 
 ```sh
@@ -168,11 +176,11 @@ nohup caffeinate -dimsu bash -c '
   for sheet in "TRAK isoform (peroxisome)" "TRAK isoform (60mer)" \
                "TRAK1 helix muts" "TRAK2 helix muts" \
                "MAPK9 siRNA" "TRAK isoform (mito)"; do
-    pixi run python replication/run_pipeline_paths.py \
+    pixi run python analysis/run_pipeline_paths.py \
       --sheet "$sheet" --variant denoised \
-      --out-root replication/wedge_r_ks_out_all_denoised
+      --out-root analysis/wedge_r_ks_out_all_denoised
   done
-' > replication/wedge_r_ks_out_all_denoised/stdout_overnight.log 2>&1 &
+' > analysis/wedge_r_ks_out_all_denoised/stdout_overnight.log 2>&1 &
 ```
 
 Then the figures:
@@ -185,15 +193,15 @@ for label in "trak_isoform_mito:TRAK isoform (mito)" \
              "trak2_helix_muts:TRAK2 helix muts" \
              "mapk9_sirna:MAPK9 siRNA"; do
   slug=${label%%:*}; sheet=${label#*:}
-  pixi run python replication/plot_metrics.py \
-    --template-matching replication/wedge_r_ks_out_all_denoised/by_well \
+  pixi run python analysis/plot_metrics.py \
+    --template-matching analysis/wedge_r_ks_out_all_denoised/by_well \
     --sheet "$sheet" \
-    --out replication/figures_wedge_r_ks/${slug}.png
+    --out analysis/figures_wedge_r_ks/${slug}.png
 done
 ```
 
-Each post-hoc analysis script under `replication/` is independent and
-reads only from `replication/wedge_r_ks_out_all_denoised/by_well/**`
+Each post-hoc analysis script under `analysis/` is independent and
+reads only from `analysis/wedge_r_ks_out_all_denoised/by_well/**`
 plus `projections/**` for the nuclear-mask figures. None of them
 re-runs cells or modifies the pipeline.
 
@@ -201,20 +209,20 @@ re-runs cells or modifies the pipeline.
 
 ## 7. Post-hoc scripts inventory
 
-All under `replication/`. None of these are used by the batch
+All under `analysis/`. None of these are used by the batch
 pipeline — they're exploration/figure-building tools:
 
 | script                                    | role                                                                      |
 | ---                                       | ---                                                                       |
-| `signed_ks_analysis.py`                   | signed KS sign distribution per condition (showed sign is always + vs uniform, mostly + vs 60mer) |
+| `signed_ks_analysis.py`                   | signed KS sign distribution per condition (showed sign is always + vs uniform, mostly + vs 60mer) — **removed in v1.0.0** |
 | `stats_summary.py`                        | text dump of nested-ANOVA + Šídák stats per sheet                         |
-| `plot_bin_20_30um.py`                     | 6-sheet grid for an arbitrary inner radial slab                           |
-| `plot_arch_band_polar.py`                 | parametric `(BIN_LO, BIN_HI)` 6-sheet grid; used for [40,50), [40,55), [45,55), [18,33), [41,56) windows |
-| `sweep_window_mito.py`                    | -log10(p) vs 10 µm window position on the mito sheet                      |
+| `plot_bin_20_30um.py`                     | 6-sheet grid for an arbitrary inner radial slab — **removed in v1.0.0** |
+| `plot_arch_band_polar.py`                 | parametric `(BIN_LO, BIN_HI)` 6-sheet grid; used for [40,50), [40,55), [45,55), [18,33), [41,56) windows — **removed in v1.0.0** |
+| `sweep_window_mito.py`                    | -log10(p) vs 10 µm window position on the mito sheet — **removed in v1.0.0** |
 | `plot_profiles_with_bands.py`             | wedge-r profile per condition with both slab grey shadings                |
 | `plot_60mer_with_nuclear.py`              | single-sheet 60mer split + nuclear mask overlay (early version; superseded by `plot_all_with_nuclear.py`) |
 | `plot_all_with_nuclear.py`                | per-sheet split views with binary nuclear mask + 5 µm halo overlays       |
-| `plot_wedge_illustration_offline.py`      | offline twin of the original `plot_wedge_illustration.py`; reads saved projections, no SMB needed |
+| `plot_wedge_illustration_offline.py`      | offline twin of the original `plot_wedge_illustration.py` (latter **removed in v1.0.0**); reads saved projections, no SMB needed |
 | `export_wedge_profiles_csv.py`            | long-format CSV of per-bin profile means/SEMs                             |
 | `export_wedge_profiles_xlsx.py`           | XLSX, one worksheet per (sheet, condition)                                |
 | `export_wedge_profiles_by_plate_xlsx.py`  | XLSX per comparison, columns broken out per (condition, plate_date)       |

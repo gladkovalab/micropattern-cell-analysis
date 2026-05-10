@@ -11,7 +11,7 @@ Default cell: a TRAK2 mito plate-3 cell with strong perinuclear pile-up,
 chosen so the wedge ROI is visually obvious.
 
 CLI:
-    pixi run python replication/plot_wedge_illustration_offline.py
+    pixi run python analysis/plot_wedge_illustration_offline.py
 """
 from __future__ import annotations
 
@@ -139,7 +139,7 @@ def main():
              "if omitted (suffix `_488_bg_subtracted.nc`).")
     ap.add_argument(
         "--out",
-        default=str(REPO / "replication" / "figures_wedge_r_ks" /
+        default=str(REPO / "analysis" / "figures_wedge_r_ks" /
                     "wedge_illustration_offline.png"))
     args = ap.parse_args()
 

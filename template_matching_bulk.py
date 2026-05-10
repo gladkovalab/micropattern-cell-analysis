@@ -233,14 +233,14 @@ WEDGE_N_BINS = int(WEDGE_R_MAX_UM / WEDGE_R_STEP_UM)
 # exclusion gap on either side. The inner slab samples the
 # apex/centrosomal side of the perinuclear region and the outer slab
 # samples the rim — together they form a directional companion to the
-# unsigned wedge-r KS metric. See replication/HANDOFF_v4.md §3 for the
+# unsigned wedge-r KS metric. See analysis/HANDOFF_v4.md §3 for the
 # isobestic-point derivation.
 WEDGE_CENTROSOMAL_BINS = (18, 33)   # [lo, hi)  — % wedge intensity in this slab
 WEDGE_PERIPHERAL_BINS  = (41, 56)   # [lo, hi)  — % wedge intensity in this slab
 
 # Empirical reference CDF for "passive cytoplasmic fill": per-cell
 # wedge-r CDFs averaged across the 60mer no-TRAK condition (n=13) from
-# the v3 whole-dataset run (replication/overnight_final_out).
+# the v3 whole-dataset run (analysis/overnight_final_out).
 _REF_CDF_60MER_NOTRAK = np.array([
     0.000103829845, 0.000469579903, 0.001069454900, 0.002137864065, 0.003420138193, 0.006024210367,
     0.009229198131, 0.012847223574, 0.017205047483, 0.022979989072, 0.029759357091, 0.037543832800,

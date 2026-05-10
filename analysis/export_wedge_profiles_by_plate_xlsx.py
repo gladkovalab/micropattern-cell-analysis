@@ -23,7 +23,7 @@ import polars as pl
 import xlsxwriter
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO / "replication"))
+sys.path.insert(0, str(REPO / "analysis"))
 from plot_metrics import (  # noqa: E402
     SHEET_CONFIG, load_template_matching, join_with_metadata,
 )
@@ -51,11 +51,11 @@ def safe_ws_name(prefix: str) -> str:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out",
-                    default="replication/figures_wedge_r_ks/wedge_r_profiles_by_plate.xlsx")
+                    default="analysis/figures_wedge_r_ks/wedge_r_profiles_by_plate.xlsx")
     args = ap.parse_args()
 
     df = load_template_matching(pathlib.Path(
-        "replication/wedge_r_ks_out_all_denoised/by_well"))
+        "analysis/wedge_r_ks_out_all_denoised/by_well"))
     df = join_with_metadata(df, REPO / "config/Comparisons_table_v3.xlsx")
 
     bin_cols = [f"wedge_r_{i:02d}_{i+1:02d}um_pct" for i in range(60)]

@@ -1,7 +1,7 @@
 """Export the wedge-r profile source data as an XLSX with one worksheet
 per (sheet, condition).
 
-Reads `replication/figures_wedge_r_ks/wedge_r_profiles_source.csv`
+Reads `analysis/figures_wedge_r_ks/wedge_r_profiles_source.csv`
 (produced by export_wedge_profiles_csv.py) and pivots it so each comparison
 sheet/condition lives in its own tab. Replaces the SEM column with
 explicit upper/lower band columns (mean ± SEM) for both 488 mito and the
@@ -39,9 +39,9 @@ def safe_sheet_name(prefix: str, condition: str) -> str:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--in-csv",
-                    default="replication/figures_wedge_r_ks/wedge_r_profiles_source.csv")
+                    default="analysis/figures_wedge_r_ks/wedge_r_profiles_source.csv")
     ap.add_argument("--out",
-                    default="replication/figures_wedge_r_ks/wedge_r_profiles_source.xlsx")
+                    default="analysis/figures_wedge_r_ks/wedge_r_profiles_source.xlsx")
     args = ap.parse_args()
 
     df = pl.read_csv(args.in_csv)

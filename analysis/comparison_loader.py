@@ -96,9 +96,14 @@ def sum_channel(all_datasets, channel="488"):
             elif "C" in da.dims:
                  arr = da.sel(C=channel).to_numpy()
             else:
-                 # No C dimension/coord, assume it matches if we only have one?
-                 # Actually better to be safe.
-                 continue
+                 # Single-channel array with no C metadata.  The pipeline writes
+                 # `*_488_bg_subtracted.nc` as 488-only MaxIPs (no C coord) — these
+                 # are the files we want for the paper's mean-projection figures.
+                 # The caller's filename pattern is responsible for guaranteeing
+                 # this branch only fires when channel == "488".
+                 if channel != "488":
+                      continue
+                 arr = da.to_numpy()
 
             if np.issubdtype(arr.dtype, np.floating):
                  pass
@@ -135,7 +140,14 @@ def convert_to_uint16(arr, stretch=False):
             return np.zeros_like(arr, dtype=np.uint16)
         return ((arr - _min) * (np.iinfo(np.uint16).max / (_max - _min))).astype(np.uint16)
     else:
-        return arr.astype(np.uint16)
+        # Clip and round before casting so values > 65535 don't wrap around
+        # via uint16 overflow.  Bg-subtracted MaxIP means typically peak in
+        # the 500-1100 range so clipping should be a no-op for the v1.0.0
+        # dataset, but the guard is cheap.
+        if np.any(arr > 65535):
+            n_over = int(np.sum(arr > 65535))
+            print(f"[convert_to_uint16] WARNING: clipping {n_over} pixels > 65535")
+        return np.clip(np.round(arr), 0, 65535).astype(np.uint16)
 
 if __name__ == "__main__":
     dfs = load_comparisons()
