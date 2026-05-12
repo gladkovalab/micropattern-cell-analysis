@@ -88,6 +88,14 @@ pixi run python analysis/plot_60mer_with_nuclear.py
 # Wedge geometry illustration
 pixi run python analysis/plot_wedge_illustration_offline.py
 
+# Per-condition mean projection TIFFs.
+# Writes to comparison_projections/{sheet}/{condition}/.  The paper-relevant
+# output is mean_488_bg_subtracted.tif (mean over the bg-subtracted 488
+# MaxIPs — same MaxIPs the wedge-r / slab metrics quantify).  Also emits
+# mean_405.tif from the z-sum (nuclear overlay; not bg-subtracted) and a
+# pair of legacy z-sum-based 488 TIFFs which are *not* what the paper uses.
+pixi run python analysis/generate_comparison_projections.py
+
 # Audit: per-sheet nested-ANOVA + Šídák stats as text
 pixi run python analysis/stats_summary.py
 ```
@@ -110,6 +118,8 @@ Each script has a `--help` and writes its output under `analysis/figures_wedge_r
 | `analysis/plot_all_with_nuclear.py` | Per-sheet split views: one panel per condition, with 488 mitochondria profile, 405 nuclear mask radial distribution, and the two slab bands shaded. |
 | `analysis/plot_profiles_with_bands.py` | 2×3 grid of wedge-r profiles per sheet with the two slabs as grey shadings. |
 | `analysis/plot_wedge_illustration_offline.py` | Canonical wedge-on-cell illustration; reads cached projections, no ND2 needed. |
+| `analysis/generate_comparison_projections.py` | Per-condition mean projection TIFFs. Walks the comparisons table and accumulates four variants per (sheet, condition): z-sum, denoised z-sum, bg-subtracted MaxIP, and denoised bg-subtracted MaxIP. The paper figures use `mean_488_bg_subtracted.tif` (the bg-subtracted MaxIP mean — same source as the wedge-r / slab quantification); the z-sum 488 variants are kept for backward compatibility but should not be used in figures. |
+| `analysis/comparison_loader.py` | Utility module backing the projection script: comparisons-table loading, well-dir resolution, per-cell NetCDF loading, per-channel center-padded summing, uint16 conversion. |
 | `analysis/stats_summary.py` | Audit dump of nested-ANOVA + Šídák pairwise stats per sheet (the numbers shown in figure brackets). |
 | `analysis/HANDOFF_v4.md` | Methodology trail: how the slab edges were chosen, the isobestic-point derivation, validation against the prior perinuclear metric. |
 | `analysis/WEDGE_R_KS.md` | Wedge-r KS metric methodology and geometry. |
@@ -190,7 +200,7 @@ The legacy `peripheral_{d}um_*` and `perinuclear_{d}um_*` columns (d = 1..5 µm)
 
 Detailed methods suitable for a Methods section are provided in:
 
-- [`methods/2026_03_06_methods.md`](methods/2026_03_06_methods.md) — template matching, segmentation, and quantification
+- [`methods/2026_05_12_methods.md`](methods/2026_05_12_methods.md) — template matching, segmentation, quantification, and mean-projection imaging
 - [`methods/2026_03_06_references.md`](methods/2026_03_06_references.md) — package citations
 
 ## Dependencies
