@@ -28,11 +28,77 @@ pixi install
 
 This installs Python 3.12 and all required packages into an isolated environment on Linux or macOS.
 
+### Data-root setup
+
+The driver and pipeline expect raw ND2 files under `mark_data/patterned_data/{plate}/{well}_{condition}/*.nd2`. `mark_data/` is gitignored — make it a symlink (or directory) pointing at wherever the ND2 data actually lives:
+
+```bash
+ln -s /path/to/patterned_data mark_data/patterned_data
+```
+
+Or override per invocation with `--data-root /path/to/patterned_data` on `analysis/run_pipeline_paths.py`.
+
 ## Usage
 
-### Step 1 — batch pipeline
+### Paper-regen workflow (canonical)
 
-Process all ND2 files under a plate directory:
+End-to-end, from an empty checkout to the paper data tables and figures, on a machine with the ND2 data mounted under `mark_data/patterned_data/`:
+
+```bash
+# 1. Run the patched pipeline for every comparison sheet. Writes per-well CSVs
+#    under analysis/wedge_r_ks_out_all_denoised/by_well/ and per-cell NetCDF
+#    projections under projections/. Allow several hours per sheet.
+nohup caffeinate -dimsu bash -c '
+  for sheet in "TRAK isoform (peroxisome)" "TRAK isoform (60mer)" \
+               "TRAK1 helix muts" "TRAK2 helix muts" \
+               "MAPK9 siRNA" "TRAK isoform (mito)"; do
+    pixi run python analysis/run_pipeline_paths.py \
+      --sheet "$sheet" --variant denoised \
+      --out-root analysis/wedge_r_ks_out_all_denoised
+  done
+' > analysis/wedge_r_ks_out_all_denoised/stdout_overnight.log 2>&1 &
+
+# 2. Paper figures (per-sheet 6-panel with profile + CDF + scalar strips).
+for label in "trak_isoform_mito:TRAK isoform (mito)" \
+             "trak_isoform_peroxisome:TRAK isoform (peroxisome)" \
+             "trak_isoform_60mer:TRAK isoform (60mer)" \
+             "trak1_helix_muts:TRAK1 helix muts" \
+             "trak2_helix_muts:TRAK2 helix muts" \
+             "mapk9_sirna:MAPK9 siRNA"; do
+  slug=${label%%:*}; sheet=${label#*:}
+  pixi run python analysis/plot_metrics.py --sheet "$sheet" \
+    --out analysis/figures_wedge_r_ks/${slug}.png
+done
+
+# 3. Source data exports (XLSX/CSV).
+pixi run python analysis/export_slab_metrics_by_plate_xlsx.py
+pixi run python analysis/export_wedge_profiles_csv.py
+pixi run python analysis/export_wedge_profiles_xlsx.py
+pixi run python analysis/export_wedge_profiles_by_plate_xlsx.py
+
+# 4. Supporting figures (profile-with-bands, nuclear overlays, wedge illustration).
+pixi run python analysis/plot_profiles_with_bands.py
+pixi run python analysis/plot_all_with_nuclear.py
+pixi run python analysis/plot_60mer_with_nuclear.py
+pixi run python analysis/plot_wedge_illustration_offline.py
+
+# 5. Per-condition mean-projection TIFFs.
+# Writes to comparison_projections/{sheet}/{condition}/.  The paper-relevant
+# output is mean_488_bg_subtracted.tif (mean over the bg-subtracted 488
+# MaxIPs — same MaxIPs the wedge-r / slab metrics quantify).  Also emits
+# mean_405.tif from the z-sum (nuclear overlay; not bg-subtracted) and a
+# pair of legacy z-sum-based 488 TIFFs which are *not* what the paper uses.
+pixi run python analysis/generate_comparison_projections.py
+
+# 6. (Optional) Audit: per-sheet nested-ANOVA + Šídák stats as text.
+pixi run python analysis/stats_summary.py
+```
+
+Each script has `--help` and writes its output under `analysis/figures_wedge_r_ks/` by default. See `analysis/HANDOFF_v4.md` §6 for the methodology trail and the rationale for the loop above.
+
+### Single-plate diagnostic (debugging only — not the paper-regen path)
+
+Process all ND2 files under a single plate directory, bypassing the driver:
 
 ```bash
 pixi run python template_matching_bulk.py /path/to/patterned_data/plate_name
@@ -64,43 +130,6 @@ bash bsub_analysis.sh
 ```
 
 To target a different set of directories, edit `config/20251229_paths_for_analysis.txt` (one path per line) or `bsub_analysis.sh` directly. Each job requests 8 cores via `bsub -n 8 -P vale`.
-
-### Step 2 — paper data and figures
-
-Once the pipeline has produced per-well CSVs, the scripts under `analysis/` aggregate those into the paper's data tables and figures. `analysis/run_pipeline_paths.py` is the canonical driver that walks `config/Comparisons_table_v3.xlsx`, dispatches the pipeline per cell, and writes the combined per-well CSV under `analysis/wedge_r_ks_out_all_denoised/by_well/`. From there:
-
-```bash
-# Paper data tables (XLSX/CSV)
-pixi run python analysis/export_slab_metrics_by_plate_xlsx.py
-pixi run python analysis/export_wedge_profiles_csv.py
-pixi run python analysis/export_wedge_profiles_xlsx.py
-pixi run python analysis/export_wedge_profiles_by_plate_xlsx.py
-
-# Per-sheet 6-panel figures (profile + CDF + four scalar strips with nested-ANOVA + Šídák brackets)
-pixi run python analysis/plot_metrics.py --sheet "TRAK isoform (mito)" --out analysis/figures_wedge_r_ks/trak_isoform_mito.png
-# (repeat per sheet — see analysis/HANDOFF_v4.md §6 for the full set)
-
-# Profile-with-bands and per-sheet split views with nuclear overlay
-pixi run python analysis/plot_profiles_with_bands.py
-pixi run python analysis/plot_all_with_nuclear.py
-pixi run python analysis/plot_60mer_with_nuclear.py
-
-# Wedge geometry illustration
-pixi run python analysis/plot_wedge_illustration_offline.py
-
-# Per-condition mean projection TIFFs.
-# Writes to comparison_projections/{sheet}/{condition}/.  The paper-relevant
-# output is mean_488_bg_subtracted.tif (mean over the bg-subtracted 488
-# MaxIPs — same MaxIPs the wedge-r / slab metrics quantify).  Also emits
-# mean_405.tif from the z-sum (nuclear overlay; not bg-subtracted) and a
-# pair of legacy z-sum-based 488 TIFFs which are *not* what the paper uses.
-pixi run python analysis/generate_comparison_projections.py
-
-# Audit: per-sheet nested-ANOVA + Šídák stats as text
-pixi run python analysis/stats_summary.py
-```
-
-Each script has a `--help` and writes its output under `analysis/figures_wedge_r_ks/` by default. See `analysis/HANDOFF_v4.md` for the methodology trail (slab-edge derivation, validation, decision history).
 
 ## Script Reference
 
@@ -138,11 +167,11 @@ The `x` and `y` values specify the top of the pattern (not the centre); the pipe
 
 ### Offset overrides
 
-For images where the pattern is not near the default image offset, add entries to the `offset_overrides` dict in `template_matching_bulk.py` (around lines 80–89). The default offset is `[128, 128]` pixels.
+For images where the pattern is not near the default image offset, add entries to the `offset_overrides` dict in `template_matching_bulk.py` (search the source for `offset_overrides = {`). The default offset is `[128, 128]` pixels.
 
 ### ROI overrides
 
-To restrict template matching to a sub-region of an image, add entries to the `roi_overrides` dict in `template_matching_bulk.py` (around lines 137–139).
+To restrict template matching to a sub-region of an image, add entries to the `roi_overrides` dict in `template_matching_bulk.py` (search the source for `roi_overrides = {`).
 
 ### Slab band definitions
 

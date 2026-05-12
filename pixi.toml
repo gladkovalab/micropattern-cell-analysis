@@ -7,8 +7,7 @@ platforms = ["linux-64", "osx-arm64", "osx-64"]
 version = "0.1.0"
 
 [tasks]
-notebook = "marimo edit --host 0.0.0.0 micropattern_cell_analysis_viewer.py"
-marimo  = "marimo edit --host 0.0.0.0"
+marimo = "marimo edit --host 0.0.0.0"
 
 [dependencies]
 marimo = ">=0.17.8,<0.18"
@@ -28,6 +27,8 @@ xlsxwriter = ">=3.2.9,<4"
 netcdf4 = ">=1.7.3,<2"
 h5py = ">=3.15.1,<4"
 fastexcel = ">=0.18.0,<0.19"
+numpy = ">=2.3.3,<3"
+scipy = ">=1.16.2,<2"
 
 [pypi-dependencies]
 pymupdf = ">=1.26.4, <2"

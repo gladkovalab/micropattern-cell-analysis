@@ -214,15 +214,15 @@ pipeline — they're exploration/figure-building tools:
 
 | script                                    | role                                                                      |
 | ---                                       | ---                                                                       |
-| `signed_ks_analysis.py`                   | signed KS sign distribution per condition (showed sign is always + vs uniform, mostly + vs 60mer) |
+| `signed_ks_analysis.py`                   | signed KS sign distribution per condition (showed sign is always + vs uniform, mostly + vs 60mer) — **removed in v1.0.0** |
 | `stats_summary.py`                        | text dump of nested-ANOVA + Šídák stats per sheet                         |
-| `plot_bin_20_30um.py`                     | 6-sheet grid for an arbitrary inner radial slab                           |
-| `plot_arch_band_polar.py`                 | parametric `(BIN_LO, BIN_HI)` 6-sheet grid; used for [40,50), [40,55), [45,55), [18,33), [41,56) windows |
-| `sweep_window_mito.py`                    | -log10(p) vs 10 µm window position on the mito sheet                      |
+| `plot_bin_20_30um.py`                     | 6-sheet grid for an arbitrary inner radial slab — **removed in v1.0.0** |
+| `plot_arch_band_polar.py`                 | parametric `(BIN_LO, BIN_HI)` 6-sheet grid; used for [40,50), [40,55), [45,55), [18,33), [41,56) windows — **removed in v1.0.0** |
+| `sweep_window_mito.py`                    | -log10(p) vs 10 µm window position on the mito sheet — **removed in v1.0.0** |
 | `plot_profiles_with_bands.py`             | wedge-r profile per condition with both slab grey shadings                |
 | `plot_60mer_with_nuclear.py`              | single-sheet 60mer split + nuclear mask overlay (early version; superseded by `plot_all_with_nuclear.py`) |
 | `plot_all_with_nuclear.py`                | per-sheet split views with binary nuclear mask + 5 µm halo overlays       |
-| `plot_wedge_illustration_offline.py`      | offline twin of the original `plot_wedge_illustration.py`; reads saved projections, no SMB needed |
+| `plot_wedge_illustration_offline.py`      | offline twin of the original `plot_wedge_illustration.py` (latter **removed in v1.0.0**); reads saved projections, no SMB needed |
 | `export_wedge_profiles_csv.py`            | long-format CSV of per-bin profile means/SEMs                             |
 | `export_wedge_profiles_xlsx.py`           | XLSX, one worksheet per (sheet, condition)                                |
 | `export_wedge_profiles_by_plate_xlsx.py`  | XLSX per comparison, columns broken out per (condition, plate_date)       |
