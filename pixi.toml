@@ -1,8 +1,11 @@
-[project]
-authors = ["Mark Kittisopikul <kittisopikulm@janelia.hhmi.org>"]
+[workspace]
+authors = [
+    "Mark Kittisopikul <kittisopikulm@janelia.hhmi.org>",
+    "William Grant <hello@wpg.io>",
+]
 channels = ["conda-forge"]
-description = "Add a short description here"
-name = "micropattern_cell_analysis"
+description = "Image-analysis pipeline for quantifying mitochondrial distribution in micropattern-constrained cells; produces wedge-r profiles and radial slab metrics for the accompanying paper."
+name = "micropattern-cell-analysis"
 platforms = ["linux-64", "osx-arm64", "osx-64"]
 version = "0.1.0"
 
