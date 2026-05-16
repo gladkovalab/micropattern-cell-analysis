@@ -2,6 +2,11 @@
 
 Python pipeline for quantifying mitochondrial distribution in fluorescence microscopy images of micropatterned cells. The pipeline localizes fibronectin micropatterns via template matching, segments nuclei, and computes per-cell radial slab metrics of mitochondrial intensity used in the accompanying paper.
 
+Sister repos under [`gladkovalab`](https://github.com/gladkovalab):
+
+- [`synthetic-cargo-accumulation-pipeline`](https://github.com/gladkovalab/synthetic-cargo-accumulation-pipeline) — image-analysis pipeline quantifying Miro1 synthetic-cargo distribution in fixed microscopy (nuclear segmentation, perinuclear Gini, edge-spot detection)
+- [`synthetic-cargo-particle-tracking`](https://github.com/gladkovalab/synthetic-cargo-particle-tracking) — single-particle tracking of the same Miro1 cargo across TRAK isoform conditions (TrackMate output)
+
 ## Overview
 
 Cells are cultured on fibronectin micropatterns that constrain cell shape into a reproducible geometry. For each ND2 image, the pipeline:
