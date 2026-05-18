@@ -1,5 +1,7 @@
 # Micropattern Cell Analysis
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20269804.svg)](https://doi.org/10.5281/zenodo.20269804)
+
 Python pipeline for quantifying mitochondrial distribution in fluorescence microscopy images of micropatterned cells. The pipeline localizes fibronectin micropatterns via template matching, segments nuclei, and computes per-cell radial slab metrics of mitochondrial intensity used in the accompanying paper.
 
 Sister repos under [`gladkovalab`](https://github.com/gladkovalab):
